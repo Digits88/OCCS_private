@@ -59,9 +59,9 @@ var app = angular.module('app', ['ngResource', 'ngRoute'])
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
     })
-      .when('/admin', {
-        templateUrl: 'views/admin.html',
-        controller: 'AdminCtrl',
+      .when('/dashboard', {
+        templateUrl: 'views/dashboard.html',
+        controller: 'DashboardCtrl',
         resolve: {
             loggedin: checkLoggedin
         }
@@ -73,6 +73,10 @@ var app = angular.module('app', ['ngResource', 'ngRoute'])
       .when('/register', {
         templateUrl: 'views/register.html',
         controller: 'RegisterCtrl'
+    })
+      .when('/users', {
+        templateUrl: 'views/users.html',
+        controller: 'UsersCtrl'
     })
       .otherwise({
         redirectTo: '/'

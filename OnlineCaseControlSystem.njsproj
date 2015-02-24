@@ -16,8 +16,10 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Compile Include="public\js\users.js" />
     <Compile Include="public\services\loginService.js" />
     <Content Include="package.json" />
+    <Content Include="public\views\users.html" />
     <Content Include="public\views\register.html" />
     <Content Include="README.md" />
     <Compile Include="app.js" />
@@ -28,12 +30,12 @@
     <Compile Include="public\javascripts\angular-route.min.js" />
     <Compile Include="public\javascripts\angular.js" />
     <Compile Include="public\javascripts\angular.min.js" />
-    <Compile Include="public\js\admin.js" />
+    <Compile Include="public\js\dashboard.js" />
     <Compile Include="public\js\_main.js" />
     <Compile Include="public\js\register.js" />
     <Compile Include="public\js\login.js" />
     <Content Include="public\stylesheets\style.css" />
-    <Content Include="public\views\admin.html" />
+    <Content Include="public\views\dashboard.html" />
     <Content Include="public\views\login.html" />
     <Content Include="public\views\main.html" />
   </ItemGroup>

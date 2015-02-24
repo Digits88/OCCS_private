@@ -16,7 +16,7 @@ angular.module('app').controller('RegisterCtrl', function ($scope, $rootScope, $
     .success(function (user) {
             // No error: authentication OK
             $rootScope.message = 'Authentication successful!';
-            $location.url('/admin');
+            $location.url('/dashboard');
         })
     .error(function () {
             // Error: authentication failed
