@@ -4,6 +4,26 @@
     <a href="#/" ng-click="logout()">Logout</a>
 </p>
 <h2>User List</h2>
-<ul>
-    <li ng-repeat="u in users">{{u.name}}</li>
-</ul>
+<!--<ul>
+    <li ng-repeat="u in users">{{u.username}}</li>
+</ul>-->
+
+<div class="data-table">
+    <table border="1" cellpadding="7" cellspacing="7">
+        <tr>
+            <th width="50px">Id</th>
+            <th>User Name</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat="u in users">
+            <td>{{u.id}}</td>
+            <td>{{u.username}}</td>
+            <td>
+                <!--<a class="a-inside edit" href="/api/user/{{u.id}}">Edit</a>-->
+
+                <input type="button" ng-click="deleteUser(u.id)" value="Delete" />
+
+            </td>
+        </tr>
+    </table>
+</div>

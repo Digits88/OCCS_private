@@ -16,9 +16,12 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Compile Include="public\js\nggridtest.js" />
     <Compile Include="public\js\users.js" />
     <Compile Include="public\services\loginService.js" />
+    <Content Include="largeLoad.json" />
     <Content Include="package.json" />
+    <Content Include="public\views\nggridtest.html" />
     <Content Include="public\views\users.html" />
     <Content Include="public\views\register.html" />
     <Content Include="README.md" />

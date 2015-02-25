@@ -3,7 +3,7 @@
 /**********************************************************************
  * Angular Application
  **********************************************************************/
-var app = angular.module('app', ['ngResource', 'ngRoute'])
+var app = angular.module('app', ['ngGrid','ngResource', 'ngRoute'])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     //================================================
     // Check if the user is connected
@@ -77,6 +77,10 @@ var app = angular.module('app', ['ngResource', 'ngRoute'])
       .when('/users', {
         templateUrl: 'views/users.html',
         controller: 'UsersCtrl'
+    })
+      .when('/nggridtest', {
+        templateUrl: 'views/nggridtest.html',
+        controller: 'MyCtrl'
     })
       .otherwise({
         redirectTo: '/'

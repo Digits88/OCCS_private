@@ -15,7 +15,6 @@ angular.module('app').controller('LoginCtrl', function ($scope, $rootScope, $htt
     .success(function (user) {
             // No error: authentication OK
             myService.set(user.name);
-            alert(myService.get());
             $rootScope.message = 'Authentication successful!';
             $location.url('/dashboard');
         })

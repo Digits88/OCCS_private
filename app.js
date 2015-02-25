@@ -69,37 +69,37 @@ passport.use('local-signup', new LocalStrategy(
         passwordField : 'password', passReqToCallback : true
     },
     function (req, username, password, done) {
-    
-    // find a user whose email is the same as the forms email
+        
+        // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
         var query = "SELECT * FROM users WHERE username  = '" + username + "' and password = '" + password + "';";
-    connection.query(query, function (err, rows) {
-        //  console.log(rows);
-        
-        if (err) // error connecting to database
-            return done(err);
-        if (rows.length) { // user exists
+        connection.query(query, function (err, rows) {
+            //  console.log(rows);
+            
+            if (err) // error connecting to database
+                return done(err);
+            if (rows.length) { // user exists
                 return done(null, false, { message: 'That username is already taken.' });
             //return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
-        } else {
-            
-            // if there is no user with that email
-            // create the user
-            var newUserMysql = new Object();
-            
-            newUserMysql.username = username;
-            newUserMysql.password = password; // use the generateHash function in our user model
-            
-            var insertQuery = "INSERT INTO users ( username, password ) values ('" + username + "','" + password + "')";
-            
-            connection.query(insertQuery, function (err, rows) {
-                newUserMysql.id = rows.insertId;
+            } else {
                 
-                return done(null, { name: username });
-            });
-        }
-    });
-}));
+                // if there is no user with that email
+                // create the user
+                var newUserMysql = new Object();
+                
+                newUserMysql.username = username;
+                newUserMysql.password = password; // use the generateHash function in our user model
+                
+                var insertQuery = "INSERT INTO users ( username, password ) values ('" + username + "','" + password + "')";
+                
+                connection.query(insertQuery, function (err, rows) {
+                    newUserMysql.id = rows.insertId;
+                    
+                    return done(null, { name: username });
+                });
+            }
+        });
+    }));
 
 // Serialized and deserialized methods when got from session
 passport.serializeUser(function (user, done) {
@@ -118,7 +118,6 @@ var auth = function (req, res, next) {
         next();
 };
 //==================================================================
-
 
 
 // all environments
@@ -148,12 +147,33 @@ app.get('/', function (req, res) {
 });
 
 app.get('/users', auth, function (req, res) {
-    res.send([{ name: "user1" }, { name: "user2" }]);
+    //res.send([{ name: "user1" }, { name: "user2" }]);
+    
+    var query = "SELECT * FROM users";
+    connection.query(query, function (err, rows) {
+        //  console.log(rows);
+        
+        if (err) // error connecting to database
+            return done(err);
+        if (rows.length) { // user exists
+            res.send(rows);
+        }
+    });
 });
 
-app.get('/menus', auth, function (req, res) {
-    res.send([{ name: "menu1" }, { name: "menu2" }]);
+app.delete('/user/:user_id', auth, function (req, res) {
+    var user_id = req.params.user_id;
+    var query = "DELETE FROM users WHERE id = " + user_id;
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        if (rows.length) { // user exists
+            res.send({success:'Success'});
+        }
+    });
 });
+
 //==================================================================
 
 //==================================================================
