@@ -21,6 +21,9 @@
     <Compile Include="public\services\loginService.js" />
     <Content Include="largeLoad.json" />
     <Content Include="package.json" />
+    <Content Include="public\jquery\jquery.min.js" />
+    <Content Include="public\nggrid-js\ng-grid.debug.js" />
+    <Content Include="public\stylesheets\ng-grid.css" />
     <Content Include="public\views\nggridtest.html" />
     <Content Include="public\views\users.html" />
     <Content Include="public\views\register.html" />
@@ -47,6 +50,8 @@
     <Folder Include="public" />
     <Folder Include="public\javascripts" />
     <Folder Include="public\js\" />
+    <Folder Include="public\jquery\" />
+    <Folder Include="public\nggrid-js\" />
     <Folder Include="public\services\" />
     <Folder Include="public\stylesheets" />
     <Folder Include="public\views" />

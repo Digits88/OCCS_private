@@ -5,7 +5,7 @@ angular.module('app').controller('MyCtrl', function ($scope, $http) {
 
     $scope.filterOptions = {
         filterText: "",
-        useExternalFilter: true
+        //useExternalFilter: true
     };
     $scope.totalServerItems = 0;
     $scope.pagingOptions = {
@@ -47,11 +47,11 @@ angular.module('app').controller('MyCtrl', function ($scope, $http) {
             $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
         }
     }, true);
-    $scope.$watch('filterOptions', function (newVal, oldVal) {
-        if (newVal !== oldVal) {
-            $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
-        }
-    }, true);
+    //$scope.$watch('filterOptions', function (newVal, oldVal) {
+    //    if (newVal !== oldVal) {
+    //        $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
+    //    }
+    //}, true);
     
     $scope.gridOptions = {
         data: 'myData',
@@ -64,5 +64,14 @@ angular.module('app').controller('MyCtrl', function ($scope, $http) {
                         { field: 'username', displayName: 'User Name' }],
         selectedItems: $scope.mySelections,
         multiSelect: false
+    };
+
+    $scope.filterName = function () {
+        var filterText = 'username:' + $scope.nameFilter;
+        if (filterText !== 'username:') {
+            $scope.filterOptions.filterText = filterText;
+        } else {
+            $scope.filterOptions.filterText = '';
+        }
     };
 });
