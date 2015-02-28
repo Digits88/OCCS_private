@@ -148,7 +148,7 @@ app.get('/', function (req, res) {
 
 app.get('/users', auth, function (req, res) {
     //res.send([{ name: "user1" }, { name: "user2" }]);
-    
+    console.log(req.params);
     var query = "SELECT * FROM users";
     connection.query(query, function (err, rows) {
         //  console.log(rows);

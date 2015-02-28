@@ -5,7 +5,7 @@ angular.module('app').controller('MyCtrl', function ($scope, $http) {
 
     $scope.filterOptions = {
         filterText: "",
-        //useExternalFilter: true
+        useExternalFilter: true
     };
     $scope.totalServerItems = 0;
     $scope.pagingOptions = {
@@ -36,6 +36,9 @@ angular.module('app').controller('MyCtrl', function ($scope, $http) {
                 $http.get('/users').success(function (largeLoad) {
                     $scope.setPagingData(largeLoad, page, pageSize);
                 });
+                 $http.get('/users').success(function (largeLoad) {
+                    $scope.setPagingData(largeLoad, page, pageSize);
+                });
             }
         }, 100);
     };
@@ -47,11 +50,11 @@ angular.module('app').controller('MyCtrl', function ($scope, $http) {
             $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
         }
     }, true);
-    //$scope.$watch('filterOptions', function (newVal, oldVal) {
-    //    if (newVal !== oldVal) {
-    //        $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
-    //    }
-    //}, true);
+    $scope.$watch('filterOptions', function (newVal, oldVal) {
+        if (newVal !== oldVal) {
+            $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
+        }
+    }, true);
     
     $scope.gridOptions = {
         data: 'myData',
@@ -65,13 +68,13 @@ angular.module('app').controller('MyCtrl', function ($scope, $http) {
         selectedItems: $scope.mySelections,
         multiSelect: false
     };
-
     $scope.filterName = function () {
-        var filterText = 'username:' + $scope.nameFilter;
-        if (filterText !== 'username:') {
+        var filterText = '' + $scope.nameFilter;
+        if (filterText !== '') {
             $scope.filterOptions.filterText = filterText;
         } else {
             $scope.filterOptions.filterText = '';
         }
     };
+    //TODO: Pass filter to rest service and fire query with where clause. Provide dropdown to select filter criteria.
 });
