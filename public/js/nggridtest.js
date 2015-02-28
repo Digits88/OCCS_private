@@ -36,9 +36,6 @@ angular.module('app').controller('MyCtrl', function ($scope, $http) {
                 $http.get('/users').success(function (largeLoad) {
                     $scope.setPagingData(largeLoad, page, pageSize);
                 });
-                 $http.get('/users').success(function (largeLoad) {
-                    $scope.setPagingData(largeLoad, page, pageSize);
-                });
             }
         }, 100);
     };
