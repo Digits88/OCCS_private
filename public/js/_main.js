@@ -8,7 +8,7 @@ var app = angular.module('app', ['ngGrid','ngResource', 'ngRoute'])
     //================================================
     // Check if the user is connected
     //================================================
-    var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
+    var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope, myService) {
         // Initialize a new promise
         var deferred = $q.defer();
         
@@ -88,7 +88,7 @@ var app = angular.module('app', ['ngGrid','ngResource', 'ngRoute'])
         //================================================
 
 })// end of config()
-  .run(function ($rootScope, $http) {
+  .run(function ($rootScope, $http, myService) {
     $rootScope.message = '';
     
     // Logout function is available in any pages

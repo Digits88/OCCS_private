@@ -2,7 +2,7 @@
  * Admin controller
  **********************************************************************/
 angular.module('app').controller('DashboardCtrl', function ($scope, $http, myService) {
-    $scope.loggedInUserName = "Hello " + myService.get() + "!";
+    $scope.loggedInUserName = "Dashboard " + myService.get() + "!";
     // List of users got from the server
     $scope.users = [];
     // Fill the array to display it in the page

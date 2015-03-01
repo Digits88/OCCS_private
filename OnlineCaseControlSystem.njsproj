@@ -24,6 +24,10 @@
     <Content Include="public\jquery\jquery.min.js" />
     <Content Include="public\nggrid-js\ng-grid.debug.js" />
     <Content Include="public\stylesheets\ng-grid.css" />
+    <Content Include="public\views\menu\deleteclients.html" />
+    <Content Include="public\views\menu\billings.html" />
+    <Content Include="public\views\menu\reports.html" />
+    <Content Include="public\views\menu\clientdashboard.html" />
     <Content Include="public\views\nggridtest.html" />
     <Content Include="public\views\users.html" />
     <Content Include="public\views\register.html" />
@@ -55,6 +59,7 @@
     <Folder Include="public\services\" />
     <Folder Include="public\stylesheets" />
     <Folder Include="public\views" />
+    <Folder Include="public\views\menu\" />
     <Folder Include="views" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />

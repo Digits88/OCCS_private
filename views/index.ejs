@@ -18,7 +18,6 @@
 
     <script type="text/javascript" src="/services/loginService.js"></script>
 
-
     <script type="text/javascript" src="/jquery/jquery.min.js"></script>
 
     <script type="text/javascript" src="/nggrid-js/ng-grid.debug.js"></script>
@@ -27,7 +26,27 @@
 
   </head>
   <body>
-  	{{message}}
+	<div ng-hide="isLoggingRequired">
+		{{loggedInUserName}}
+		<br/>
+		<a href="#/" ng-click="logout()">Logout</a>
+
+		<nav>
+			<table>
+				<tr width="100%">
+					<td><a href="#/menu/clientdashboard.html">Client Dashboard</a></td>
+					<td><a href="#/menu/reports.html">Reports</a></td>
+					<td><a href="#/menu/Billings.html">Billings</a></td>
+					<td><a href="#/menu/deleteclients.html">Delete Clients</a></td>
+					<td><a href="#/users">Users</a></td>
+				</tr>
+			</table>
+		</nav>
+	</div>
+
+  	<span ng-hide=!"isLoggingRequired">{{message}} </span>
+
     <ng-view></ng-view>
+
   </body>
 </html>
