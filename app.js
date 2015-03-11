@@ -174,6 +174,48 @@ app.delete('/user/:user_id', auth, function (req, res) {
     });
 });
 
+app.get('/clients', auth, function (req, res) {
+    //res.send([{ name: "user1" }, { name: "user2" }]);
+    console.log(req.params);
+    var query = "SELECT * FROM clients";
+    connection.query(query, function (err, rows) {
+        //  console.log(rows);
+        
+        if (err) // error connecting to database
+            return done(err);
+        if (rows.length) { // user exists
+            res.send(rows);
+        }
+    });
+});
+
+//app.get('/clients/:fileno', auth, function (req, res) {
+//    var fileno = req.params.fileno;
+//    var query = "select * from generalinformation where fileno = " + fileno;
+//    console.log(query);
+//    connection.query(query, function (err, rows) {
+//        if (err) // error connecting to database
+//            return done(err);
+//        //if (rows.length) { // general information exists
+//            console.log(rows);
+//            res.send(rows);
+//        //}
+//    });
+//});
+
+app.get('/clients/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getClientGeneralInformation(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
 //==================================================================
 
 //==================================================================

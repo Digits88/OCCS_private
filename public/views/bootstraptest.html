@@ -1,0 +1,12 @@
+<div ng-controller="BootstrapCtrl">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    <div class="alert alert-success" role="alert">Jai ganesh</div>
+    <button class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+    <button type="button" class="btn btn-default" aria-label="Left Align">
+        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+    </button>
+
+    <button type="button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+    </button>
+</div>

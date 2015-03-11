@@ -16,6 +16,12 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Compile Include="public\javascripts\bootstrap.min.js" />
+    <Compile Include="public\javascripts\ui-bootstrap-tpls-0.12.1.js" />
+    <Compile Include="public\js\bootstraptest.js" />
+    <Compile Include="public\js\clients.js" />
+    <Compile Include="public\js\datetimecontroller.js" />
+    <Compile Include="public\js\generalsection.js" />
     <Compile Include="public\js\nggridtest.js" />
     <Compile Include="public\js\users.js" />
     <Compile Include="public\services\loginService.js" />
@@ -23,11 +29,14 @@
     <Content Include="package.json" />
     <Content Include="public\jquery\jquery.min.js" />
     <Content Include="public\nggrid-js\ng-grid.debug.js" />
+    <Content Include="public\stylesheets\bootstrap.min.css" />
     <Content Include="public\stylesheets\ng-grid.css" />
+    <Content Include="public\views\generalsection.html" />
     <Content Include="public\views\menu\deleteclients.html" />
     <Content Include="public\views\menu\billings.html" />
     <Content Include="public\views\menu\reports.html" />
-    <Content Include="public\views\menu\clientdashboard.html" />
+    <Content Include="public\views\clients.html" />
+    <Content Include="public\views\bootstraptest.html" />
     <Content Include="public\views\nggridtest.html" />
     <Content Include="public\views\users.html" />
     <Content Include="public\views\register.html" />
@@ -60,6 +69,7 @@
     <Folder Include="public\stylesheets" />
     <Folder Include="public\views" />
     <Folder Include="public\views\menu\" />
+    <Folder Include="public\views\ClientDashboard\" />
     <Folder Include="views" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />

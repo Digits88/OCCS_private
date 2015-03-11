@@ -1,0 +1,202 @@
+<table>
+    <tr>
+        <td rowspan="2">
+            <div>
+                <input id="personNameFilter" type="text" ng-model="nameFilter" placeholder="Filter by Name" ng-change="filterName()">
+            </div>
+            <div class="gridStyle" ng-grid="gridOptions"></div>
+            <div class="selectedItems">{{mySelections}}</div>
+        </td>
+        <td>
+            <div ng-controller="ClientsCtrl">
+                <accordion close-others="false">
+                    <accordion-group heading="General Information" is-open="true">
+                        <table>
+                            <tr>
+                                <td><input type="button" value="Edit"></input></td>
+                                <td><input type="button" value="Save"></input></td>
+                                <td><input type="button" value="Cancel"></input></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <!--  first row -->
+                            <tr>
+                                <td> <label class="control-label">File No.: </label> </td>
+                                <td> <input type="text" placeholder="File No." ng-model="generalInformation.fileNo" /> </td>
+                                <td> <label class="control-label">Address: </label> </td>
+                                <td> <input type="text" placeholder="Address" ng-model="generalInformation.address" /> </td>
+                                <td> <label class="control-label">Initial Case Information: </label> </td>
+                                <td> <input type="text" placeholder="Initial Case Information" ng-model="generalInformation.initialInfo" />  </td>
+                            </tr>
+                            <!--  second row -->
+                            <tr>
+                                <td> <label class="control-label">Last Name: </label> </td>
+                                <td> <input type="text" placeholder="Last Name" ng-model="generalInformation.lastName" /> </td>
+                                <td> <label class="control-label">Suite/Apt No.: </label> </td>
+                                <td> <input type="text" placeholder="Suite/Apt No." ng-model="generalInformation.aptNo" /> </td>
+                                <td> <label class="control-label">Defendant Name: </label> </td>
+                                <td> <input type="text" placeholder="Defendant Name" ng-model="generalInformation.defendantName" /> </td>
+                            </tr>
+                            <!--  third row -->
+                            <tr>
+                                <td> <label class="control-label">First Name: </label> </td>
+                                <td> <input type="text" placeholder="First Name" ng-model="generalInformation.firstName" /> </td>
+                                <td> <label class="control-label">City: </label> </td>
+                                <td> <input type="text" placeholder="City" ng-model="generalInformation.city" /> </td>
+                                <td> <label class="control-label">Evidence 1: </label> </td>
+                                <td> <input type="text" placeholder="Evidence 1" ng-model="generalInformation.evidence1" /> </td>
+                            </tr>
+                            <!--  Fourth row -->
+                            <tr>
+                                <td> <label class="control-label">Case Type: </label> </td>
+                                <td>
+                                    <select ng-model="generalInformation.caseType ">
+                                        <option ng-repeat="item in caseTypes" value="{{item}}">{{item}}</option>
+                                    </select>
+                                </td>
+                                <td> <label class="control-label">State: </label> </td>
+                                <td> <input type="text" placeholder="State" ng-model="generalInformation.state" /> </td>
+                                <td> <label class="control-label">Evidence 2: </label> </td>
+                                <td> <input type="text" placeholder="Evidence 2" ng-model="generalInformation.evidence2" /> </td>
+                            </tr>
+                            <!--  Fifth row -->
+                            <tr>
+                                <td> <label class="control-label">Other Type: </label> </td>
+                                <td> <input type="text" placeholder="Other Type" ng-model="generalInformation.otherType" /> </td>
+                                <td> <label class="control-label">Home Phone: </label> </td>
+                                <td> <input type="tel" placeholder="Home Phone" ng-model="generalInformation.homePhone" /> </td>
+                            </tr>
+                            <!--  Sixth row -->
+                            <tr>
+                                <td> <label class="control-label">Case Status: </label> </td>
+                                <td>
+                                    <select ng-model="generalInformation.caseStatus">
+                                        <option ng-repeat="item in caseStatus" value="{{item}}">{{item}}</option>
+                                    </select>
+                                    {{generalInformation.caseStatus}}
+                                    <!-- Single button -->
+                                    <!--<div class="btn-group" dropdown is-open="status.isopen">
+                                            <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                                                Case Status<span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Open</a></li>
+                                                <li><a href="#">Closed</a></li>
+                                            </ul>
+                                        </div>-->
+                                </td>
+                                <td> <label class="control-label">Cell Phone: </label> </td>
+                                <td> <input type="tel" placeholder="Cell Phone" ng-model="generalInformation.cellPhone" /> </td>
+                                <td> <label class="control-label">Originating Attorney: </label> </td>
+                                <td> <input type="text" placeholder="Originating Attorney" ng-model="generalInformation.originatingAttorney" /> </td>
+                            </tr>
+                            <!--  row  7-->
+                            <tr>
+                                <td> <label class="control-label">Accident Date: </label> </td>
+                                <td>
+                                    <div ng-controller="DatepickerCtrl">
+                                        <p class="input-group">
+                                            <input type="text" class="form-control" datepicker-popup="shortDate" ng-model="generalInformation.accidentDate" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </td>
+                                <td> <label class="control-label">Work Phone: </label> </td>
+                                <td> <input type="tel" placeholder="Work Phone" ng-model="generalInformation.workPhone" /> </td>
+                                <td> <label class="control-label">Assigned Attorney: </label> </td>
+                                <td> <input type="text" placeholder="Assigned Attorney" ng-model="generalInformation.assignedAttorney" /> </td>
+                            </tr>
+                            <!--  row  8-->
+                            <tr>
+                                <td> <label class="control-label">Client Created: </label> </td>
+                                <td> <input type="text" placeholder="Client Created" ng-model="generalInformation.clientCreated | ISODateReviver" /> </td>
+                                <td> <label class="control-label">Driving License: </label> </td>
+                                <td> <input type="text" placeholder="Driving License" ng-model="generalInformation.drivingLicense" /> </td>
+                                <td> <label class="control-label">Refferal: </label> </td>
+                                <td> <input type="text" placeholder="Refferal" ng-model="generalInformation.refferal" /> </td>
+                            </tr>
+                            <!--  row  9-->
+                            <tr>
+                                <td> <label class="control-label">Email: </label> </td>
+                                <td> <input type="email" placeholder="Email" ng-model="generalInformation.email" /> </td>
+                                <td> <label class="control-label">Date Of Birth: </label> </td>
+                                <td>
+                                    <div ng-controller="DatepickerCtrl">
+                                        <p class="input-group">
+                                            <input type="text" class="form-control" datepicker-popup="shortDate" ng-model="generalInformation.dateOfBirth" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </td>
+                                <td> <label class="control-label">SSN: </label> </td>
+                                <td> <input type="text" placeholder="SSN" ng-model="generalInformation.SSN" /> </td>
+                            </tr>
+
+                        </table>
+                    </accordion-group>
+
+                    <accordion-group is-open="additionalInfo.open">
+                        <accordion-heading>
+                            Additional Client Information <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': additionalInfo.open, 'glyphicon-chevron-right': !additionalInfo.open}"></i>
+                        </accordion-heading>
+                        This is just some content to illustrate fancy headings.
+                    </accordion-group>
+
+                    <accordion-group is-open="clientAutoInfo.open">
+                        <accordion-heading>
+                            Client Auto Information <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': clientAutoInfo.open, 'glyphicon-chevron-right': !clientAutoInfo.open}"></i>
+                        </accordion-heading>
+                        This is just some content to illustrate fancy headings.
+                    </accordion-group>
+
+                    <accordion-group is-open="clientMedicalInsurance.open">
+                        <accordion-heading>
+                            Client Medical Insurance <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': clientMedicalInsurance.open, 'glyphicon-chevron-right': !clientMedicalInsurance.open}"></i>
+                        </accordion-heading>
+                        This is just some content to illustrate fancy headings.
+                    </accordion-group>
+
+                    <accordion-group is-open="defendantInfo.open">
+                        <accordion-heading>
+                            Defendant Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': defendantInfo.open, 'glyphicon-chevron-right': !defendantInfo.open}"></i>
+                        </accordion-heading>
+                        This is just some content to illustrate fancy headings.
+                    </accordion-group>
+
+                    <accordion-group is-open="defendantInsuranceInfo.open">
+                        <accordion-heading>
+                            Defendant Insurance Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': defendantInsuranceInfo.open, 'glyphicon-chevron-right': !defendantInsuranceInfo.open}"></i>
+                        </accordion-heading>
+                        This is just some content to illustrate fancy headings.
+                    </accordion-group>
+
+                    <accordion-group is-open="statute.open">
+                        <accordion-heading>
+                            Statute Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': statute.open, 'glyphicon-chevron-right': !statute.open}"></i>
+                        </accordion-heading>
+                        This is just some content to illustrate fancy headings.
+                    </accordion-group>
+
+                    <accordion-group is-open="court.open">
+                        <accordion-heading>
+                            Court Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': court.open, 'glyphicon-chevron-right': !court.open}"></i>
+                        </accordion-heading>
+                        This is just some content to illustrate fancy headings.
+                    </accordion-group>
+
+                    <accordion-group is-open="misc.open">
+                        <accordion-heading>
+                            Misc Notes<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': misc.open, 'glyphicon-chevron-right': !misc.open}"></i>
+                        </accordion-heading>
+                        This is just some content to illustrate fancy headings.
+                    </accordion-group>
+                </accordion>
+            </div>
+        </td>
+    </tr>
+</table>

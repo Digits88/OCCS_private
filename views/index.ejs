@@ -3,12 +3,15 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
 	<link rel="stylesheet" type="text/css" href="/stylesheets/ng-grid.css" />
-
-    <script type="text/javascript" src="/javascripts/angular.min.js"></script>
+	<script type="text/javascript" src="/javascripts/angular.min.js"></script>
+	<script type="text/javascript" src="/javascripts/ui-bootstrap-tpls-0.12.1.js"></script>
+   
     <script type="text/javascript" src="/javascripts/angular-resource.min.js"></script>
     <script type="text/javascript" src="/javascripts/angular-route.min.js"></script>
-
+    <script type="text/javascript" src="/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/nggrid-js/ng-grid.debug.js"></script>
 	
     <script type="text/javascript" src="/js/_main.js"></script>
     <script type="text/javascript" src="/js/login.js"></script>
@@ -18,23 +21,26 @@
 
     <script type="text/javascript" src="/services/loginService.js"></script>
 
-    <script type="text/javascript" src="/jquery/jquery.min.js"></script>
-
-    <script type="text/javascript" src="/nggrid-js/ng-grid.debug.js"></script>
-
     <script type="text/javascript" src="/js/nggridtest.js"></script>
+
+    <script type="text/javascript" src="/js/clients.js"></script>
+    <script type="text/javascript" src="/js/generalsection.js"></script>
+    <script type="text/javascript" src="/js/datetimecontroller.js"></script>
 
   </head>
   <body>
 	<div ng-hide="isLoggingRequired">
 		{{loggedInUserName}}
 		<br/>
+		<br/>
 		<a href="#/" ng-click="logout()">Logout</a>
+		<br/>
+		<br/>
 
 		<nav>
 			<table>
 				<tr width="100%">
-					<td><a href="#/menu/clientdashboard.html">Client Dashboard</a></td>
+					<td><a href="#/clients">Client Dashboard</a></td>
 					<td><a href="#/menu/reports.html">Reports</a></td>
 					<td><a href="#/menu/Billings.html">Billings</a></td>
 					<td><a href="#/menu/deleteclients.html">Delete Clients</a></td>
