@@ -1,6 +1,7 @@
 'use strict';
 angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
     $scope.mySelections = [];
+    $scope.selectedClientInjury = [];
 
     $scope.caseTypes = ["Injury", "Illness", "Death"];
     $scope.caseStatus = ["Open", "Closed"];
@@ -20,7 +21,7 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
         pageSize: 5,
         currentPage: 1
     };
-    $scope.setPagingData = function (data, page, pageSize) {
+    $scope.setClientGridPagingData = function (data, page, pageSize) {
         var pagedData = data.slice((page - 1) * pageSize, page * pageSize);
         $scope.myData = pagedData;
         $scope.totalServerItems = data.length;
@@ -37,11 +38,11 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
                     data = largeLoad.filter(function (item) {
                         return JSON.stringify(item).toLowerCase().indexOf(ft) != -1;
                     });
-                    $scope.setPagingData(data, page, pageSize);
+                    $scope.setClientGridPagingData(data, page, pageSize);
                 });
             } else {
                 $http.get('/clients').success(function (largeLoad) {
-                    $scope.setPagingData(largeLoad, page, pageSize);
+                    $scope.setClientGridPagingData(largeLoad, page, pageSize);
                 });
             }
         }, 100);
@@ -88,8 +89,29 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
                 $http.get('/clients/clientAutoInfo/' + $scope.mySelections[0].fileNo).success(function (clientAutoInfo) {
                     $scope.clientAutoInfo = clientAutoInfo[0][0];
                 });
+
+                // Get medical Insurance information
+                $http.get('/clients/medicalInsuranceInfo/' + $scope.mySelections[0].fileNo).success(function (medicalInsuranceInfo) {
+                    $scope.medicalInsuranceInfo = medicalInsuranceInfo[0][0];
+                });
+
+                // Get client injuries information
+                $http.get('/clients/clientInjuries/' + $scope.mySelections[0].fileNo).success(function (clientInjuries) {
+                    $scope.clientInjuriesData = clientInjuries[0];
+                });
+
             }
         },
+        multiSelect: false
+    };
+    
+    $scope.clientInjuriesGridOptions = {
+        data: 'clientInjuriesData',
+        columnDefs: [{ field: 'note', displayName: 'Note', width: 50, },
+                        { field: 'createdDate', displayName: 'Created Date', width:100 },
+                        { field: 'modifiedDate', displayName: 'Modified Date', width: 100 },
+                        { field: 'description', displayName: 'Description' }],
+        selectedItems: $scope.selectedClientInjury,
         multiSelect: false
     };
     $scope.filterName = function () {

@@ -251,6 +251,40 @@ app.get('/clients/clientAutoInfo/:fileno', auth, function (req, res) {
         //}
     });
 });
+
+// ************************************************
+//      Get Client Medical Insurance Information by FileNo
+// ************************************************
+app.get('/clients/medicalInsuranceInfo/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getMedicalInsurance(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
+
+// ************************************************
+//      Get Client Medical Insurance Information by FileNo
+// ************************************************
+app.get('/clients/clientInjuries/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getClientInjuries(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
 //==================================================================
 
 //==================================================================
