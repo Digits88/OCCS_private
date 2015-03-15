@@ -2,7 +2,7 @@
 <form ng-submit="login()">
     <p>
         <label class="control-label">Username</label>
-        <input type="text" placeholder="Username" ng-model="user.username" />
+        <input type="text" placeholder="Username" ng-model="user.username" ng-init="user.username:admin"> 
     </p>
     <p>
         <label class="control-label">Password</label>

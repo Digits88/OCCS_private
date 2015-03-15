@@ -114,6 +114,21 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
                 $http.get('/clients/defendantInsuranceInfo/' + $scope.mySelections[0].fileNo).success(function (defendantInsuranceInfo) {
                     $scope.defendantInsuranceInfo = defendantInsuranceInfo[0][0];
                 });
+
+                // Get Statute information
+                $http.get('/clients/statuteInfo/' + $scope.mySelections[0].fileNo).success(function (statuteInfo) {
+                    $scope.statuteInfo = statuteInfo[0][0];
+                });
+
+                // Get Govt Claim information
+                $http.get('/clients/govtClaimInfo/' + $scope.mySelections[0].fileNo).success(function (govtClaimInfo) {
+                    $scope.govtClaimInfo = govtClaimInfo[0][0];
+                });
+
+                // Get Court information
+                $http.get('/clients/courtInfo/' + $scope.mySelections[0].fileNo).success(function (courtInfo) {
+                    $scope.courtInfo = courtInfo[0][0];
+                });
             }
         },
         multiSelect: false

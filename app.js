@@ -336,6 +336,57 @@ app.get('/clients/defendantInsuranceInfo/:fileno', auth, function (req, res) {
         //}
     });
 });
+
+// ************************************************
+//      Get Statute Information by FileNo
+// ************************************************
+app.get('/clients/statuteInfo/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getStatuteInformation(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
+
+// ************************************************
+//      Get Court Information by FileNo
+// ************************************************
+app.get('/clients/courtInfo/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getCourtInformation(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
+
+// ************************************************
+//      Get Statute Govt Claim Information by FileNo
+// ************************************************
+app.get('/clients/govtClaimInfo/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getGovtClaimDetails(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
 //==================================================================
 
 //==================================================================

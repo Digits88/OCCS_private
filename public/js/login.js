@@ -5,6 +5,8 @@
 angular.module('app').controller('LoginCtrl', function ($scope, $rootScope, $http, $location, myService) {
     // This object will be filled by the form
     $scope.user = {};
+    $scope.user.username = "admin";
+    $scope.user.password = "admin";
     $rootScope.isLoggingRequired = true;
     
     // Register the login() function
