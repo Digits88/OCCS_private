@@ -16,6 +16,9 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Compile Include="public\bootstrap-3.3.2-dist\js\bootstrap.js" />
+    <Compile Include="public\bootstrap-3.3.2-dist\js\bootstrap.min.js" />
+    <Compile Include="public\bootstrap-3.3.2-dist\js\npm.js" />
     <Compile Include="public\javascripts\bootstrap.min.js" />
     <Compile Include="public\javascripts\ui-bootstrap-tpls-0.12.1.js" />
     <Compile Include="public\js\bootstraptest.js" />
@@ -27,6 +30,17 @@
     <Compile Include="public\services\loginService.js" />
     <Content Include="largeLoad.json" />
     <Content Include="package.json" />
+    <Content Include="public\bootstrap-3.3.2-dist\css\bootstrap-theme.css" />
+    <Content Include="public\bootstrap-3.3.2-dist\css\bootstrap-theme.css.map" />
+    <Content Include="public\bootstrap-3.3.2-dist\css\bootstrap-theme.min.css" />
+    <Content Include="public\bootstrap-3.3.2-dist\css\bootstrap.css" />
+    <Content Include="public\bootstrap-3.3.2-dist\css\bootstrap.css.map" />
+    <Content Include="public\bootstrap-3.3.2-dist\css\bootstrap.min.css" />
+    <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="public\jquery\jquery.min.js" />
     <Content Include="public\nggrid-js\ng-grid.debug.js" />
     <Content Include="public\stylesheets\bootstrap.min.css" />
@@ -61,6 +75,10 @@
   <ItemGroup>
     <Folder Include="AuthenticationAngularJS-master" />
     <Folder Include="public" />
+    <Folder Include="public\bootstrap-3.3.2-dist\" />
+    <Folder Include="public\bootstrap-3.3.2-dist\css\" />
+    <Folder Include="public\bootstrap-3.3.2-dist\fonts\" />
+    <Folder Include="public\bootstrap-3.3.2-dist\js\" />
     <Folder Include="public\javascripts" />
     <Folder Include="public\js\" />
     <Folder Include="public\jquery\" />

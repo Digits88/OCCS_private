@@ -1,25 +1,31 @@
-<table>
-    <tr>
-        <td rowspan="2">
-            <div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <p>
                 <input id="personNameFilter" type="text" ng-model="nameFilter" placeholder="Filter by Name" ng-change="filterName()">
-            </div>
-            <div class="gridStyle" ng-grid="gridOptions"></div>
-            <div class="selectedItems">{{mySelections}}</div>
-        </td>
-        <td>
+            </p>
+            <p class="gridStyle" ng-grid="gridOptions"></p>
+            <p class="selectedItems">{{mySelections}}</p>
+        </div>
+        <div class="col-md-8">
             <div ng-controller="ClientsCtrl">
                 <accordion close-others="false">
+                    <!--  ========================================================================= -->
+                    <!--  General Information Section -->
                     <accordion-group heading="General Information" is-open="true">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input type="button" value="Edit">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="button" value="Save">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="button" value="Cancel">
+                            </div>
+                        </div>
                         <table>
-                            <tr>
-                                <td><input type="button" value="Edit"></input></td>
-                                <td><input type="button" value="Save"></input></td>
-                                <td><input type="button" value="Cancel"></input></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
                             <!--  first row -->
                             <tr>
                                 <td> <label class="control-label">File No.: </label> </td>
@@ -30,7 +36,7 @@
                                 <td> <input type="text" placeholder="Initial Case Information" ng-model="generalInformation.initialInfo" />  </td>
                             </tr>
                             <!--  second row -->
-                            <tr>
+                            <tr ng-disabled="true">
                                 <td> <label class="control-label">Last Name: </label> </td>
                                 <td> <input type="text" placeholder="Last Name" ng-model="generalInformation.lastName" /> </td>
                                 <td> <label class="control-label">Suite/Apt No.: </label> </td>
@@ -140,20 +146,181 @@
                         </table>
                     </accordion-group>
 
+                    <!--  ========================================================================= -->
+                    <!--  Additional Client Information Section -->
                     <accordion-group is-open="additionalInfo.open">
                         <accordion-heading>
                             Additional Client Information <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': additionalInfo.open, 'glyphicon-chevron-right': !additionalInfo.open}"></i>
                         </accordion-heading>
-                        This is just some content to illustrate fancy headings.
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input type="button" value="Edit">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="button" value="Save">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="button" value="Cancel">
+                            </div>
+                        </div>
+                        <table>
+                            <tr>
+                                <td> <label class="control-label">Client Occupration: </label> </td>
+                                <td> <input type="text" placeholder="Client Occupration" ng-model="additionalInfo.clientOccupation" /> </td>
+                                <td> <label class="control-label">Employer: </label> </td>
+                                <td> <input type="text" placeholder="Employer" ng-model="additionalInfo.employer" /> </td>
+                                <td> <label class="control-label">Address: </label> </td>
+                                <td> <input type="text" placeholder="Address" ng-model="additionalInfo.address" /> </td>
+                            </tr>
+                            <tr>
+                                <td> <label class="control-label">City: </label> </td>
+                                <td> <input type="text" placeholder="City" ng-model="additionalInfo.city" /> </td>
+                                <td> <label class="control-label">State: </label> </td>
+                                <td> <input type="text" placeholder="State" ng-model="additionalInfo.state" /> </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6">
+                                    <div class="row panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Spouse Information</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <table>
+                                                <tr>
+                                                    <td><label class="control-label">Last Name: </label> </td>
+                                                    <td><input type="text" placeholder="Last Name" ng-model="additionalInfo.spouseLastName" /> </td>
+                                                    <td><label class="control-label">First Name: </label></td>
+                                                    <td><input type="text" placeholder="First Name" ng-model="additionalInfo.spouseFirstName" /> </td>
+                                                    <td><label class="control-label">Occupation: </label> </td>
+                                                    <td><input type="text" placeholder="Occupation" ng-model="additionalInfo.spouseOccupation" /> </td>
+                                                    <td><label class="control-label">Employer: </label> </td>
+                                                    <td><input type="text" placeholder="Employer" ng-model="additionalInfo.spouseEmployer" /> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <label class="control-label">Address: </label> </td>
+                                                    <td> <input type="text" placeholder="Address" ng-model="additionalInfo.spouseAddress" /> </td>
+                                                    <td> <label class="control-label">City: </label> </td>
+                                                    <td> <input type="text" placeholder="City" ng-model="additionalInfo.spouseCity" /> </td>
+                                                    <td> <label class="control-label">State: </label> </td>
+                                                    <td> <input type="text" placeholder="State" ng-model="additionalInfo.spouseState" /> </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </accordion-group>
+                    <!--  ========================================================================= -->
+                    <!--  Client Auto Section -->
 
                     <accordion-group is-open="clientAutoInfo.open">
                         <accordion-heading>
                             Client Auto Information <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': clientAutoInfo.open, 'glyphicon-chevron-right': !clientAutoInfo.open}"></i>
                         </accordion-heading>
-                        This is just some content to illustrate fancy headings.
+                        <div class="row">
+                            <div class="col-md-2"><input type="button" value="Edit"></div>
+                            <div class="col-md-2"><input type="button" value="Save"></div>
+                            <div class="col-md-2"><input type="button" value="Cancel"></div>
+                        </div>
+                        <table>
+                            <!-- row 1 -->
+                            <tr>
+                                <td><label class="control-label">Insurance Company: </label></td>
+                                <td><input type="text" placeholder="Insurance Company" ng-model="clientAutoInfo.insuranceCompany" /></td>
+                                <td><label class="control-label">Policy Number: </label></td>
+                                <td><input type="text" placeholder="Policy Number" ng-model="clientAutoInfo.policyNumber" /></td>
+                            </tr>
+                            <!-- row 2 -->
+                            <tr>
+                                <td><label class="control-label">Address: </label></td>
+                                <td><input type="text" placeholder="Address" ng-model="clientAutoInfo.address" /></td>
+                                <td><label class="control-label">Effective Start Date: </label></td>
+                                <td>
+                                    <div ng-controller="DatepickerCtrl">
+                                        <p class="input-group">
+                                            <input type="text" class="form-control" datepicker-popup="shortDate" ng-model="clientAutoInfo.effectiveStartDate" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- row 3 -->
+                            <tr>
+                                <td><label class="control-label">City: </label></td>
+                                <td><input type="text" placeholder="City" ng-model="clientAutoInfo.city" /></td>
+                                <td><label class="control-label">Effective End Date: </label></td>
+                                <td>
+                                    <div ng-controller="DatepickerCtrl">
+                                        <p class="input-group">
+                                            <input type="text" class="form-control" datepicker-popup="shortDate" ng-model="clientAutoInfo.effectiveEndDate" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- row 4 -->
+                            <tr>
+                                <td><label class="control-label">State: </label></td>
+                                <td><input type="text" placeholder="State" ng-model="clientAutoInfo.state" /></td>
+                                <td><label class="control-label">Med Pay Available: </label></td>
+                                <td><input type="text" placeholder="Med Pay Available" ng-model="clientAutoInfo.medPayAvailable" /></td>
+                            </tr>
+                            <!-- row 5 -->
+                            <tr>
+                                <td><label class="control-label">Zip: </label></td>
+                                <td><input type="text" placeholder="Zip" ng-model="clientAutoInfo.zip" /></td>
+                                <td><label class="control-label">Amount: </label></td>
+                                <td><input type="text" placeholder="Amount" ng-model="clientAutoInfo.amount" /></td>
+                            </tr>
+                            <!-- row 6 -->
+                            <tr>
+                                <td><label class="control-label">Phone Number: </label></td>
+                                <td><input type="tel" placeholder="Phone Number" ng-model="clientAutoInfo.phoneNumber" /></td>
+                                <td><label class="control-label">Liability Min Coverage: </label></td>
+                                <td><input type="text" placeholder="Liability Min Coverage" ng-model="clientAutoInfo.liabilityMinCoverage" /></td>
+                            </tr>
+                            <!-- row 7 -->
+                            <tr>
+                                <td><label class="control-label">Ajudster: </label></td>
+                                <td><input type="tel" placeholder="Ajudster" ng-model="clientAutoInfo.adjuster" /></td>
+                                <td><label class="control-label">Liability Max Coverage: </label></td>
+                                <td><input type="text" placeholder="Liability Max Coverage" ng-model="clientAutoInfo.liabilityMaxCoverage" /></td>
+                            </tr>
+                            <!-- row 8 -->
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><label class="control-label">UMI Min: </label></td>
+                                <td><input type="text" placeholder="UMI Min" ng-model="clientAutoInfo.UMIMin" /></td>
+                            </tr>
+                            <!-- row 9 -->
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><label class="control-label">UMI Max: </label></td>
+                                <td><input type="text" placeholder="UMI Max" ng-model="clientAutoInfo.UMIMax" /></td>
+                            </tr>
+                            <!-- row 10 -->
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><label class="control-label">Reimbursable: </label></td>
+                                <td><input type="text" placeholder="Reimbursable" ng-model="clientAutoInfo.reimbursable" /></td>
+                            </tr>
+                            <!-- row 10 -->
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><label class="control-label">Notes: </label></td>
+                                <td><input type="text" placeholder="Notes" ng-model="clientAutoInfo.notes" /></td>
+                            </tr>
+                        </table>
                     </accordion-group>
-
                     <accordion-group is-open="clientMedicalInsurance.open">
                         <accordion-heading>
                             Client Medical Insurance <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': clientMedicalInsurance.open, 'glyphicon-chevron-right': !clientMedicalInsurance.open}"></i>
@@ -197,6 +364,6 @@
                     </accordion-group>
                 </accordion>
             </div>
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+</div>

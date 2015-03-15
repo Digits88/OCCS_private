@@ -202,10 +202,45 @@ app.get('/clients', auth, function (req, res) {
 //        //}
 //    });
 //});
-
-app.get('/clients/:fileno', auth, function (req, res) {
+// ************************************************
+//      Get Client General Information by FileNo
+// ************************************************
+app.get('/clients/generalInfo/:fileno', auth, function (req, res) {
     var fileno = req.params.fileno;
     var query = "call getClientGeneralInformation(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
+
+// ************************************************
+//      Get Client Additional Information by FileNo
+// ************************************************
+app.get('/clients/additionalInfo/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getAdditionalClientInfo(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
+// ************************************************
+//      Get Client Auto Information by FileNo
+// ************************************************
+app.get('/clients/clientAutoInfo/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getClientautoinfo(" + fileno + ")";
     console.log(query);
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database

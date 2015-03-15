@@ -74,10 +74,19 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
         selectedItems: $scope.mySelections,
         afterSelectionChange: function (data) {
             if (data.selected == true) {
-                $http.get('/clients/' + $scope.mySelections[0].fileNo).success(function (generalInformation) {
+                // Get client general information
+                $http.get('/clients/generalInfo/' + $scope.mySelections[0].fileNo).success(function (generalInformation) {
                     $scope.generalInformation = generalInformation[0][0];
-                    //alert(generalInformation[0][0].clientCreated);
-                    
+                });
+
+                // Get additional information
+                $http.get('/clients/additionalInfo/' + $scope.mySelections[0].fileNo).success(function (additionalInfo) {
+                    $scope.additionalInfo = additionalInfo[0][0];
+                });
+
+                // Get additional information
+                $http.get('/clients/clientAutoInfo/' + $scope.mySelections[0].fileNo).success(function (clientAutoInfo) {
+                    $scope.clientAutoInfo = clientAutoInfo[0][0];
                 });
             }
         },
@@ -96,6 +105,8 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
 
 angular.module('app').filter('ISODateReviver', function () {
     return function (input) {
+        if (input === null || input === undefined)
+            return "";
             var a = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)(?:([\+-])(\d{2})\:(\d{2}))?Z?$/.exec(input);
             if (a) {
             var utcMilliseconds = Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4], +a[5], +a[6]);
