@@ -100,6 +100,15 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
                     $scope.clientInjuriesData = clientInjuries[0];
                 });
 
+                // Get Defendant information
+                $http.get('/clients/defendantInfo/' + $scope.mySelections[0].fileNo).success(function (defendantInfo) {
+                    $scope.defendantInfo = defendantInfo[0][0];
+                });
+
+                // Get Defendant Attorney information
+                $http.get('/clients/defendantAttorneyInfo/' + $scope.mySelections[0].fileNo).success(function (defendantAttorneyInfo) {
+                    $scope.defendantAttorneyInfo = defendantAttorneyInfo[0][0];
+                });
             }
         },
         multiSelect: false

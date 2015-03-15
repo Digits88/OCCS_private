@@ -270,11 +270,45 @@ app.get('/clients/medicalInsuranceInfo/:fileno', auth, function (req, res) {
 });
 
 // ************************************************
-//      Get Client Medical Insurance Information by FileNo
+//      Get Client Injuries by FileNo
 // ************************************************
 app.get('/clients/clientInjuries/:fileno', auth, function (req, res) {
     var fileno = req.params.fileno;
     var query = "call getClientInjuries(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
+
+// ************************************************
+//      Get Defendant Information by FileNo
+// ************************************************
+app.get('/clients/defendantInfo/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getDefendantInformation(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
+
+// ************************************************
+//      Get Defendant Attorney Information by FileNo
+// ************************************************
+app.get('/clients/defendantAttorneyInfo/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getDefendantAttorneyInfo(" + fileno + ")";
     console.log(query);
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
