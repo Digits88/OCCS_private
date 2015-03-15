@@ -324,12 +324,16 @@
                         </table>
                     </accordion-group>
                     <!--  ========================================================================= -->
-                    <!--  Medical Insurance Section -->
+                    <!--  Client Medical Insurance Section -->
                     <!--  ========================================================================= -->
                     <accordion-group is-open="clientMedicalInsurance.open">
                         <accordion-heading>
                             Client Medical Insurance <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': clientMedicalInsurance.open, 'glyphicon-chevron-right': !clientMedicalInsurance.open}"></i>
                         </accordion-heading>
+                        <div class="row">
+                            <div class="col-md-2"><input type="button" value="Edit"></div>
+                            <div class="col-md-2"><input type="button" value="Cancel"></div>
+                        </div>
                         <table>
                             <tr>
                                 <td>
@@ -868,12 +872,57 @@
                             </tr>
                         </table>
                     </accordion-group>
-
+                    
+                    <!--  ========================================================================= -->
+                    <!--  Misc Information Section -->
+                    <!--  ========================================================================= -->
                     <accordion-group is-open="misc.open">
                         <accordion-heading>
                             Misc Notes<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': misc.open, 'glyphicon-chevron-right': !misc.open}"></i>
                         </accordion-heading>
-                        This is just some content to illustrate fancy headings.
+                        <div class="row">
+                            <div class="col-md-2"><input type="button" value="Edit"></div>
+                            <div class="col-md-2"><input type="button" value="Cancel"></div>
+                        </div>
+                        <p class="gridStyle" ng-grid="miscGridOptions"></p>
+                        <table>
+                            <tr>
+                                <td><input type="text" placeholder="Note" ng-model="selectedMiscInfo[0].note" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div ng-controller="DatepickerCtrl">
+                                        <p class="input-group">
+                                            <input type="text" class="form-control" datepicker-popup="shortDate" ng-model="selectedMiscInfo[0].modifiedDate" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><input type="text" placeholder="Note" ng-model="selectedMiscInfo[0].description" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <input type="button" value="Add New">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="button" value="Edit">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="button" value="Save">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="button" value="Delete">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </accordion-group>
                 </accordion>
             </div>

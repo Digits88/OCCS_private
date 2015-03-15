@@ -2,6 +2,7 @@
 angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
     $scope.mySelections = [];
     $scope.selectedClientInjury = [];
+    $scope.selectedMiscInfo = [];
 
     $scope.caseTypes = ["Injury", "Illness", "Death"];
     $scope.caseStatus = ["Open", "Closed"];
@@ -129,6 +130,11 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
                 $http.get('/clients/courtInfo/' + $scope.mySelections[0].fileNo).success(function (courtInfo) {
                     $scope.courtInfo = courtInfo[0][0];
                 });
+
+                // Get Misc information
+                $http.get('/clients/miscInfo/' + $scope.mySelections[0].fileNo).success(function (miscInfo) {
+                    $scope.miscData = miscInfo[0];
+                });
             }
         },
         multiSelect: false
@@ -143,6 +149,17 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
         selectedItems: $scope.selectedClientInjury,
         multiSelect: false
     };
+    
+    $scope.miscGridOptions = {
+        data: 'miscData',
+        columnDefs: [{ field: 'note', displayName: 'Note', width: 50, },
+                        { field: 'createdDate', displayName: 'Created Date', width: 100 },
+                        { field: 'modifiedDate', displayName: 'Modified Date', width: 100 },
+                        { field: 'description', displayName: 'Description' }],
+        selectedItems: $scope.selectedMiscInfo,
+        multiSelect: false
+    };
+
     $scope.filterName = function () {
         var filterText = '' + $scope.nameFilter;
         if (filterText !== '') {

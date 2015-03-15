@@ -387,6 +387,23 @@ app.get('/clients/govtClaimInfo/:fileno', auth, function (req, res) {
         //}
     });
 });
+
+// ************************************************
+//      Get Statute Govt Claim Information by FileNo
+// ************************************************
+app.get('/clients/miscInfo/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getMicInfo(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
 //==================================================================
 
 //==================================================================
