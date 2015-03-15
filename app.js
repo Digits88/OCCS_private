@@ -319,6 +319,23 @@ app.get('/clients/defendantAttorneyInfo/:fileno', auth, function (req, res) {
         //}
     });
 });
+
+// ************************************************
+//      Get Defendant Insurance Information by FileNo
+// ************************************************
+app.get('/clients/defendantInsuranceInfo/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getDefendantInsurance(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
 //==================================================================
 
 //==================================================================

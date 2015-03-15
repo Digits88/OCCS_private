@@ -109,6 +109,11 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
                 $http.get('/clients/defendantAttorneyInfo/' + $scope.mySelections[0].fileNo).success(function (defendantAttorneyInfo) {
                     $scope.defendantAttorneyInfo = defendantAttorneyInfo[0][0];
                 });
+
+                // Get Defendant Insurance information
+                $http.get('/clients/defendantInsuranceInfo/' + $scope.mySelections[0].fileNo).success(function (defendantInsuranceInfo) {
+                    $scope.defendantInsuranceInfo = defendantInsuranceInfo[0][0];
+                });
             }
         },
         multiSelect: false
