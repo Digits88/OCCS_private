@@ -168,7 +168,17 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
             $scope.filterOptions.filterText = '';
         }
     };
-
+    
+    // Save General Information
+    $scope.saveGeneralInfo = function () {
+            $http.put('/clients/generalInfo',$scope.generalInformation)
+    .success(function (user) {
+                })
+    .error(function () {
+                // Error: authentication failed
+                alert("error");
+            });
+        };
 });
 
 angular.module('app').filter('ISODateReviver', function () {
@@ -186,7 +196,6 @@ angular.module('app').filter('ISODateReviver', function () {
 
 angular.module('app').filter('testValueFilter', function () {
     return function (input) {
-        alert(input);
         return input;
     }
 });

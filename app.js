@@ -3,7 +3,7 @@ var http = require('http');
 var path = require('path');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
+var js2xmlparser = require("js2xmlparser");
 
 // Start express application
 var app = express();
@@ -189,19 +189,6 @@ app.get('/clients', auth, function (req, res) {
     });
 });
 
-//app.get('/clients/:fileno', auth, function (req, res) {
-//    var fileno = req.params.fileno;
-//    var query = "select * from generalinformation where fileno = " + fileno;
-//    console.log(query);
-//    connection.query(query, function (err, rows) {
-//        if (err) // error connecting to database
-//            return done(err);
-//        //if (rows.length) { // general information exists
-//            console.log(rows);
-//            res.send(rows);
-//        //}
-//    });
-//});
 // ************************************************
 //      Get Client General Information by FileNo
 // ************************************************
@@ -403,6 +390,26 @@ app.get('/clients/miscInfo/:fileno', auth, function (req, res) {
         res.send(rows);
         //}
     });
+});
+
+// route to log out
+app.put('/clients/generalInfo', function (req, res) {
+    console.log(req.body);
+    var xmlData = js2xmlparser("generalInfo", req.body);
+    console.log(xmlData);
+    
+    var query = "call addGeneralInformation('" + xmlData.toString() + "')";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+
+    res.send("success");
 });
 //==================================================================
 

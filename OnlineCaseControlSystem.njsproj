@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{d943a4f0-7820-4e19-8448-a2895cd965cd}</ProjectGuid>
     <ProjectHome>..\..\..\Balram Data\Nodejs\AuthenticationAngularJS-master\</ProjectHome>
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <StartupFile>app.js</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -28,6 +28,7 @@
     <Compile Include="public\js\nggridtest.js" />
     <Compile Include="public\js\users.js" />
     <Compile Include="public\services\loginService.js" />
+    <Content Include="Database\casecontroldb.sql" />
     <Content Include="largeLoad.json" />
     <Content Include="package.json" />
     <Content Include="public\bootstrap-3.3.2-dist\css\bootstrap-theme.css" />
@@ -74,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AuthenticationAngularJS-master" />
+    <Folder Include="Database\" />
     <Folder Include="public" />
     <Folder Include="public\bootstrap-3.3.2-dist\" />
     <Folder Include="public\bootstrap-3.3.2-dist\css\" />
