@@ -144,7 +144,7 @@ CREATE TABLE `clients` (
 
 LOCK TABLES `clients` WRITE;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
-INSERT INTO `clients` VALUES (1,'balram','chavan','Active'),(2,'jay','dude','Inactive');
+INSERT INTO `clients` VALUES (1,'balram 1','chavan 1','Active'),(2,'jay','dude','Inactive');
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -316,7 +316,7 @@ CREATE TABLE `generalinformation` (
 
 LOCK TABLES `generalinformation` WRITE;
 /*!40000 ALTER TABLE `generalinformation` DISABLE KEYS */;
-INSERT INTO `generalinformation` VALUES (1,'india 5','myaptno','additional info','mydefname','mycity','e1','Injury','mystate','e2','myOtherType','222222','Open','333333','myoriginatingattorney','2014-4-6','44444','myassignedAttorney','2015-04-04','mylicense','myrefferal','balram@gmail.com','1984-03-04','myssn');
+INSERT INTO `generalinformation` VALUES (1,'india','','additional info','mydefname','mycity ','e1','Injury','mystate','e2','myOtherType','222222','Open','333333','myoriginatingattorney','2014-04-05','44444','myassignedAttorney','2015-04-03','mylicense','myrefferal','balram@gmail.com','1984-03-03','myssn 1');
 /*!40000 ALTER TABLE `generalinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -523,7 +523,34 @@ BEGIN
 
 	IF (@CheckExists > 0) THEN 
         Update generalinformation
-		SET address = @address
+		SET address = @address,
+			aptNo = @aptNo,
+			initialInfo = @initialInfo,
+			defendantName = @defendantName,
+			city = @city,
+			evidence1 = @evidence1,
+			caseType = @caseType,
+			state = @state,
+			evidence2 = @evidence2,
+			otherType = @otherType,
+			homePhone = @homePhone,
+			caseStatus = @caseStatus,
+			cellPhone = @cellPhone,
+			originatingAttorney = @originatingAttorney,
+			accidentDate = substring(@accidentDate,1,locate('T', @accidentDate)-1),
+			workPhone = @workPhone,
+			assignedAttorney = @assignedAttorney,
+			clientCreated = substring(@clientCreated,1,locate('T', @clientCreated)-1),
+			drivingLicense = @drivingLicense,
+			refferal = @refferal,
+			email = @email,
+			dateOfBirth = substring(@dateOfBirth,1,locate('T', @dateOfBirth)-1),
+			SSN = @SSN			
+		WHERE fileNo = @fileNo;
+
+		UPDATE clients
+		SET firstName = @firstName,
+			lastName = @lastName
 		WHERE fileNo = @fileNo;
     ELSE 
         select 'insert command';
@@ -827,4 +854,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-16 10:12:57
+-- Dump completed on 2015-03-17  9:40:02
