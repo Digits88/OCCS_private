@@ -1,9 +1,9 @@
-
 <div class="container-fluid">
+ 
     <div class="row">
         <!--  ========================================================================= -->
         <!--  Client Grid
-        <!--  ========================================================================= -->
+            <!--  ========================================================================= -->
         <div class="col-md-4">
             <p>
                 <input id="personNameFilter" type="text" ng-model="nameFilter" placeholder="Filter by Name" ng-change="filterName()">
@@ -14,7 +14,7 @@
         <!--  ========================================================================= -->
         <!--  Client details
             <!--  ========================================================================= -->
-        <div class="col-md-8">
+        <div class="col-md-8" cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
             <div ng-controller="ClientsCtrl">
                 <accordion close-others="false">
                     <!--  ========================================================================= -->
@@ -90,14 +90,14 @@
                                     {{generalInformation.caseStatus}}
                                     <!-- Single button -->
                                     <!--<div class="btn-group" dropdown is-open="status.isopen">
-                                            <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-                                                Case Status<span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Open</a></li>
-                                                <li><a href="#">Closed</a></li>
-                                            </ul>
-                                        </div>-->
+                                        <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                                            Case Status<span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Open</a></li>
+                                            <li><a href="#">Closed</a></li>
+                                        </ul>
+                                    </div>-->
                                 </td>
                                 <td> <label class="control-label">Cell Phone: </label> </td>
                                 <td> <input type="tel" placeholder="Cell Phone" ng-model="generalInformation.cellPhone" /> </td>
@@ -450,7 +450,7 @@
                             </tr>
                         </table>
                     </accordion-group>
-                    
+
                     <!--  ========================================================================= -->
                     <!--  Defendant Information Section -->
                     <!--  ========================================================================= -->
@@ -544,7 +544,7 @@
                             </tr>
                         </table>
                     </accordion-group>
-                    
+
                     <!--  ========================================================================= -->
                     <!--  Defendant Insurance Information Section -->
                     <!--  ========================================================================= -->
@@ -595,7 +595,7 @@
                             </tr>
                         </table>
                     </accordion-group>
-                    
+
                     <!--  ========================================================================= -->
                     <!--  Statute Information Section -->
                     <!--  ========================================================================= -->
@@ -841,7 +841,7 @@
                             </tr>
                         </table>
                     </accordion-group>
-                    
+
                     <!--  ========================================================================= -->
                     <!--  Court Information Section -->
                     <!--  ========================================================================= -->
@@ -878,7 +878,7 @@
                             </tr>
                         </table>
                     </accordion-group>
-                    
+
                     <!--  ========================================================================= -->
                     <!--  Misc Information Section -->
                     <!--  ========================================================================= -->

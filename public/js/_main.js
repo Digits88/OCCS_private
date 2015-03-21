@@ -3,7 +3,7 @@
 /**********************************************************************
  * Angular Application
  **********************************************************************/
-var app = angular.module('app', ['ngGrid', 'ui.bootstrap','ngResource', 'ngRoute'])
+var app = angular.module('app', ['ngGrid', 'ui.bootstrap','ngResource', 'ngRoute', 'ngAnimate', 'cgBusy'])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     //================================================
     // Check if the user is connected

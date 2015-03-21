@@ -33,7 +33,10 @@
 
     <script type="text/javascript" src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
 
-	
+	<link href="/stylesheets/angular-busy.css" rel="stylesheet">
+    <link href="/stylesheets/gh-fork-ribbon.css" rel="stylesheet">
+    <script type="text/javascript" src="/javascripts/angular-animate.js"></script>
+    <script type="text/javascript" src="/javascripts/angular-busy.js"></script>
 
   </head>
   <body>
@@ -60,7 +63,7 @@
 
   	<span ng-hide=!"isLoggingRequired">{{message}} </span>
 
-    <ng-view></ng-view>
+    <ng-view ></ng-view>
 
   </body>
 </html>

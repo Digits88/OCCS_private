@@ -19,6 +19,9 @@
     <Compile Include="public\bootstrap-3.3.2-dist\js\bootstrap.js" />
     <Compile Include="public\bootstrap-3.3.2-dist\js\bootstrap.min.js" />
     <Compile Include="public\bootstrap-3.3.2-dist\js\npm.js" />
+    <Compile Include="public\javascripts\angular-animate.js" />
+    <Compile Include="public\javascripts\angular-busy.js" />
+    <Compile Include="public\javascripts\angular-busy.min.js" />
     <Compile Include="public\javascripts\bootstrap.min.js" />
     <Compile Include="public\javascripts\ui-bootstrap-tpls-0.12.1.js" />
     <Compile Include="public\js\bootstraptest.js" />
@@ -44,7 +47,10 @@
     <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="public\jquery\jquery.min.js" />
     <Content Include="public\nggrid-js\ng-grid.debug.js" />
+    <Content Include="public\stylesheets\angular-busy.css" />
+    <Content Include="public\stylesheets\angular-busy.min.css" />
     <Content Include="public\stylesheets\bootstrap.min.css" />
+    <Content Include="public\stylesheets\gh-fork-ribbon.css" />
     <Content Include="public\stylesheets\ng-grid.css" />
     <Content Include="public\views\generalsection.html" />
     <Content Include="public\views\menu\deleteclients.html" />
