@@ -76,91 +76,91 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
         selectedItems: $scope.mySelections,
         afterSelectionChange: function (data) {
             if (data.selected == true) {
-                //$scope.allUrls = ['/clients/generalInfo/' + $scope.mySelections[0].fileNo.toString(),
-                //                    '/clients/additionalInfo/' + $scope.mySelections[0].fileNo,
-                //                    '/clients/clientAutoInfo/' + $scope.mySelections[0].fileNo,
-                //                    '/clients/medicalInsuranceInfo/' + $scope.mySelections[0].fileNo,
-                //                    '/clients/clientInjuries/' + $scope.mySelections[0].fileNo,
-                //                    '/clients/defendantInfo/' + $scope.mySelections[0].fileNo,
-                //                    '/clients/defendantAttorneyInfo/' + $scope.mySelections[0].fileNo,
-                //                    '/clients/defendantInsuranceInfo/' + $scope.mySelections[0].fileNo,
-                //                    '/clients/govtClaimInfo/' + $scope.mySelections[0].fileNo,
-                //                    '/clients/courtInfo/' + $scope.mySelections[0].fileNo,
-                //                    '/clients/miscInfo/' + $scope.mySelections[0].fileNo,
-                //];
-                $scope.currentUrl = '/clients/generalInfo/' + $scope.mySelections[0].fileNo.toString();
-                $scope.wait();
+                $scope.allUrls = ['/clients/generalInfo/' + $scope.mySelections[0].fileNo.toString(),
+                                    '/clients/additionalInfo/' + $scope.mySelections[0].fileNo,
+                                    '/clients/clientAutoInfo/' + $scope.mySelections[0].fileNo,
+                                    '/clients/medicalInsuranceInfo/' + $scope.mySelections[0].fileNo,
+                                    '/clients/clientInjuries/' + $scope.mySelections[0].fileNo,
+                                    '/clients/defendantInfo/' + $scope.mySelections[0].fileNo,
+                                    '/clients/defendantAttorneyInfo/' + $scope.mySelections[0].fileNo,
+                                    '/clients/defendantInsuranceInfo/' + $scope.mySelections[0].fileNo,
+                                    '/clients/govtClaimInfo/' + $scope.mySelections[0].fileNo,
+                                    '/clients/courtInfo/' + $scope.mySelections[0].fileNo,
+                                    '/clients/miscInfo/' + $scope.mySelections[0].fileNo
+                ];
+                //$scope.currentUrl = '/clients/generalInfo/' + $scope.mySelections[0].fileNo.toString();
+                //$scope.wait();
                 // Get client general information
                 $http.get('/clients/generalInfo/' + $scope.mySelections[0].fileNo).success(function (generalInformation) {
                     $scope.generalInformation = generalInformation[0][0];
                 });
-                $scope.currentUrl = '/clients/additionalInfo/' + $scope.mySelections[0].fileNo.toString();
-                $scope.wait();
+                //$scope.currentUrl = '/clients/additionalInfo/' + $scope.mySelections[0].fileNo.toString();
+                //$scope.wait();
                 // Get additional information
                 $http.get('/clients/additionalInfo/' + $scope.mySelections[0].fileNo).success(function (additionalInfo) {
                     $scope.additionalInfo = additionalInfo[0][0];
                 });
-                $scope.currentUrl = '/clients/clientAutoInfo/' + $scope.mySelections[0].fileNo.toString();
-                $scope.wait();
+                //$scope.currentUrl = '/clients/clientAutoInfo/' + $scope.mySelections[0].fileNo.toString();
+                //$scope.wait();
                 // Get additional information
                 $http.get('/clients/clientAutoInfo/' + $scope.mySelections[0].fileNo).success(function (clientAutoInfo) {
                     $scope.clientAutoInfo = clientAutoInfo[0][0];
                 });
-                $scope.currentUrl = '/clients/medicalInsuranceInfo/' + $scope.mySelections[0].fileNo.toString();
-                $scope.wait();
+                //$scope.currentUrl = '/clients/medicalInsuranceInfo/' + $scope.mySelections[0].fileNo.toString();
+                //$scope.wait();
                 // Get medical Insurance information
                 $http.get('/clients/medicalInsuranceInfo/' + $scope.mySelections[0].fileNo).success(function (medicalInsuranceInfo) {
                     $scope.medicalInsuranceInfo = medicalInsuranceInfo[0][0];
                 });
-                $scope.currentUrl = '/clients/clientInjuries/' + $scope.mySelections[0].fileNo.toString();
-                $scope.wait();
+                //$scope.currentUrl = '/clients/clientInjuries/' + $scope.mySelections[0].fileNo.toString();
+                //$scope.wait();
                 // Get client injuries information
                 $http.get('/clients/clientInjuries/' + $scope.mySelections[0].fileNo).success(function (clientInjuries) {
                     $scope.clientInjuriesData = clientInjuries[0];
                 });
-                $scope.currentUrl = '/clients/defendantInfo/' + $scope.mySelections[0].fileNo.toString();
-                $scope.wait();
+                //$scope.currentUrl = '/clients/defendantInfo/' + $scope.mySelections[0].fileNo.toString();
+                //$scope.wait();
                 // Get Defendant information
                 $http.get('/clients/defendantInfo/' + $scope.mySelections[0].fileNo).success(function (defendantInfo) {
                     $scope.defendantInfo = defendantInfo[0][0];
                 });
-                $scope.currentUrl = '/clients/defendantAttorneyInfo/' + $scope.mySelections[0].fileNo.toString();
-                $scope.wait();
+                //$scope.currentUrl = '/clients/defendantAttorneyInfo/' + $scope.mySelections[0].fileNo.toString();
+                //$scope.wait();
                 // Get Defendant Attorney information
                 $http.get('/clients/defendantAttorneyInfo/' + $scope.mySelections[0].fileNo).success(function (defendantAttorneyInfo) {
                     $scope.defendantAttorneyInfo = defendantAttorneyInfo[0][0];
                 });
-                $scope.currentUrl = '/clients/defendantInsuranceInfo/' + $scope.mySelections[0].fileNo.toString();
-                $scope.wait();
+                //$scope.currentUrl = '/clients/defendantInsuranceInfo/' + $scope.mySelections[0].fileNo.toString();
+                //$scope.wait();
                 // Get Defendant Insurance information
                 $http.get('/clients/defendantInsuranceInfo/' + $scope.mySelections[0].fileNo).success(function (defendantInsuranceInfo) {
                     $scope.defendantInsuranceInfo = defendantInsuranceInfo[0][0];
                 });
-                $scope.currentUrl = '/clients/statuteInfo/' + $scope.mySelections[0].fileNo.toString();
-                $scope.wait();
+                //$scope.currentUrl = '/clients/statuteInfo/' + $scope.mySelections[0].fileNo.toString();
+                //$scope.wait();
                 // Get Statute information
                 $http.get('/clients/statuteInfo/' + $scope.mySelections[0].fileNo).success(function (statuteInfo) {
                     $scope.statuteInfo = statuteInfo[0][0];
                 });
-                $scope.currentUrl = '/clients/govtClaimInfo/' + $scope.mySelections[0].fileNo.toString();
-                $scope.wait();
+                //$scope.currentUrl = '/clients/govtClaimInfo/' + $scope.mySelections[0].fileNo.toString();
+                //$scope.wait();
                 // Get Govt Claim information
                 $http.get('/clients/govtClaimInfo/' + $scope.mySelections[0].fileNo).success(function (govtClaimInfo) {
                     $scope.govtClaimInfo = govtClaimInfo[0][0];
                 });
-                $scope.currentUrl = '/clients/courtInfo/' + $scope.mySelections[0].fileNo.toString();
-                $scope.wait();
+                //$scope.currentUrl = '/clients/courtInfo/' + $scope.mySelections[0].fileNo.toString();
+                //$scope.wait();
                 // Get Court information
                 $http.get('/clients/courtInfo/' + $scope.mySelections[0].fileNo).success(function (courtInfo) {
                     $scope.courtInfo = courtInfo[0][0];
                 });
-                $scope.currentUrl = '/clients/miscInfo/' + $scope.mySelections[0].fileNo.toString();
-                $scope.wait();
+                //$scope.currentUrl = '/clients/miscInfo/' + $scope.mySelections[0].fileNo.toString();
+                //$scope.wait();
                 // Get Misc information
                 $http.get('/clients/miscInfo/' + $scope.mySelections[0].fileNo).success(function (miscInfo) {
                     $scope.miscData = miscInfo[0];
                 });
-                //$scope.waitForAll();
+                $scope.waitForAll();
 
             }
         },

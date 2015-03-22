@@ -17,7 +17,7 @@
         <div class="col-md-9" cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
             <div ng-controller="ClientsCtrl">
                 <div>
-                    <input type="button" value="Add Client" ng-click="AddNewClient()"/>
+                    <input type="button" value="Add Client" ng-click="AddNewClient()" />
                     <input type="button" value="Cancel" />
                     <input type="button" value="Save" />
                     <input type="button" value="Close Client" />
@@ -46,7 +46,7 @@
                                 <td> <label class="control-label">File No.: </label> </td>
                                 <td> <input type="text" placeholder="File No." ng-model="generalInformation.fileNo" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Address: </label> </td>
-                                <td> <input type="text" placeholder="Address" ng-model="generalInformation.address" ng-readonly="isGeneralInfoEdiatable" /> </td>
+                                <td> <input type="text" placeholder="Address" data-ng-model="generalInformation.address" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Initial Case Information: </label> </td>
                                 <td> <input type="text" placeholder="Initial Case Information" ng-model="generalInformation.initialInfo" ng-readonly="isGeneralInfoEdiatable" />  </td>
                             </tr>
