@@ -1,7 +1,7 @@
 'use strict';
 angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
     
-    $scope.delay = 100;
+    $scope.delay = 50;
     $scope.minDuration = 0;
     $scope.message = 'Please Wait...';
     $scope.backdrop = false;
@@ -107,7 +107,6 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
                                     '/clients/courtInfo/' + $scope.mySelections[0].fileNo,
                                     '/clients/miscInfo/' + $scope.mySelections[0].fileNo,
                                     ];
-                $scope.waitForAll();
                 // Get client general information
                 $http.get('/clients/generalInfo/' + $scope.mySelections[0].fileNo).success(function (generalInformation) {
                     $scope.generalInformation = generalInformation[0][0];
@@ -167,6 +166,8 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
                 $http.get('/clients/miscInfo/' + $scope.mySelections[0].fileNo).success(function (miscInfo) {
                     $scope.miscData = miscInfo[0];
                 });
+                $scope.waitForAll();
+
             }
         },
         multiSelect: false

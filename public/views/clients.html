@@ -4,7 +4,7 @@
         <!--  ========================================================================= -->
         <!--  Client Grid
             <!--  ========================================================================= -->
-        <div class="col-md-4">
+        <div class="col-md-3">
             <p>
                 <input id="personNameFilter" type="text" ng-model="nameFilter" placeholder="Filter by Name" ng-change="filterName()">
             </p>
@@ -14,101 +14,109 @@
         <!--  ========================================================================= -->
         <!--  Client details
             <!--  ========================================================================= -->
-        <div class="col-md-8" cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
+        <div class="col-md-9" cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
             <div ng-controller="ClientsCtrl">
+                <div>
+                    <input type="button" value="Add Client"/>
+                    <input type="button" value="Cancel" />
+                    <input type="button" value="Save" />
+                    <input type="button" value="Close Client" />
+                    <input type="button" value="Reactivate Closed Client" />
+                    <input type="button" value="Expand All"/>
+                </div>
                 <accordion close-others="false">
                     <!--  ========================================================================= -->
                     <!--  General Information Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group heading="General Information" is-open="true">
+                    <accordion-group heading="General Information" is-open="true" ng-init="isGeneralInfoEdiatable=true">
                         <div class="row">
                             <div class="col-md-2">
-                                <input type="button" value="Edit">
+                                <input type="button" value="Edit" ng-click="isGeneralInfoEdiatable=false">
                             </div>
                             <div class="col-md-2">
                                 <input type="button" value="Save" ng-click="saveGeneralInfo()">
                             </div>
                             <div class="col-md-2">
-                                <input type="button" value="Cancel">
+                                <input type="button" value="Cancel" ng-click="isGeneralInfoEdiatable=true">
                             </div>
                         </div>
                         <table>
                             <!--  first row -->
                             <tr>
                                 <td> <label class="control-label">File No.: </label> </td>
-                                <td> <input type="text" placeholder="File No." ng-model="generalInformation.fileNo" /> </td>
+                                <td> <input type="text" placeholder="File No." ng-model="generalInformation.fileNo" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Address: </label> </td>
-                                <td> <input type="text" placeholder="Address" ng-model="generalInformation.address" /> </td>
+                                <td> <input type="text" placeholder="Address" ng-model="generalInformation.address" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Initial Case Information: </label> </td>
-                                <td> <input type="text" placeholder="Initial Case Information" ng-model="generalInformation.initialInfo" />  </td>
+                                <td> <input type="text" placeholder="Initial Case Information" ng-model="generalInformation.initialInfo" ng-readonly="isGeneralInfoEdiatable" />  </td>
                             </tr>
                             <!--  second row -->
                             <tr ng-disabled="true">
                                 <td> <label class="control-label">Last Name: </label> </td>
-                                <td> <input type="text" placeholder="Last Name" ng-model="generalInformation.lastName" /> </td>
+                                <td> <input type="text" placeholder="Last Name" ng-model="generalInformation.lastName" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Suite/Apt No.: </label> </td>
-                                <td> <input type="text" placeholder="Suite/Apt No." ng-model="generalInformation.aptNo" /> </td>
+                                <td> <input type="text" placeholder="Suite/Apt No." ng-model="generalInformation.aptNo" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Defendant Name: </label> </td>
-                                <td> <input type="text" placeholder="Defendant Name" ng-model="generalInformation.defendantName" /> </td>
+                                <td> <input type="text" placeholder="Defendant Name" ng-model="generalInformation.defendantName" ng-readonly="isGeneralInfoEdiatable" /> </td>
                             </tr>
                             <!--  third row -->
                             <tr>
                                 <td> <label class="control-label">First Name: </label> </td>
-                                <td> <input type="text" placeholder="First Name" ng-model="generalInformation.firstName" /> </td>
+                                <td> <input type="text" placeholder="First Name" ng-model="generalInformation.firstName" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">City: </label> </td>
-                                <td> <input type="text" placeholder="City" ng-model="generalInformation.city" /> </td>
+                                <td> <input type="text" placeholder="City" ng-model="generalInformation.city" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Evidence 1: </label> </td>
-                                <td> <input type="text" placeholder="Evidence 1" ng-model="generalInformation.evidence1" /> </td>
+                                <td> <input type="text" placeholder="Evidence 1" ng-model="generalInformation.evidence1" ng-readonly="isGeneralInfoEdiatable" /> </td>
                             </tr>
                             <!--  Fourth row -->
                             <tr>
                                 <td> <label class="control-label">Case Type: </label> </td>
                                 <td>
-                                    <select ng-model="generalInformation.caseType ">
+                                    <select ng-model="generalInformation.caseType " ng-disabled="isGeneralInfoEdiatable">
                                         <option ng-repeat="item in caseTypes" value="{{item}}">{{item}}</option>
                                     </select>
                                 </td>
                                 <td> <label class="control-label">State: </label> </td>
-                                <td> <input type="text" placeholder="State" ng-model="generalInformation.state" /> </td>
+                                <td> <input type="text" placeholder="State" ng-model="generalInformation.state" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Evidence 2: </label> </td>
-                                <td> <input type="text" placeholder="Evidence 2" ng-model="generalInformation.evidence2" /> </td>
+                                <td> <input type="text" placeholder="Evidence 2" ng-model="generalInformation.evidence2" ng-readonly="isGeneralInfoEdiatable" /> </td>
                             </tr>
                             <!--  Fifth row -->
                             <tr>
                                 <td> <label class="control-label">Other Type: </label> </td>
-                                <td> <input type="text" placeholder="Other Type" ng-model="generalInformation.otherType" /> </td>
+                                <td> <input type="text" placeholder="Other Type" ng-model="generalInformation.otherType" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Home Phone: </label> </td>
-                                <td> <input type="tel" placeholder="Home Phone" ng-model="generalInformation.homePhone" /> </td>
+                                <td> <input type="tel" placeholder="Home Phone" ng-model="generalInformation.homePhone" ng-readonly="isGeneralInfoEdiatable" /> </td>
                             </tr>
                             <!--  Sixth row -->
                             <tr>
                                 <td> <label class="control-label">Case Status: </label> </td>
                                 <td>
-                                    <select ng-model="generalInformation.caseStatus">
+                                    <select ng-model="generalInformation.caseStatus" ng-disabled="isGeneralInfoEdiatable">
                                         <option ng-repeat="item in caseStatus" value="{{item}}">{{item}}</option>
                                     </select>
                                     {{generalInformation.caseStatus}}
                                     <!-- Single button -->
                                     <!--<div class="btn-group" dropdown is-open="status.isopen">
-                                        <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-                                            Case Status<span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Open</a></li>
-                                            <li><a href="#">Closed</a></li>
-                                        </ul>
-                                    </div>-->
+                            <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                                Case Status<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Open</a></li>
+                                <li><a href="#">Closed</a></li>
+                            </ul>
+                        </div>-->
                                 </td>
                                 <td> <label class="control-label">Cell Phone: </label> </td>
-                                <td> <input type="tel" placeholder="Cell Phone" ng-model="generalInformation.cellPhone" /> </td>
+                                <td> <input type="tel" placeholder="Cell Phone" ng-model="generalInformation.cellPhone" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Originating Attorney: </label> </td>
-                                <td> <input type="text" placeholder="Originating Attorney" ng-model="generalInformation.originatingAttorney" /> </td>
+                                <td> <input type="text" placeholder="Originating Attorney" ng-model="generalInformation.originatingAttorney" ng-readonly="isGeneralInfoEdiatable" /> </td>
                             </tr>
                             <!--  row  7-->
                             <tr>
                                 <td> <label class="control-label">Accident Date: </label> </td>
                                 <td>
-                                    <div ng-controller="DatepickerCtrl">
+                                    <div ng-controller="DatepickerCtrl" ng-disabled="isGeneralInfoEdiatable">
                                         <p class="input-group">
                                             <input type="text" class="form-control" datepicker-popup="shortDate" ng-model="generalInformation.accidentDate" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                                             <span class="input-group-btn">
@@ -118,26 +126,26 @@
                                     </div>
                                 </td>
                                 <td> <label class="control-label">Work Phone: </label> </td>
-                                <td> <input type="tel" placeholder="Work Phone" ng-model="generalInformation.workPhone" /> </td>
+                                <td> <input type="tel" placeholder="Work Phone" ng-model="generalInformation.workPhone" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Assigned Attorney: </label> </td>
-                                <td> <input type="text" placeholder="Assigned Attorney" ng-model="generalInformation.assignedAttorney" /> </td>
+                                <td> <input type="text" placeholder="Assigned Attorney" ng-model="generalInformation.assignedAttorney" ng-readonly="isGeneralInfoEdiatable" /> </td>
                             </tr>
                             <!--  row  8-->
                             <tr>
                                 <td> <label class="control-label">Client Created: </label> </td>
-                                <td> <input type="text" placeholder="Client Created" ng-model="generalInformation.clientCreated | ISODateReviver" /> </td>
+                                <td> <input type="text" placeholder="Client Created" ng-model="generalInformation.clientCreated | ISODateReviver" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Driving License: </label> </td>
-                                <td> <input type="text" placeholder="Driving License" ng-model="generalInformation.drivingLicense" /> </td>
+                                <td> <input type="text" placeholder="Driving License" ng-model="generalInformation.drivingLicense" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Refferal: </label> </td>
-                                <td> <input type="text" placeholder="Refferal" ng-model="generalInformation.refferal" /> </td>
+                                <td> <input type="text" placeholder="Refferal" ng-model="generalInformation.refferal" ng-readonly="isGeneralInfoEdiatable" /> </td>
                             </tr>
                             <!--  row  9-->
                             <tr>
                                 <td> <label class="control-label">Email: </label> </td>
-                                <td> <input type="email" placeholder="Email" ng-model="generalInformation.email" /> </td>
+                                <td> <input type="email" placeholder="Email" ng-model="generalInformation.email" ng-readonly="isGeneralInfoEdiatable" /> </td>
                                 <td> <label class="control-label">Date Of Birth: </label> </td>
                                 <td>
-                                    <div ng-controller="DatepickerCtrl">
+                                    <div ng-controller="DatepickerCtrl" ng-disabled="isGeneralInfoEdiatable">
                                         <p class="input-group">
                                             <input type="text" class="form-control" datepicker-popup="shortDate" ng-model="generalInformation.dateOfBirth" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                                             <span class="input-group-btn">
@@ -147,7 +155,7 @@
                                     </div>
                                 </td>
                                 <td> <label class="control-label">SSN: </label> </td>
-                                <td> <input type="text" placeholder="SSN" ng-model="generalInformation.SSN" /> </td>
+                                <td> <input type="text" placeholder="SSN" ng-model="generalInformation.SSN" ng-readonly="isGeneralInfoEdiatable" /> </td>
                             </tr>
 
                         </table>
