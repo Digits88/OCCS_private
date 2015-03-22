@@ -24,9 +24,13 @@
     <Compile Include="public\javascripts\angular-busy.min.js" />
     <Compile Include="public\javascripts\bootstrap.min.js" />
     <Compile Include="public\javascripts\ui-bootstrap-tpls-0.12.1.js" />
+    <Compile Include="public\js\ClientControllers\clientGrid.js" />
+    <Compile Include="public\js\ClientControllers\addNewClient.js" />
     <Compile Include="public\js\bootstraptest.js" />
     <Compile Include="public\js\clients.js" />
+    <Compile Include="public\js\Common\busyIcon.js" />
     <Compile Include="public\js\datetimecontroller.js" />
+    <Compile Include="public\js\Filters\ISODateReviverFilter.js" />
     <Compile Include="public\js\generalsection.js" />
     <Compile Include="public\js\nggridtest.js" />
     <Compile Include="public\js\users.js" />
@@ -90,6 +94,9 @@
     <Folder Include="public\javascripts" />
     <Folder Include="public\js\" />
     <Folder Include="public\jquery\" />
+    <Folder Include="public\js\ClientControllers\" />
+    <Folder Include="public\js\Common\" />
+    <Folder Include="public\js\Filters\" />
     <Folder Include="public\nggrid-js\" />
     <Folder Include="public\services\" />
     <Folder Include="public\stylesheets" />

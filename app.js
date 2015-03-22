@@ -411,6 +411,22 @@ app.put('/clients/generalInfo', function (req, res) {
 
     res.send("success");
 });
+
+// ************************************************
+//      Get New File No.
+// ************************************************
+app.get('/clients/newFileNo', auth, function (req, res) {
+    var query = "call getNewFileNo()";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        res.send(rows);
+        //}
+    });
+});
 //==================================================================
 
 //==================================================================
