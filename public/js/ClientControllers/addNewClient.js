@@ -3,10 +3,11 @@ angular.module('app').AddNewClientCtrl = function ($scope, $http) {
     
     // Add new client
     $scope.AddNewClient = function () {
+        //$scope.isGeneralInfoEdiatable = false;
+        
         $http.get('/clients/newFileNo')
     .success(function (result) {
             $scope.newFileNo = result[0][0].NewFileNo;
-            
             $scope.NewGeneralInfo();
             $scope.NewAdditionalInfo();
             $scope.NewClientAutoInfo();
@@ -33,6 +34,7 @@ angular.module('app').AddNewClientCtrl = function ($scope, $http) {
         $scope.generalInformation.initialInfo = '';
         $scope.generalInformation.defendantName = '';
         $scope.generalInformation.city = '';
+        $scope.generalInformation.state = '';
         $scope.generalInformation.evidence1 = '';
         $scope.generalInformation.caseType = '';
         $scope.generalInformation.evidence2 = '';
@@ -188,7 +190,7 @@ angular.module('app').AddNewClientCtrl = function ($scope, $http) {
         $scope.govtClaimInfo.otherRejectedDate = null;
         $scope.govtClaimInfo.otherRejectedAfter6Months = null;
     };
-
+    
     $scope.NewCourtInfo = function () {
         $scope.courtInfo.fileNo = $scope.newFileNo;
         $scope.courtInfo.caseNumber = '';
@@ -198,7 +200,7 @@ angular.module('app').AddNewClientCtrl = function ($scope, $http) {
         $scope.courtInfo.state = '';
         $scope.courtInfo.zip = '';
     };
-
+    
     $scope.NewMiscData = function () {
         $scope.miscData.splice(0, $scope.miscData.length);
        

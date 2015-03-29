@@ -22,6 +22,11 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
             alert("error");
         });
     };
+
+    $scope.AddNewClientSection = function () {
+        $scope.isGeneralInfoEdiatable = false;
+        
+    };
 });
 
 //angular.module('app').filter('ISODateReviver', function () {
