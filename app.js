@@ -450,19 +450,49 @@ app.post('/clients/createNewClient', auth, function (req, res) {
         //}
     });
     
-    // convert generalInformation json to xml objects
+    // ********************* Save General Information **********************
     var generalInformation = js2xmlparser("generalInformation", req.body.newClient.generalInformation);
+    writeNewClientSectionInDB(generalInformation, "generalInformation","<generalInformation>");
+    
+    // ********************* Additional Client Information **********************
+    var additionalInfo = js2xmlparser("additionalInfo", req.body.newClient.additionalInfo);
+    writeNewClientSectionInDB(additionalInfo, "additionalclientinfo", "<additionalInfo>");
+    
+    // ********************* Client Auto Information **********************
+    var clientAutoInfo = js2xmlparser("clientAutoInfo", req.body.newClient.clientAutoInfo);
+    writeNewClientSectionInDB(clientAutoInfo, "clientAutoInfo", "<clientAutoInfo>");
+    
+    // ********************* Client Medical Insurance Information **********************
+    var medicalInsuranceInfo = js2xmlparser("medicalInsuranceInfo", req.body.newClient.medicalInsuranceInfo);
+    writeNewClientSectionInDB(medicalInsuranceInfo, "medicalinsurance", "<medicalInsuranceInfo>");
 
-    var xmlFilePathName = __dirname + "\\XmlData\\" + "generalInformation.xml";
+    // ********************* Defendant Information **********************
+    var defendantInfo = js2xmlparser("defendantInfo", req.body.newClient.defendantInfo);
+    writeNewClientSectionInDB(defendantInfo, "defendantinformation", "<defendantInfo>");
+    
+    // ********************* Defendant Attorney Information **********************
+    var defendantAttorneyInfo = js2xmlparser("defendantAttorneyInfo", req.body.newClient.defendantAttorneyInfo);
+    writeNewClientSectionInDB(defendantAttorneyInfo, "defendantattorneyinfo", "<defendantAttorneyInfo>");
+
+    // ********************* Defendant Insurance Information **********************
+    var defendantInsuranceInfo = js2xmlparser("defendantInsuranceInfo", req.body.newClient.defendantInsuranceInfo);
+    writeNewClientSectionInDB(defendantInsuranceInfo, "defendantinsurance", "<defendantInsuranceInfo>");
+
+    res.send(200);
+});
+
+function writeNewClientSectionInDB(sectionData, sectionName, rowName) {
+    
+    var xmlFilePathName = __dirname + "\\XmlData\\" + sectionName + ".xml";
     console.log(xmlFilePathName);
     
     // save xml to disk
-    fs.writeFile(xmlFilePathName,generalInformation, function (err) {
+    fs.writeFile(xmlFilePathName, sectionData, function (err) {
         if (err) throw err;
-        console.log('generalInformation.xml saved');
+        console.log(sectionName + '.xml saved');
         
         // load general information xml into table
-        var query = "LOAD XML LOCAL INFILE" + xmlFilePathName + " INTO TABLE generalinformation ROWS IDENTIFIED BY '<generalInformation>';";
+        var query = "LOAD XML LOCAL INFILE \"" + xmlFilePathName.replace(/\\/gi, "/") + "\" INTO TABLE  " + sectionName + " ROWS IDENTIFIED BY '" + rowName + "';";
         //var query = "LOAD XML LOCAL INFILE \"C:/Balram Data/Nodejs/AuthenticationAngularJS-master/XmlData/generalInformation.xml\" INTO TABLE generalinformation ROWS IDENTIFIED BY '<generalInformation>';";
         console.log(query);
         connection.query(query, function (err, rows) {
@@ -471,16 +501,10 @@ app.post('/clients/createNewClient', auth, function (req, res) {
                 console.log(err);
                 return done(err);
             }
-            //if (rows.length) { // general information exists
-            console.log(rows);
         //}
         });
     });
-    
-    
-    res.send(200);
-});
-
+}
 //==================================================================
 
 //==================================================================
