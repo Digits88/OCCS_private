@@ -477,6 +477,18 @@ app.post('/clients/createNewClient', auth, function (req, res) {
     // ********************* Defendant Insurance Information **********************
     var defendantInsuranceInfo = js2xmlparser("defendantInsuranceInfo", req.body.newClient.defendantInsuranceInfo);
     writeNewClientSectionInDB(defendantInsuranceInfo, "defendantinsurance", "<defendantInsuranceInfo>");
+    
+    // ********************* Statute Information **********************
+    var statuteInfo = js2xmlparser("statuteInfo", req.body.newClient.statuteInfo);
+    writeNewClientSectionInDB(statuteInfo, "statuteinformation", "<statuteInfo>");
+    
+    // ********************* Govt Claim Information **********************
+    var govtClaimInfo = js2xmlparser("govtClaimInfo", req.body.newClient.govtClaimInfo);
+    writeNewClientSectionInDB(govtClaimInfo, "govtclaimdetails", "<govtClaimInfo>");
+    
+    // ********************* Court Information **********************
+    var court = js2xmlparser("court", req.body.newClient.court);
+    writeNewClientSectionInDB(court, "courtinformation", "<court>");
 
     res.send(200);
 });
