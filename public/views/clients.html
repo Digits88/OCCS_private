@@ -4,7 +4,7 @@
         <!--  ========================================================================= -->
         <!--  Client Grid
             <!--  ========================================================================= -->
-        <div class="col-md-3">
+        <div class="col-md-4">
             <p>
                 <input id="personNameFilter" type="text" ng-model="nameFilter" placeholder="Filter by Name" ng-change="filterName()">
             </p>
@@ -14,12 +14,12 @@
         <!--  ========================================================================= -->
         <!--  Client details
             <!--  ========================================================================= -->
-        <div class="col-md-9" cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
+        <div class="col-md-8" cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
             <div ng-controller="ClientsCtrl">
                 <div>
-                    <input type="button" value="Add Client" ng-click="AddNewClientSection()" />
-                    <input type="button" value="Cancel" />
-                    <input type="button" value="Save" />
+                    <input type="button" value="Add Client" ng-click="AddNewClient()" ng-disabled="isNewClientClicked" />
+                    <input type="button" value="Cancel" ng-disabled="!isNewClientClicked" />
+                    <input type="button" value="Save" ng-click="SaveNewClient()" ng-disabled="!isNewClientClicked" />
                     <input type="button" value="Close Client" />
                     <input type="button" value="Reactivate Closed Client" />
                     <input type="button" value="Expand All" />
@@ -28,7 +28,7 @@
                     <!--  ========================================================================= -->
                     <!--  General Information Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group heading="General Information" is-open="true">
+                    <accordion-group heading="General Information" is-open="true" >
                         <div class="row">
                             <div class="col-md-2">
                                 <input type="button" value="Edit" ng-click="isGeneralInfoEdiatable=false">
@@ -43,14 +43,17 @@
                         <table>
                             <!--  first row -->
                             <tr>
-                                <td> <label class="control-label">File No.: </label> </td>
-                                <td>
-                                    <input type="text" placeholder="File No." ng-model="generalInformation.fileNo" ng-readonly="isGeneralInfoEdiatable" />
-                                </td>
-                                <td> <label class="control-label">Address: </label> </td>
-                                <td> <input type="text" placeholder="Address" data-ng-model="generalInformation.address" ng-readonly="isGeneralInfoEdiatable" /> </td>
-                                <td> <label class="control-label">Initial Case Information: </label> </td>
-                                <td> <input type="text" placeholder="Initial Case Information" ng-model="generalInformation.initialInfo" ng-readonly="isGeneralInfoEdiatable" />  </td>
+                                <form>
+                                    <td> <label class="control-label">File No.: </label> </td>
+                                    <td>
+                                        <input type="text" placeholder="File No." ng-model="generalInformation.fileNo" ng-readonly="isGeneralInfoEdiatable" />
+                                        <span ng-hide="generalInformation.fileNo.length">*</span>
+                                    </td>
+                                    <td> <label class="control-label">Address: </label> </td>
+                                    <td> <input type="text" placeholder="Address" data-ng-model="generalInformation.address" ng-readonly="isGeneralInfoEdiatable" /> </td>
+                                    <td> <label class="control-label">Initial Case Information: </label> </td>
+                                    <td> <input type="text" placeholder="Initial Case Information" ng-model="generalInformation.initialInfo" ng-readonly="isGeneralInfoEdiatable" />  </td>
+                                </form>
                             </tr>
                             <!--  second row -->
                             <tr ng-disabled="true">

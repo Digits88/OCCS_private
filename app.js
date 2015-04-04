@@ -4,7 +4,7 @@ var path = require('path');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var js2xmlparser = require("js2xmlparser");
-
+var fs = require('fs');
 // Start express application
 var app = express();
 
@@ -426,6 +426,59 @@ app.get('/clients/newFileNo', auth, function (req, res) {
         res.send(rows);
         //}
     });
+});
+
+// ************************************************
+//      Create New Client
+// ************************************************
+app.post('/clients/createNewClient', auth, function (req, res) {
+    console.log(req.body);
+    var newClient = js2xmlparser("newClient", req.body.newClient);
+    
+    var fileNo = req.body.newClient.generalInformation.fileNo;
+    var firstName = req.body.newClient.generalInformation.firstName;
+    var lastName = req.body.newClient.generalInformation.lastName;
+    
+    // Create new client with FileNo, FirstName and LastName in Clients table
+    var query = "call createNewClient(" + fileNo + "," + "'" + firstName + "'" + "," + "'" + lastName + "'" + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        //if (rows.length) { // general information exists
+        console.log(rows);
+        //}
+    });
+    
+    // convert generalInformation json to xml objects
+    var generalInformation = js2xmlparser("generalInformation", req.body.newClient.generalInformation);
+
+    var xmlFilePathName = __dirname + "\\XmlData\\" + "generalInformation.xml";
+    console.log(xmlFilePathName);
+    
+    // save xml to disk
+    fs.writeFile(xmlFilePathName,generalInformation, function (err) {
+        if (err) throw err;
+        console.log('generalInformation.xml saved');
+        
+        // load general information xml into table
+        var query = "LOAD XML LOCAL INFILE" + xmlFilePathName + " INTO TABLE generalinformation ROWS IDENTIFIED BY '<generalInformation>';";
+        //var query = "LOAD XML LOCAL INFILE \"C:/Balram Data/Nodejs/AuthenticationAngularJS-master/XmlData/generalInformation.xml\" INTO TABLE generalinformation ROWS IDENTIFIED BY '<generalInformation>';";
+        console.log(query);
+        connection.query(query, function (err, rows) {
+            if (err) // error connecting to database
+            {
+                console.log(err);
+                return done(err);
+            }
+            //if (rows.length) { // general information exists
+            console.log(rows);
+        //}
+        });
+    });
+    
+    
+    res.send(200);
 });
 
 //==================================================================

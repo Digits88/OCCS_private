@@ -5,7 +5,10 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
     angular.module('app').AddNewClientCtrl($scope, $http);
     angular.module('app').ClientsGridCtrl($scope, $http);
     angular.module('app').BusyIconCtrl($scope, $http);
-    
+
+
+    $scope.isNewClientClicked = false;
+
     // Group options
     $scope.status = {
         isFirstOpen: true,
@@ -24,7 +27,6 @@ angular.module('app').controller('ClientsCtrl', function ($scope, $http) {
     };
 
     $scope.AddNewClientSection = function () {
-        $scope.isGeneralInfoEdiatable = false;
         
     };
 });

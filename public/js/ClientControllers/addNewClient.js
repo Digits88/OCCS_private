@@ -4,6 +4,8 @@ angular.module('app').AddNewClientCtrl = function ($scope, $http) {
     // Add new client
     $scope.AddNewClient = function () {
         //$scope.isGeneralInfoEdiatable = false;
+        $scope.isGeneralInfoEdiatable = false;
+        $scope.isNewClientClicked = true;
         
         $http.get('/clients/newFileNo')
     .success(function (result) {
@@ -205,4 +207,28 @@ angular.module('app').AddNewClientCtrl = function ($scope, $http) {
         $scope.miscData.splice(0, $scope.miscData.length);
        
     };
+    
+    
+    $scope.SaveNewClient = function () {
+        var newClient = {
+            generalInformation : $scope.generalInformation,
+            additionalInfo : $scope.additionalInfo,
+            clientAutoInfo : $scope.clientAutoInfo,
+            clientMedicalInsurance : $scope.clientMedicalInsurance,
+            defendantInfo : $scope.defendantInfo,
+            defendantInsuranceInfo : $scope.defendantInsuranceInfo,
+            defendantAttorneyInfo : $scope.defendantAttorneyInfo,
+            statuteInfo : $scope.statuteInfo,
+            govtClaimInfo : $scope.govtClaimInfo,
+            court : $scope.courtInfo,
+            misc : $scope.misc
+        };
+        $http.post('/clients/createNewClient', { newClient: newClient })
+    .success(function (user) {
+        })
+    .error(function () {
+            alert("error");
+        });
+
+    }
 }
