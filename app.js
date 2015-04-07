@@ -810,6 +810,74 @@ function saveDefendantInsuranceInfo(defendantInsuranceInfo) {
     writeNewClientSectionInDB(defendantInsuranceInfo, "defendantinsurance", "<defendantInsuranceInfo>");
 }
 
+
+// ************************************************
+//      Update Statute Section
+// ************************************************
+app.post('/clients/statuteInfo', auth, function (req, res) {
+    var query = "call deleteStatuteInfo('" + req.body.statuteInfo.fileNo + "')";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+        saveStatuteInfo(req.body.statuteInfo);
+    });
+    res.send(200);
+});
+
+function saveStatuteInfo(statuteInfo) {
+    var statuteInfo = js2xmlparser("statuteInfo", statuteInfo);
+    writeNewClientSectionInDB(statuteInfo, "statuteinformation", "<statuteInfo>");
+}
+
+// ************************************************
+//      Update Govt Claim Section
+// ************************************************
+app.post('/clients/govtClaimInfo', auth, function (req, res) {
+    var query = "call deleteGovtClaimInfo('" + req.body.govtClaimInfo.fileNo + "')";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+        saveGovtClaimInfo(req.body.govtClaimInfo);
+    });
+    res.send(200);
+});
+
+function saveGovtClaimInfo(govtClaimInfo) {
+    var govtClaimInfo = js2xmlparser("govtClaimInfo", govtClaimInfo);
+    writeNewClientSectionInDB(govtClaimInfo, "statuteinformation", "<govtClaimInfo>");
+}
+
+
+// ************************************************
+//      Update Court Information Section
+// ************************************************
+app.post('/clients/courtInfo', auth, function (req, res) {
+    var query = "call deleteGovtClaimInfo('" + req.body.courtInfo.fileNo + "')";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+        saveCourtInfo(req.body.courtInfo);
+    });
+    res.send(200);
+});
+
+function saveCourtInfo(courtInfo) {
+    var courtInfo = js2xmlparser("courtInfo", courtInfo);
+    writeNewClientSectionInDB(courtInfo, "courtinformation", "<courtInfo>");
+}
+
 function writeNewClientSectionInDB(sectionData, sectionName, rowName) {
     
     var xmlFilePathName = __dirname + "\\XmlData\\" + sectionName + ".xml";

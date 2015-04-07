@@ -46,4 +46,23 @@ angular.module('app').UpdateClientCtrl = function ($scope, $http) {
             .success(function (user) { })
             .error(function () { alert("error"); });
     };
+
+    // Save Statute Information
+    $scope.saveStatuteInfo= function () {
+        $http.post('/clients/statuteInfo', { statuteInfo: $scope.statuteInfo })
+            .success(function (user) { })
+            .error(function () { alert("error"); });
+
+        $http.post('/clients/govtClaimInfo', { govtClaimInfo: $scope.govtClaimInfo })
+            .success(function (user) { })
+            .error(function () { alert("error"); });
+    };
+
+    // Save Court Information
+    $scope.saveCourtInfo = function () {
+        $http.post('/clients/courtInfo', { courtInfo: $scope.courtInfo })
+            .success(function (user) { })
+            .error(function () { alert("error"); });
+    };
+
 }
