@@ -169,7 +169,7 @@ app.delete('/user/:user_id', auth, function (req, res) {
         if (err) // error connecting to database
             return done(err);
         if (rows.length) { // user exists
-            res.send({success:'Success'});
+            res.send({ success: 'Success' });
         }
     });
 });
@@ -216,10 +216,30 @@ app.get('/clients/additionalInfo/:fileno', auth, function (req, res) {
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
             return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
+        if (rows.length) { // general information exists
+            console.log(rows);
+            var obj = rows[0][0];
+            if (obj == null) {
+                var additionalInfo = [[{
+                            fileNo: fileno,
+                            clientOccupation: '',
+                            employer: '',
+                            address: '',
+                            city: '',
+                            state: '',
+                            spouseLastName: '',
+                            spouseFirstName: '',
+                            spouseOccupation: '',
+                            spouseAddress: '',
+                            spouseEmployer: '',
+                            spouseCity: '',
+                            spouseState: ''
+                        }]];
+                res.send(additionalInfo);
+            } else {
+                res.send(rows);
+            }
+        }
     });
 });
 // ************************************************
@@ -232,10 +252,40 @@ app.get('/clients/clientAutoInfo/:fileno', auth, function (req, res) {
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
             return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
+        if (rows.length) { // general information exists
+            console.log(rows);
+            
+            if (rows[0][0] == null) {
+                var clientAutoInfo = [
+                    [
+                        {
+                            fileNo: fileno,
+                            insuranceCompany: '',
+                            address: '',
+                            city: '',
+                            state: '',
+                            zip: '',
+                            phoneNumber: '',
+                            adjuster: '',
+                            policyNumber: '',
+                            effectiveStartDate: null,
+                            effectiveEndDate: null,
+                            medPayAvailable: '',
+                            amount: 0,
+                            liabilityMinCoverage: 0,
+                            liabilityMaxCoverage: 0,
+                            UMIMin: 0,
+                            UMIMax: 0,
+                            reimbursable: 0,
+                            notes: ''
+                        }
+                    ]
+                ];
+                res.send(clientAutoInfo);
+            } else {
+                res.send(rows);
+            }
+        }
     });
 });
 
@@ -249,10 +299,31 @@ app.get('/clients/medicalInsuranceInfo/:fileno', auth, function (req, res) {
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
             return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
+        if (rows.length) { // general information exists
+            console.log(rows);
+            
+            if (rows[0][0] == null) {
+                var medicalInsuranceInfo = [[
+                        {
+                            fileNo : fileno ,
+                            namedInsured : '',
+                            insuranceCompany : '',
+                            address : '',
+                            city : '',
+                            state : '',
+                            zip : '',
+                            phoneNumer : '',
+                            policyNumber : '',
+                            mediCalNumber : '',
+                            mediCareNumber : '',
+                            claimNumber : ''
+                        }]];
+                res.send(medicalInsuranceInfo);
+
+            } else {
+                res.send(rows);
+            }
+        }
     });
 });
 
@@ -266,10 +337,10 @@ app.get('/clients/clientInjuries/:fileno', auth, function (req, res) {
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
             return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
+        if (rows.length) { // general information exists
+            console.log(rows);
+            res.send(rows);
+        }
     });
 });
 
@@ -283,10 +354,29 @@ app.get('/clients/defendantInfo/:fileno', auth, function (req, res) {
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
             return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
+        if (rows.length) { // general information exists
+            console.log(rows);
+            
+            if (rows[0][0] == null) {
+                var defendantInfo = [[
+                        {
+                            fileNo : fileno,
+                            lastName : '',
+                            firstName : '',
+                            address : '',
+                            city : '',
+                            state : '',
+                            zip : '',
+                            homePhone : '',
+                            businessPhone : '',
+                            dateOfBirth : null,
+                            drivingLicense : ''
+                        }]];
+                res.send(defendantInfo);
+            } else {
+                res.send(rows);
+            }
+        }
     });
 });
 
@@ -300,10 +390,26 @@ app.get('/clients/defendantAttorneyInfo/:fileno', auth, function (req, res) {
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
             return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
+        if (rows.length) { // general information exists
+            console.log(rows);
+            
+            if (rows[0][0] == null) {
+                var defendantAttorneyInfo = [[
+                        {
+                            fileNo : fileno,
+                            firm : '',
+                            attorney : '',
+                            address : '',
+                            city : '',
+                            state : '',
+                            zip : '',
+                            phone : ''
+                        }]];
+                res.send(defendantAttorneyInfo);
+            } else {
+                res.send(rows);
+            }
+        }
     });
 });
 
@@ -317,10 +423,30 @@ app.get('/clients/defendantInsuranceInfo/:fileno', auth, function (req, res) {
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
             return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
+        if (rows.length) { // general information exists
+            console.log(rows);
+            
+            if (rows[0][0] == null) {
+                var defendantInsuranceInfo = [[
+                        {
+                            fileNo : fileno,
+                            nameOfInsured : '',
+                            insuranceCompany : '',
+                            address : '',
+                            city : '',
+                            state : '',
+                            zip : '',
+                            phone : '',
+                            adjuster : '',
+                            claimNumber : '',
+                            policyLimits : ''
+                        }]];
+                
+                res.send(defendantInsuranceInfo);
+            } else {
+                res.send(rows);
+            }
+        }
     });
 });
 
@@ -334,27 +460,29 @@ app.get('/clients/statuteInfo/:fileno', auth, function (req, res) {
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
             return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
-    });
-});
+        if (rows.length) { // general information exists
+            if (rows[0][0] == null) {
+                var statuteInfo = [
+                    [
+                        {
+                            fileNo: fileno,
+                            yrFromAccident: null,
+                            _2yrFromAccident: null,
+                            complaintFiledDate: null,
+                            _60daysFromFiledDate: null,
+                            _2yrsDate: null,
+                            _3yrsDate: null,
+                            _5yrsDate: null,
+                            isGovtClaim: 'false'
+                        }
+                    ]
+                ];
 
-// ************************************************
-//      Get Court Information by FileNo
-// ************************************************
-app.get('/clients/courtInfo/:fileno', auth, function (req, res) {
-    var fileno = req.params.fileno;
-    var query = "call getCourtInformation(" + fileno + ")";
-    console.log(query);
-    connection.query(query, function (err, rows) {
-        if (err) // error connecting to database
-            return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
+                res.send(statuteInfo);
+            } else {
+                res.send(rows);
+            }
+        }
     });
 });
 
@@ -368,10 +496,69 @@ app.get('/clients/govtClaimInfo/:fileno', auth, function (req, res) {
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
             return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
+        if (rows.length) { // general information exists
+            if (rows[0][0] == null) {
+                var govtClaimInfo = [
+                    [
+                        {
+                            fileNo : fileno,
+                            _6monthsStatue : null,
+                            sl1yr : null,
+                            _2yrs : null,
+                            city : '',
+                            cityRejectedDate : null,
+                            cityRejectedAfter6Months : null,
+                            county : '',
+                            countyRejectedDate : null,
+                            countyRejectedAfter6Months : null,
+                            state : '',
+                            stateRejectedDate : null,
+                            stateRejectedAfter6Months : null,
+                            other : '',
+                            otherRejectedDate : null,
+                            otherRejectedAfter6Months : null
+                        }
+                    ]
+                ];
+                res.send(govtClaimInfo);
+            } else {
+                res.send(rows);
+            }
+        }
+    });
+});
+
+// ************************************************
+//      Get Court Information by FileNo
+// ************************************************
+app.get('/clients/courtInfo/:fileno', auth, function (req, res) {
+    var fileno = req.params.fileno;
+    var query = "call getCourtInformation(" + fileno + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        if (rows.length) { // general information exists
+            if (rows[0][0] == null) {
+                var courtInfo = [
+                    [
+                        {
+                            fileNo : fileno,
+                            caseNumber : '',
+                            court : '',
+                            address : '',
+                            city : '',
+                            state : '',
+                            zip : ''
+                        }
+                    ]
+                ];
+                
+                res.send(courtInfo);
+            } else {
+                res.send(rows);
+            }
+        }
     });
 });
 
@@ -385,31 +572,11 @@ app.get('/clients/miscInfo/:fileno', auth, function (req, res) {
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
             return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
+        if (rows.length) { // general information exists
+            console.log(rows);
+            res.send(rows);
+        }
     });
-});
-
-// route to log out
-app.put('/clients/generalInfo', function (req, res) {
-    console.log(req.body);
-    var xmlData = js2xmlparser("generalInfo", req.body);
-    console.log(xmlData);
-    
-    var query = "call addGeneralInformation('" + xmlData.toString() + "')";
-    console.log(query);
-    connection.query(query, function (err, rows) {
-        if (err) // error connecting to database
-            return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
-    });
-
-    res.send("success");
 });
 
 // ************************************************
@@ -421,10 +588,10 @@ app.get('/clients/newFileNo', auth, function (req, res) {
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
             return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        res.send(rows);
-        //}
+        if (rows.length) { // general information exists
+            console.log(rows);
+            res.send(rows);
+        }
     });
 });
 
@@ -445,18 +612,16 @@ app.post('/clients/createNewClient', auth, function (req, res) {
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
             return done(err);
-        //if (rows.length) { // general information exists
-        console.log(rows);
-        //}
+        if (rows.length) { // general information exists
+            console.log(rows);
+        }
     });
     
     // ********************* Save General Information **********************
-    var generalInformation = js2xmlparser("generalInformation", req.body.newClient.generalInformation);
-    writeNewClientSectionInDB(generalInformation, "generalInformation","<generalInformation>");
+    saveGeneralInformation(req.body.newClient.generalInformation);
     
     // ********************* Additional Client Information **********************
-    var additionalInfo = js2xmlparser("additionalInfo", req.body.newClient.additionalInfo);
-    writeNewClientSectionInDB(additionalInfo, "additionalclientinfo", "<additionalInfo>");
+    saveAdditionalInfo(req.body.newClient.additionalInfo);
     
     // ********************* Client Auto Information **********************
     var clientAutoInfo = js2xmlparser("clientAutoInfo", req.body.newClient.clientAutoInfo);
@@ -465,7 +630,7 @@ app.post('/clients/createNewClient', auth, function (req, res) {
     // ********************* Client Medical Insurance Information **********************
     var medicalInsuranceInfo = js2xmlparser("medicalInsuranceInfo", req.body.newClient.medicalInsuranceInfo);
     writeNewClientSectionInDB(medicalInsuranceInfo, "medicalinsurance", "<medicalInsuranceInfo>");
-
+    
     // ********************* Defendant Information **********************
     var defendantInfo = js2xmlparser("defendantInfo", req.body.newClient.defendantInfo);
     writeNewClientSectionInDB(defendantInfo, "defendantinformation", "<defendantInfo>");
@@ -473,7 +638,7 @@ app.post('/clients/createNewClient', auth, function (req, res) {
     // ********************* Defendant Attorney Information **********************
     var defendantAttorneyInfo = js2xmlparser("defendantAttorneyInfo", req.body.newClient.defendantAttorneyInfo);
     writeNewClientSectionInDB(defendantAttorneyInfo, "defendantattorneyinfo", "<defendantAttorneyInfo>");
-
+    
     // ********************* Defendant Insurance Information **********************
     var defendantInsuranceInfo = js2xmlparser("defendantInsuranceInfo", req.body.newClient.defendantInsuranceInfo);
     writeNewClientSectionInDB(defendantInsuranceInfo, "defendantinsurance", "<defendantInsuranceInfo>");
@@ -489,9 +654,92 @@ app.post('/clients/createNewClient', auth, function (req, res) {
     // ********************* Court Information **********************
     var court = js2xmlparser("court", req.body.newClient.court);
     writeNewClientSectionInDB(court, "courtinformation", "<court>");
-
+    
     res.send(200);
 });
+
+// ************************************************
+//      Update General section
+// ************************************************
+app.post('/clients/generalInfo', auth, function (req, res) {
+    var query = "call deleteGeneralInfo('" + req.body.generalInformation.fileNo + "')";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+        saveGeneralInformation(req.body.generalInformation);
+    });
+    res.send(200);
+});
+
+function saveGeneralInformation(generalInformation) {
+    // ********************* Save General Information **********************
+    var generalInformation = js2xmlparser("generalInformation", generalInformation);
+    writeNewClientSectionInDB(generalInformation, "generalInformation", "<generalInformation>");
+}
+
+// ************************************************
+//      Update Additional Client Section
+// ************************************************
+app.post('/clients/additionalInfo', auth, function (req, res) {
+    var query = "call deleteAdditionalInfo('" + req.body.additionalInfo.fileNo + "')";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        
+        saveAdditionalInfo(req.body.additionalInfo);
+    });
+    res.send(200);
+});
+
+function saveAdditionalInfo(additionalInfo) {
+    var additionalInfo = js2xmlparser("additionalInfo", additionalInfo);
+    writeNewClientSectionInDB(additionalInfo, "additionalclientinfo", "<additionalInfo>");
+}
+
+
+// ************************************************
+//      Update Client Auto Section
+// ************************************************
+app.post('/clients/clientAutoInfo', auth, function (req, res) {
+    var query = "call deleteClientAutoInfo('" + req.body.clientAutoInfo.fileNo + "')";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        saveClientAutoInfo(req.body.clientAutoInfo);
+    });
+    res.send(200);
+});
+
+function saveClientAutoInfo(clientAutoInfo) {
+    var clientAutoInfo = js2xmlparser("clientAutoInfo", clientAutoInfo);
+    writeNewClientSectionInDB(clientAutoInfo, "clientAutoInfo", "<clientAutoInfo>");
+}
+
+
+// ************************************************
+//      Update Client Medical Insurance Section
+// ************************************************
+app.post('/clients/clientMedicalInsuranceInfo', auth, function (req, res) {
+    var query = "call deleteClientMedicalInsuranceInfo('" + req.body.medicalInsuranceInfo.fileNo + "')";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+            return done(err);
+        saveClientMedicalInsuranceInfo(req.body.medicalInsuranceInfo);
+    });
+    res.send(200);
+});
+
+function saveClientMedicalInsuranceInfo(medicalInsuranceInfo) {
+    var medicalInsuranceInfo = js2xmlparser("medicalInsuranceInfo", medicalInsuranceInfo);
+    writeNewClientSectionInDB(medicalInsuranceInfo, "medicalinsurance", "<medicalInsuranceInfo>");
+}
 
 function writeNewClientSectionInDB(sectionData, sectionName, rowName) {
     
