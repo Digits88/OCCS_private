@@ -28,4 +28,22 @@ angular.module('app').UpdateClientCtrl = function ($scope, $http) {
             .success(function (user) { })
             .error(function () { alert("error"); });
     };
+    
+    // Save Defendant Information
+    $scope.saveDefendantInfo = function () {
+        $http.post('/clients/defendantInfo', { defendantInfo: $scope.defendantInfo })
+            .success(function (user) { })
+            .error(function () { alert("error"); });
+
+        $http.post('/clients/defendantAttorneyInfo', { defendantAttorneyInfo: $scope.defendantAttorneyInfo })
+            .success(function (user) { })
+            .error(function () { alert("error"); });
+    };
+
+    // Save Defendant insurance Information
+    $scope.saveDefendantInsuranceInfo = function () {
+        $http.post('/clients/defendantInsuranceInfo', { defendantInsuranceInfo: $scope.defendantInsuranceInfo })
+            .success(function (user) { })
+            .error(function () { alert("error"); });
+    };
 }

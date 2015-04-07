@@ -741,6 +741,75 @@ function saveClientMedicalInsuranceInfo(medicalInsuranceInfo) {
     writeNewClientSectionInDB(medicalInsuranceInfo, "medicalinsurance", "<medicalInsuranceInfo>");
 }
 
+
+// ************************************************
+//      Update Defendant Information Section
+// ************************************************
+app.post('/clients/defendantInfo', auth, function (req, res) {
+    var query = "call deleteDefendantInfo('" + req.body.defendantInfo.fileNo + "')";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+        saveDefendantInfo(req.body.defendantInfo);
+    });
+    res.send(200);
+});
+
+function saveDefendantInfo(defendantInfo) {
+    var defendantInfo = js2xmlparser("defendantInfo", defendantInfo);
+    writeNewClientSectionInDB(defendantInfo, "defendantinformation", "<defendantInfo>");
+}
+
+
+// ************************************************
+//      Update Defendant Attorney Section
+// ************************************************
+app.post('/clients/defendantAttorneyInfo', auth, function (req, res) {
+    var query = "call deleteDefendantAttorneyInfo('" + req.body.defendantAttorneyInfo.fileNo + "')";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+        saveDefendantAttorneyInfo(req.body.defendantAttorneyInfo);
+    });
+    res.send(200);
+});
+
+function saveDefendantAttorneyInfo(defendantAttorneyInfo) {
+    var defendantAttorneyInfo = js2xmlparser("defendantAttorneyInfo", defendantAttorneyInfo);
+    writeNewClientSectionInDB(defendantAttorneyInfo, "defendantattorneyinfo", "<defendantAttorneyInfo>");
+}
+
+
+// ************************************************
+//      Update Defendant Insurance Section
+// ************************************************
+app.post('/clients/defendantInsuranceInfo', auth, function (req, res) {
+    var query = "call deleteDefendantInsuranceInfo('" + req.body.defendantInsuranceInfo.fileNo + "')";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+        saveDefendantInsuranceInfo(req.body.defendantInsuranceInfo);
+    });
+    res.send(200);
+});
+
+function saveDefendantInsuranceInfo(defendantInsuranceInfo) {
+    var defendantInsuranceInfo = js2xmlparser("defendantInsuranceInfo", defendantInsuranceInfo);
+    writeNewClientSectionInDB(defendantInsuranceInfo, "defendantinsurance", "<defendantInsuranceInfo>");
+}
+
 function writeNewClientSectionInDB(sectionData, sectionName, rowName) {
     
     var xmlFilePathName = __dirname + "\\XmlData\\" + sectionName + ".xml";
