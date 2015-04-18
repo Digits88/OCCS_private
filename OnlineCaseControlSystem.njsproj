@@ -4,7 +4,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{d943a4f0-7820-4e19-8448-a2895cd965cd}</ProjectGuid>
-    <ProjectHome>..\..\..\Balram Data\Nodejs\AuthenticationAngularJS-master\</ProjectHome>
+    <ProjectHome>
+    </ProjectHome>
     <ProjectView>ShowAllFiles</ProjectView>
     <StartupFile>app.js</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
@@ -87,7 +88,6 @@
     <Content Include="public\views\main.html" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AuthenticationAngularJS-master" />
     <Folder Include="Database\" />
     <Folder Include="public" />
     <Folder Include="public\bootstrap-3.3.2-dist\" />
