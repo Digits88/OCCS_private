@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="/bootstrap-3.3.2-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
 	<script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="/javascripts/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="/javascripts/angular.min.js"></script>
 	<script type="text/javascript" src="/javascripts/ui-bootstrap-tpls-0.12.1.js"></script>
    
@@ -48,29 +48,58 @@
 
   </head>
   <body>
-	<div ng-hide="isLoggingRequired">
-		{{loggedInUserName}}
-		<br/>
-		<br/>
-		<a href="#/" ng-click="logout()">Logout</a>
-		<br/>
-		<br/>
-		<nav>
-			<table>
-				<tr width="100%">
-					<td><a href="#/clients">Client Dashboard</a></td>
-					<td><a href="#/menu/reports.html">Reports</a></td>
-					<td><a href="#/menu/Billings.html">Billings</a></td>
-					<td><a href="#/menu/deleteclients.html">Delete Clients</a></td>
-					<td><a href="#/users">Users</a></td>
-				</tr>
-			</table>
+	  <header>
+		<nav class="navbar navbar-inverse navbar-fixed-top" >
+			<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Lawyers Port</a>
+			</div>
+			<div >
+				<ul class="nav navbar-nav" ng-hide="isLoggingRequired">
+					<li ng-class="{ active: isActive('/clients')}"><a href="#/clients">Client Dashboard</a></li>
+					<li ng-class="{ active: isActive('/reports')}"><a href="#/menu/reports">Reports</a></li>
+					<li ng-class="{ active: isActive('/Billings')}"><a href="#/menu/Billings">Billings</a></li>
+					<li ng-class="{ active: isActive('/Delete Clients')}"><a href="#/menu/deleteclients">Delete Clients</a></li>
+					<li ng-class="{ active: isActive('/Users')}"><a href="#/users">Users</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown" ng-hide="!isLoggingRequired">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							<span class="glyphicon glyphicon-log-in"></span>
+							Login
+							<span class="caret"></span>
+						</a>
+						<div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+							<form method="post" action="login" accept-charset="UTF-8">
+								<input style="margin-bottom: 15px;" type="text" placeholder="Username" id="username" name="username">
+								<input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password" name="password">
+								<input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
+								<label class="string optional" for="user_remember_me"> Remember me</label>
+								<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">								
+							</form>
+						</div>
+					</li>
+					<li class="dropdown" ng-hide="isLoggingRequired">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<span class="glyphicon glyphicon-user"></span>
+						Welcome {{loggedInUserName}}!
+						<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/user/preferences"><i class="icon-cog"></i> Preferences</a></li>
+							<li><a href="#"><i class="icon-envelope"></i> Contact Support</a></li>
+                            <li class="divider"></li>
+							<li><a href="/auth/logout"><i class="icon-off"></i> Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+				
+			</div>
 		</nav>
-	</div>
-
-  	<span ng-hide=!"isLoggingRequired">{{message}} </span>
-
-    <ng-view ></ng-view>
-
+		</header>
+  		
+		<span ng-hide=!"isLoggingRequired">{{message}} </span>
+		
+		<ng-view ></ng-view>
   </body>
 </html>

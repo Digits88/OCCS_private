@@ -100,9 +100,13 @@ var app = angular.module('app', ['ngGrid', 'ui.bootstrap','ngResource', 'ngRoute
         //================================================
 
 })// end of config()
-  .run(function ($rootScope, $http, myService) {
+  .run(function ($rootScope, $http, myService, $location) {
     $rootScope.message = '';
     
+    $rootScope.isActive = function (viewLocation) {
+        return viewLocation === $location.path();
+    };
+
     // Logout function is available in any pages
     $rootScope.logout = function () {
         $rootScope.message = 'Logged out.';

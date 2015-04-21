@@ -20,7 +20,7 @@ angular.module('app').controller('LoginCtrl', function ($scope, $rootScope, $htt
             myService.set(user.name);
             $rootScope.message = 'Authentication successful!';
             $rootScope.isLoggingRequired = false;
-            $rootScope.loggedInUserName = "Hello " + myService.get() + "!";
+            $rootScope.loggedInUserName = myService.get();
             $location.url('/dashboard');
         })
     .error(function () {
