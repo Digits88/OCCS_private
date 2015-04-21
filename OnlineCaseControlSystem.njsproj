@@ -36,6 +36,7 @@
     <Compile Include="public\js\datetimecontroller.js" />
     <Compile Include="public\js\Filters\ISODateReviverFilter.js" />
     <Compile Include="public\js\generalsection.js" />
+    <Compile Include="public\js\logout.js" />
     <Compile Include="public\js\nggridtest.js" />
     <Compile Include="public\js\users.js" />
     <Compile Include="public\services\loginService.js" />

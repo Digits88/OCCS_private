@@ -56,8 +56,8 @@ var app = angular.module('app', ['ngGrid', 'ui.bootstrap','ngResource', 'ngRoute
     $routeProvider
       .when('/', {
         //templateUrl: '/views/main.html'
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
+        //templateUrl: 'views/login.html',
+        //controller: 'LoginCtrl'
     })
       .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
@@ -94,6 +94,10 @@ var app = angular.module('app', ['ngGrid', 'ui.bootstrap','ngResource', 'ngRoute
         templateUrl: 'views/generalsection.html',
         controller: 'GeneralSectionCtrl'
     })
+      .when('/logout', {
+        templateUrl: '/',
+        controller: 'LogoutCtrl'
+    })
       .otherwise({
         redirectTo: '/'
     });
@@ -112,4 +116,9 @@ var app = angular.module('app', ['ngGrid', 'ui.bootstrap','ngResource', 'ngRoute
         $rootScope.message = 'Logged out.';
         $http.post('/logout');
     };
-});
+}).directive('myLogin', function () {
+    return {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+    };
+});;
