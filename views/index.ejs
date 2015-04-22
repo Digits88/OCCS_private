@@ -7,6 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/ng-grid.css" />
 	<link rel="stylesheet" type="text/css" href="/bootstrap-3.3.2-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+
+    <link rel='stylesheet' href='/stylesheets/login-page.css' />
+
 	<script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="/javascripts/angular.min.js"></script>
@@ -91,6 +94,38 @@
 			</div>
 		</nav>
 		</header>
+		<div	class="container"
+				ng-controller="LoginCtrl"
+				ng-hide="!isLoggingRequired">
+			<div class="card card-container">
+				<p id="profile-name" class="profile-name-card"></p>
+				<form	class="form-signin"
+						ng-submit="login()">
+					<span id="reauth-email" class="reauth-email"></span>
+					<input	type="text"
+							id="inputEmail" 
+							class="form-control" 
+							placeholder="User Name" 
+							ng-model="user.username"
+							required autofocus>
+					<input	type="password" 
+							id="inputPassword"
+							class="form-control" 
+							placeholder="Password"
+							ng-model="user.password" 
+							required>
+					<div id="remember" class="checkbox">
+						<label>
+							<input type="checkbox" value="remember-me"> Remember me
+						</label>
+					</div>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+				</form><!-- /form -->
+				<a href="#" class="forgot-password">
+					Forgot the password?
+				</a>
+			</div><!-- /card-container -->
+		</div>		
 		<ng-view ></ng-view>
   </body>
 </html>

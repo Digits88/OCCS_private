@@ -61,6 +61,8 @@
     <Content Include="public\stylesheets\bootstrap.min.css" />
     <Content Include="public\stylesheets\gh-fork-ribbon.css" />
     <Content Include="public\stylesheets\ng-grid.css" />
+    <Content Include="public\stylesheets\login-page.css" />
+    <Content Include="public\views\temp.html" />
     <Content Include="public\views\generalsection.html" />
     <Content Include="public\views\dashboard.html" />
     <Content Include="public\views\menu\deleteclients.html" />
