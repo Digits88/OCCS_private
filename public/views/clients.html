@@ -1,39 +1,63 @@
-<div class="container-fluid">
-
+<div ng-controller="ClientsCtrl">
+    <br/>
+    <div class="btn-group btn-group-justified" role="group">
+        <div class="btn-group" role="group">
+            <input type="button" class="btn btn-primary" value="Add Client" ng-click="AddNewClient()" ng-disabled="isNewClientClicked" />
+        </div>
+        <div class="btn-group" role="group">
+            <input type="button" class="btn btn-primary" value="Cancel" ng-disabled="!isNewClientClicked" />
+        </div>
+        <div class="btn-group" role="group">
+            <input type="button" class="btn btn-primary" value="Save" ng-click="SaveNewClient()" ng-disabled="!isNewClientClicked" />
+        </div>
+        <div class="btn-group" role="group">
+            <input type="button" class="btn btn-primary" value="Close Client" />
+        </div>
+        <div class="btn-group" role="group">
+            <input type="button" class="btn btn-primary" value="Reactivate Closed Client" />
+        </div>
+        <div class="btn-group" role="group">
+            <input type="button" class="btn btn-primary" value="Expand All" />
+        </div>
+    </div>
     <div class="row">
         <!--  ========================================================================= -->
         <!--  Client Grid
             <!--  ========================================================================= -->
-        <div class="col-md-4">
-            <p>
-                <input id="personNameFilter" type="text" ng-model="nameFilter" placeholder="Filter by Name" ng-change="filterName()">
-            </p>
-            <p class="gridStyle" ng-grid="gridOptions"></p>
-            <p class="selectedItems">{{mySelections}}</p>
+        <div>
+            <br />
+            <input class="form-control"
+                   id="personNameFilter"
+                   type="text"
+                   ng-model="nameFilter"
+                   placeholder="Filter by Name"
+                   ng-change="filterName()"
+                   style="margin-bottom: 5px">
+
+            <div class="gridStyle"
+                 ng-grid="gridOptions"></div>
+            <!--<p class="selectedItems">{{mySelections}}</p>-->
         </div>
+
+    </div>
+    <div class="row">
         <!--  ========================================================================= -->
         <!--  Client details
             <!--  ========================================================================= -->
-        <div class="col-md-8" cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
-            <div ng-controller="ClientsCtrl">
-                <div>
-                    <input type="button" value="Add Client" ng-click="AddNewClient()" ng-disabled="isNewClientClicked" />
-                    <input type="button" value="Cancel" ng-disabled="!isNewClientClicked" />
-                    <input type="button" value="Save" ng-click="SaveNewClient()" ng-disabled="!isNewClientClicked" />
-                    <input type="button" value="Close Client" />
-                    <input type="button" value="Reactivate Closed Client" />
-                    <input type="button" value="Expand All" />
-                </div>
+        <div cg-busy="{promise:promise,templateUrl:templateUrl,message:message,backdrop:backdrop,delay:delay,minDuration:minDuration}">
+            <div>
+
                 <accordion close-others="false">
                     <!--  ========================================================================= -->
                     <!--  General Information Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group heading="General Information" is-open="true" >
+                    <accordion-group heading="General Information" is-open="true">
                         <div class="row">
                             <div class="col-md-2">
                                 <input type="button" value="Edit" ng-click="isGeneralInfoEdiatable=false">
                             </div>
-                            <div class="col-md-2">
+                            <div class="col
+                            <div class=" col-md-2">
                                 <input type="button" value="Save" ng-click="saveGeneralInfo()">
                             </div>
                             <div class="col-md-2">
@@ -103,14 +127,14 @@
                                     {{generalInformation.caseStatus}}
                                     <!-- Single button -->
                                     <!--<div class="btn-group" dropdown is-open="status.isopen">
-                                        <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-                                            Case Status<span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Open</a></li>
-                                            <li><a href="#">Closed</a></li>
-                                        </ul>
-                                    </div>-->
+                                            <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                                                Case Status<span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Open</a></li>
+                                                <li><a href="#">Closed</a></li>
+                                            </ul>
+                                        </div>-->
                                 </td>
                                 <td> <label class="control-label">Cell Phone: </label> </td>
                                 <td> <input type="tel" placeholder="Cell Phone" ng-model="generalInformation.cellPhone" ng-readonly="isGeneralInfoEdiatable" /> </td>
