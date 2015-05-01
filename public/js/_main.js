@@ -3,7 +3,13 @@
 /**********************************************************************
  * Angular Application
  **********************************************************************/
-var app = angular.module('app', ['ngGrid', 'ui.bootstrap','ngResource', 'ngRoute', 'ngAnimate', 'cgBusy'])
+var app = angular.module('app', [   'ngGrid', 
+                                    'ui.bootstrap', 
+                                    'ngResource', 
+                                    'ngRoute', 
+                                    'ngAnimate', 
+                                    'cgBusy',
+                                    'xeditable'])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     //================================================
     // Check if the user is connected
@@ -104,9 +110,9 @@ var app = angular.module('app', ['ngGrid', 'ui.bootstrap','ngResource', 'ngRoute
         //================================================
 
 })// end of config()
-  .run(function ($rootScope, $http, myService, $location) {
+  .run(function ($rootScope, $http, myService, $location,editableOptions) {
     $rootScope.message = '';
-    
+    editableOptions.theme = 'bs2';
     $rootScope.isActive = function (viewLocation) {
         return viewLocation === $location.path();
     };
@@ -121,4 +127,10 @@ var app = angular.module('app', ['ngGrid', 'ui.bootstrap','ngResource', 'ngRoute
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
     };
-});;
+}).directive('generalSection', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/client/generalSection/generalsection.html',
+        controller: 'GeneralCtrl'
+    };
+});

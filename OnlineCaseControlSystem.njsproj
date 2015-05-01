@@ -17,9 +17,12 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Compile Include="public\angular-xeditable-0.1.8\js\xeditable.js" />
+    <Compile Include="public\angular-xeditable-0.1.8\js\xeditable.min.js" />
     <Compile Include="public\bootstrap-3.3.2-dist\js\bootstrap.js" />
     <Compile Include="public\bootstrap-3.3.2-dist\js\bootstrap.min.js" />
     <Compile Include="public\bootstrap-3.3.2-dist\js\npm.js" />
+    <Compile Include="public\directives\client\generalSection\GeneralCtrl.js" />
     <Compile Include="public\javascripts\angular-animate.js" />
     <Compile Include="public\javascripts\angular-busy.js" />
     <Compile Include="public\javascripts\angular-busy.min.js" />
@@ -43,6 +46,7 @@
     <Content Include="Database\casecontroldb.sql" />
     <Content Include="largeLoad.json" />
     <Content Include="package.json" />
+    <Content Include="public\angular-xeditable-0.1.8\css\xeditable.css" />
     <Content Include="public\bootstrap-3.3.2-dist\css\bootstrap-theme.css" />
     <Content Include="public\bootstrap-3.3.2-dist\css\bootstrap-theme.css.map" />
     <Content Include="public\bootstrap-3.3.2-dist\css\bootstrap-theme.min.css" />
@@ -58,12 +62,13 @@
     <Content Include="public\nggrid-js\ng-grid.debug.js" />
     <Content Include="public\stylesheets\angular-busy.css" />
     <Content Include="public\stylesheets\angular-busy.min.css" />
+    <Content Include="public\stylesheets\bootstrap-combined.min.css" />
     <Content Include="public\stylesheets\bootstrap.min.css" />
     <Content Include="public\stylesheets\gh-fork-ribbon.css" />
     <Content Include="public\stylesheets\ng-grid.css" />
     <Content Include="public\stylesheets\login-page.css" />
     <Content Include="public\views\temp.html" />
-    <Content Include="public\views\generalsection.html" />
+    <Content Include="public\directives\client\generalSection\generalsection.html" />
     <Content Include="public\views\dashboard.html" />
     <Content Include="public\views\menu\deleteclients.html" />
     <Content Include="public\views\menu\billings.html" />
@@ -93,6 +98,9 @@
   <ItemGroup>
     <Folder Include="Database\" />
     <Folder Include="public" />
+    <Folder Include="public\angular-xeditable-0.1.8\" />
+    <Folder Include="public\angular-xeditable-0.1.8\css\" />
+    <Folder Include="public\angular-xeditable-0.1.8\js\" />
     <Folder Include="public\bootstrap-3.3.2-dist\" />
     <Folder Include="public\bootstrap-3.3.2-dist\css\" />
     <Folder Include="public\bootstrap-3.3.2-dist\fonts\" />
@@ -107,7 +115,10 @@
     <Folder Include="public\services\" />
     <Folder Include="public\stylesheets" />
     <Folder Include="public\views" />
+    <Folder Include="public\directives\client\" />
+    <Folder Include="public\directives\client\generalSection\" />
     <Folder Include="public\views\menu\" />
+    <Folder Include="public\directives\" />
     <Folder Include="views" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />

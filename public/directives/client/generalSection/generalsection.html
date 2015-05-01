@@ -1,0 +1,172 @@
+<form editable-form name="editableForm" onaftersave="saveGeneralInfo()">
+    <div>
+        <!-- button to show form -->
+        <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+            Edit
+        </button>
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableForm.$visible">
+            <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+                Save
+            </button>
+            <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                Cancel
+            </button>
+        </span>
+    </div>
+
+    <div class="container-fluid">
+        <!--  first row -->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">File No.: </span>
+                <span editable-text="generalInformation.fileNo"
+                      e-name="fileNo" 
+                      e-required>
+                    {{ generalInformation.fileNo }}
+                </span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Address: </span>
+                <span editable-text="generalInformation.address" e-name="address" e-required>{{ generalInformation.address }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Initial Case Information: </span>
+                <span editable-text="generalInformation.initialInfo" e-name="initialInfo" e-required>{{ generalInformation.initialInfo }}</span>
+            </div>
+        </div>
+
+        <!--  second row -->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">Last Name: </span>
+                <span editable-text="generalInformation.lastName" e-name="lastName" e-required>{{ generalInformation.lastName }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Suite/Apt No.: </span>
+                <span editable-text="generalInformation.aptNo" e-name="aptNo" e-required>{{ generalInformation.aptNo }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Defendant Name: </span>
+                <span editable-text="generalInformation.defendantName" e-name="defendantName" e-required>{{ generalInformation.defendantName }}</span>
+            </div>
+        </div>
+
+        <!--  third row -->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">First Name: </span>
+                <span editable-text="generalInformation.firstName" e-name="firstName" e-required>{{ generalInformation.firstName }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">City: </span>
+                <span editable-text="generalInformation.city" e-name="city" e-required>{{ generalInformation.city }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Evidence 1: </span>
+                <span editable-text="generalInformation.evidence1" e-name="evidence1" e-required>{{ generalInformation.evidence1 }}</span>
+            </div>
+        </div>
+
+        <!--  Fourth row -->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">Case Type: </span>
+                <span editable-select="generalInformation.caseType"
+                      e-name="caseType"
+                      e-ng-options="c as c for c in caseTypes">
+                    {{ generalInformation.caseType || 'Not set' }}
+                </span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">State: </span>
+                <span editable-text="generalInformation.state" e-name="state" e-required>{{ generalInformation.state }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Evidence 2: </span>
+                <span editable-text="generalInformation.evidence2" e-name="evidence2" e-required>{{ generalInformation.evidence2 }}</span>
+            </div>
+        </div>
+
+        <!--  Fifth row -->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">Other Type: </span>
+                <span editable-text="generalInformation.otherType" e-name="otherType" e-required>{{ generalInformation.otherType }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Home Phone: </span>
+                <span editable-text="generalInformation.homePhone" e-name="homePhone" e-required>{{ generalInformation.homePhone }}</span>
+            </div>
+        </div>
+
+        <!--  Sixth row -->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">Case Status: </span>
+                <span editable-select="generalInformation.caseStatus"
+                      e-name="caseType"
+                      e-ng-options="c as c for c in caseStatus">
+                    {{ generalInformation.caseStatus || 'Not set' }}
+                </span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Cell Phone: </span>
+                <span editable-text="generalInformation.cellPhone" e-name="cellPhone" e-required>{{ generalInformation.cellPhone }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Originating Attorney: </span>
+                <span editable-text="generalInformation.originatingAttorney" e-name="originatingAttorney" e-required>{{ generalInformation.originatingAttorney }}</span>
+            </div>
+        </div>
+
+        <!--  row  7-->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">Accident Date: </span>
+                <span href="#" editable-date="generalInformation.accidentDate">{{ generalInformation.accidentDate || '' }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Work Phone: </span>
+                <span editable-text="generalInformation.workPhone" e-name="workPhone" e-required>{{ generalInformation.workPhone }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Assigned Attorney: </span>
+                <span editable-text="generalInformation.assignedAttorney" e-name="assignedAttorney" e-required>{{ generalInformation.assignedAttorney }}</span>
+            </div>
+        </div>
+        
+        <!--  row  8-->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">Client Created: </span>
+                <span editable-text="generalInformation.clientCreated" e-name="clientCreated" e-required>{{ generalInformation.clientCreated }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Driving License: </span>
+                <span editable-text="generalInformation.drivingLicense" e-name="drivingLicense" e-required>{{ generalInformation.drivingLicense }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Refferal: </span>
+                <span editable-text="generalInformation.refferal" e-name="refferal" e-required>{{ generalInformation.refferal }}</span>
+            </div>
+        </div>
+        
+        <!--  row  9-->
+        <div class="row">
+            <div class="col-md-4">
+
+                <span class="title">Email: </span>
+                <span editable-text="generalInformation.email" e-name="email" e-required>{{ generalInformation.email }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Date Of Birth: </span>
+                <span href="#" editable-date="generalInformation.dateOfBirth">{{ generalInformation.dateOfBirth || '' }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">SSN: </span>
+                <span editable-text="generalInformation.SSN" e-name="SSN" e-required>{{ generalInformation.SSN }}</span>
+            </div>
+        </div>
+    </div>
+</form>
