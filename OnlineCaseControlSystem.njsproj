@@ -22,6 +22,7 @@
     <Compile Include="public\bootstrap-3.3.2-dist\js\bootstrap.js" />
     <Compile Include="public\bootstrap-3.3.2-dist\js\bootstrap.min.js" />
     <Compile Include="public\bootstrap-3.3.2-dist\js\npm.js" />
+    <Compile Include="public\directives\client\additionalClientInfo\AdditionalClientInfoCtrl.js" />
     <Compile Include="public\directives\client\generalSection\GeneralCtrl.js" />
     <Compile Include="public\javascripts\angular-animate.js" />
     <Compile Include="public\javascripts\angular-busy.js" />
@@ -58,6 +59,7 @@
     <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="public\directives\client\additionalClientInfo\additionalClientInfo.html" />
     <Content Include="public\jquery\jquery.min.js" />
     <Content Include="public\nggrid-js\ng-grid.debug.js" />
     <Content Include="public\stylesheets\angular-busy.css" />
@@ -105,6 +107,7 @@
     <Folder Include="public\bootstrap-3.3.2-dist\css\" />
     <Folder Include="public\bootstrap-3.3.2-dist\fonts\" />
     <Folder Include="public\bootstrap-3.3.2-dist\js\" />
+    <Folder Include="public\directives\client\additionalClientInfo\" />
     <Folder Include="public\javascripts" />
     <Folder Include="public\js\" />
     <Folder Include="public\jquery\" />

@@ -133,4 +133,11 @@ var app = angular.module('app', [   'ngGrid',
         templateUrl: 'directives/client/generalSection/generalsection.html',
         controller: 'GeneralCtrl'
     };
+})
+.directive('additionalClient', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/client/additionalClientInfo/additionalClientInfo.html',
+        controller: 'AdditionalClientInfoCtrl'
+    };
 });

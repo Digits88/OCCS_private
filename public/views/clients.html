@@ -51,17 +51,6 @@
                     <!--  General Information Section -->
                     <!--  ========================================================================= -->
                     <accordion-group heading="General Information" is-open="true">
-                        <div class="row">
-                            <!--<div class="col-md-2">
-                                <input type="button" value="Edit" ng-click="isGeneralInfoEdiatable=false">
-                            </div>
-                            <div class="col-md-2">
-                                <input type="button" value="Save" ng-click="saveGeneralInfo()">
-                            </div>
-                            <div class="col-md-2">
-                                <input type="button" value="Cancel" ng-click="isGeneralInfoEdiatable=true">
-                            </div>-->
-                        </div>
                         <general-section></general-section>
                     </accordion-group>
 
@@ -72,64 +61,7 @@
                         <accordion-heading>
                             Additional Client Information <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': additionalInfo.open, 'glyphicon-chevron-right': !additionalInfo.open}"></i>
                         </accordion-heading>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <input type="button" value="Edit">
-                            </div>
-                            <div class="col-md-2">
-                                <input type="button" value="Save" ng-click="saveAdditionalInfo()">
-                            </div>
-                            <div class="col-md-2">
-                                <input type="button" value="Cancel">
-                            </div>
-                        </div>
-                        <table>
-                            <tr>
-                                <td> <label class="control-label">Client Occupration: </label> </td>
-                                <td> <input type="text" placeholder="Client Occupration" ng-model="additionalInfo.clientOccupation" /> </td>
-                                <td> <label class="control-label">Employer: </label> </td>
-                                <td> <input type="text" placeholder="Employer" ng-model="additionalInfo.employer" /> </td>
-                                <td> <label class="control-label">Address: </label> </td>
-                                <td> <input type="text" placeholder="Address" ng-model="additionalInfo.address" /> </td>
-                            </tr>
-                            <tr>
-                                <td> <label class="control-label">City: </label> </td>
-                                <td> <input type="text" placeholder="City" ng-model="additionalInfo.city" /> </td>
-                                <td> <label class="control-label">State: </label> </td>
-                                <td> <input type="text" placeholder="State" ng-model="additionalInfo.state" /> </td>
-                            </tr>
-                            <tr>
-                                <td colspan="6">
-                                    <div class="row panel panel-default">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title">Spouse Information</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <table>
-                                                <tr>
-                                                    <td><label class="control-label">Last Name: </label> </td>
-                                                    <td><input type="text" placeholder="Last Name" ng-model="additionalInfo.spouseLastName" /> </td>
-                                                    <td><label class="control-label">First Name: </label></td>
-                                                    <td><input type="text" placeholder="First Name" ng-model="additionalInfo.spouseFirstName" /> </td>
-                                                    <td><label class="control-label">Occupation: </label> </td>
-                                                    <td><input type="text" placeholder="Occupation" ng-model="additionalInfo.spouseOccupation" /> </td>
-                                                    <td><label class="control-label">Employer: </label> </td>
-                                                    <td><input type="text" placeholder="Employer" ng-model="additionalInfo.spouseEmployer" /> </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> <label class="control-label">Address: </label> </td>
-                                                    <td> <input type="text" placeholder="Address" ng-model="additionalInfo.spouseAddress" /> </td>
-                                                    <td> <label class="control-label">City: </label> </td>
-                                                    <td> <input type="text" placeholder="City" ng-model="additionalInfo.spouseCity" /> </td>
-                                                    <td> <label class="control-label">State: </label> </td>
-                                                    <td> <input type="text" placeholder="State" ng-model="additionalInfo.spouseState" /> </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+                        <additional-client></additional-client>
                     </accordion-group>
                     <!--  ========================================================================= -->
                     <!--  Client Auto Section -->
