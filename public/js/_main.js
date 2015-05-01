@@ -140,4 +140,16 @@ var app = angular.module('app', [   'ngGrid',
         templateUrl: 'directives/client/additionalClientInfo/additionalClientInfo.html',
         controller: 'AdditionalClientInfoCtrl'
     };
+})
+.directive('clientAuto', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/client/clientAutoInfo/clientAutoInfo.html'
+    };
+})
+.directive('medicalInsurance', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/client/medicalInsuranceInfo/medicalInsuranceInfo.html'
+    };
 });
