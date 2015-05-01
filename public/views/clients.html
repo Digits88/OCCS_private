@@ -103,48 +103,7 @@
                         <accordion-heading>
                             Defendant Insurance Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': defendantInsuranceInfo.open, 'glyphicon-chevron-right': !defendantInsuranceInfo.open}"></i>
                         </accordion-heading>
-                        <div class="row">
-                            <div class="col-md-2"><input type="button" value="Edit"></div>
-                            <div class="col-md-2"><input type="button" value="Save" ng-click="saveDefendantInsuranceInfo()"></div>
-                            <div class="col-md-2"><input type="button" value="Cancel"></div>
-                        </div>
-                        <table>
-                            <!-- row 1 -->
-                            <tr>
-                                <td><label class="control-label">Name of Insured: </label></td>
-                                <td><input type="text" placeholder="Name of Insured" ng-model="defendantInsuranceInfo.nameOfInsured" /></td>
-                                <td><label class="control-label">Insurance Company: </label></td>
-                                <td><input type="text" placeholder="Insurance Company" ng-model="defendantInsuranceInfo.insuranceCompany" /></td>
-                            </tr>
-                            <!-- row 2 -->
-                            <tr>
-                                <td><label class="control-label">Address: </label></td>
-                                <td><input type="text" placeholder="Address" ng-model="defendantInsuranceInfo.address" /></td>
-                                <td><label class="control-label">City: </label></td>
-                                <td><input type="text" placeholder="City" ng-model="defendantInsuranceInfo.city" /></td>
-                            </tr>
-                            <!-- row 3 -->
-                            <tr>
-                                <td><label class="control-label">State: </label></td>
-                                <td><input type="text" placeholder="State" ng-model="defendantInsuranceInfo.state" /></td>
-                                <td><label class="control-label">Zip: </label></td>
-                                <td><input type="text" placeholder="Zip" ng-model="defendantInsuranceInfo.zip" /></td>
-                            </tr>
-                            <!-- row 4 -->
-                            <tr>
-                                <td><label class="control-label">Phone: </label></td>
-                                <td><input type="text" placeholder="Phone" ng-model="defendantInsuranceInfo.phone" /></td>
-                                <td><label class="control-label">Adjuster: </label></td>
-                                <td><input type="text" placeholder="Adjuster" ng-model="defendantInsuranceInfo.adjuster" /></td>
-                            </tr>
-                            <!-- row 4 -->
-                            <tr>
-                                <td><label class="control-label">Claim Number: </label></td>
-                                <td><input type="text" placeholder="Claim Number" ng-model="defendantInsuranceInfo.claimNumber" /></td>
-                                <td><label class="control-label">Policy Limits: </label></td>
-                                <td><input type="text" placeholder="Policy Limits" ng-model="defendantInsuranceInfo.policyLimits" /></td>
-                            </tr>
-                        </table>
+                        <defendant-insurance></defendant-insurance>
                     </accordion-group>
 
                     <!--  ========================================================================= -->
