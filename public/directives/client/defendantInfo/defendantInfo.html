@@ -1,0 +1,164 @@
+<form editable-form name="editableForm" onaftersave="saveGeneralInfo()">
+    <div>
+        <!-- button to show form -->
+        <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+            Edit
+        </button>
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableForm.$visible">
+            <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+                Save
+            </button>
+            <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                Cancel
+            </button>
+        </span>
+    </div>
+
+    <div class="container-fluid">
+        <!--  row 1-->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">Last Name: </span>
+                <span editable-text="defendantInfo.lastName"
+                      e-name="lastName">
+                    {{ defendantInfo.lastName }}
+                </span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">First Name: </span>
+                <span editable-text="defendantInfo.firstName"
+                      e-name="firstName">
+                    {{ defendantInfo.firstName }}
+                </span>
+            </div>
+        </div>
+        <!--  row 2-->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">Address: </span>
+                <span editable-text="defendantInfo.address"
+                      e-name="address">
+                    {{ defendantInfo.address }}
+                </span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">City: </span>
+                <span editable-text="defendantInfo.city"
+                      e-name="city">
+                    {{ defendantInfo.city }}
+                </span>
+            </div>
+        </div>
+        
+        <!--  row 3-->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">State: </span>
+                <span editable-text="defendantInfo.state"
+                      e-name="state">
+                    {{ defendantInfo.state }}
+                </span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Zip: </span>
+                <span editable-text="defendantInfo.zip"
+                      e-name="zip">
+                    {{ defendantInfo.zip }}
+                </span>
+            </div>
+        </div>
+        
+        <!--  row 4-->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">Home Phone: </span>
+                <span editable-text="defendantInfo.homePhone"
+                      e-name="homePhone">
+                    {{ defendantInfo.homePhone }}
+                </span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Business Phone: </span>
+                <span editable-text="defendantInfo.businessPhone"
+                      e-name="businessPhone">
+                    {{ defendantInfo.businessPhone }}
+                </span>
+            </div>
+        </div>
+        
+        <!--  row 5-->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">Date Of Birth: </span>
+                <span editable-date="defendantInfo.dateOfBirth">{{ defendantInfo.dateOfBirth || '' }}</span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Driving License: </span>
+                <span editable-text="defendantInfo.drivingLicense"
+                      e-name="drivingLicense">
+                    {{ defendantInfo.drivingLicense }}
+                </span>
+            </div>
+        </div>
+        
+        <div class="row panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Defendant Attorney Information</h3>
+            </div>
+            <div class="panel-body">
+                <!-- sub row 1 -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="title">Firm: </span>
+                        <span editable-text="defendantAttorneyInfo.firm"
+                              e-name="firm">
+                            {{ defendantAttorneyInfo.firm }}
+                        </span>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="title">Attorney: </span>
+                        <span editable-text="defendantAttorneyInfo.attorney"
+                              e-name="attorney">
+                            {{ defendantAttorneyInfo.attorney }}
+                        </span>
+                    </div>
+                </div>
+                <!-- sub row 2 -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="title">Address: </span>
+                        <span editable-text="defendantAttorneyInfo.address"
+                              e-name="address">
+                            {{ defendantAttorneyInfo.address }}
+                        </span>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="title">City: </span>
+                        <span editable-text="defendantAttorneyInfo.city"
+                              e-name="city">
+                            {{ defendantAttorneyInfo.city }}
+                        </span>
+                    </div>
+                </div>
+                <!-- sub row 3 -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="title">Zip: </span>
+                        <span editable-text="defendantAttorneyInfo.zip"
+                              e-name="zip">
+                            {{ defendantAttorneyInfo.zip }}
+                        </span>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="title">Phone: </span>
+                        <span editable-text="defendantAttorneyInfo.phone"
+                              e-name="phone">
+                            {{ defendantAttorneyInfo.phone }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
