@@ -164,4 +164,22 @@ var app = angular.module('app', [   'ngGrid',
         restrict: 'E',
         templateUrl: 'directives/client/defendantInsurance/defendantInsurance.html'
     };
+})
+.directive('statuteInfo', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/client/statuteInfo/statuteInfo.html'
+    };
+})
+.directive('courtInfo', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/client/courtInfo/courtInfo.html'
+    };
+})
+.directive('miscInfo', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/client/miscInfo/miscInfo.html'
+    };
 });

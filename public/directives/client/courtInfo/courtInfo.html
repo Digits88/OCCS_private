@@ -1,0 +1,72 @@
+<form editable-form name="editableForm" onaftersave="saveCourtInfo()">
+    <div>
+        <!-- button to show form -->
+        <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+            Edit
+        </button>
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableForm.$visible">
+            <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+                Save
+            </button>
+            <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+                Cancel
+            </button>
+        </span>
+    </div>
+
+    <div class="container-fluid">
+        <!--  row 1-->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">Case Number: </span>
+                <span editable-text="courtInfo.caseNumber"
+                      e-name="caseNumber">
+                    {{ courtInfo.caseNumber }}
+                </span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Court: </span>
+                <span editable-text="courtInfo.court"
+                      e-name="court">
+                    {{ courtInfo.court }}
+                </span>
+            </div>
+        </div>
+        <!-- row 2 -->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">Address: </span>
+                <span editable-text="courtInfo.address"
+                      e-name="address">
+                    {{ courtInfo.address }}
+                </span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">City: </span>
+                <span editable-text="courtInfo.city"
+                      e-name="city">
+                    {{ courtInfo.city }}
+                </span>
+            </div>
+        </div>
+        
+        <!-- row 3 -->
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title">State: </span>
+                <span editable-text="courtInfo.state"
+                      e-name="state">
+                    {{ courtInfo.state }}
+                </span>
+            </div>
+            <div class="col-md-4">
+                <span class="title">Zip: </span>
+                <span editable-text="courtInfo.zip"
+                      e-name="zip">
+                    {{ courtInfo.zip }}
+                </span>
+            </div>
+        </div>
+    </div>
+</form>

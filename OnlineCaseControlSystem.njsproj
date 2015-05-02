@@ -60,6 +60,9 @@
     <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="public\directives\client\miscInfo\miscInfo.html" />
+    <Content Include="public\directives\client\courtInfo\courtInfo.html" />
+    <Content Include="public\directives\client\statuteInfo\statuteInfo.html" />
     <Content Include="public\directives\client\defendantInsurance\defendantInsurance.html" />
     <Content Include="public\directives\client\defendantInfo\defendantInfo.html" />
     <Content Include="public\directives\client\medicalInsuranceInfo\medicalInsuranceInfo.html" />
@@ -112,6 +115,9 @@
     <Folder Include="public\bootstrap-3.3.2-dist\css\" />
     <Folder Include="public\bootstrap-3.3.2-dist\fonts\" />
     <Folder Include="public\bootstrap-3.3.2-dist\js\" />
+    <Folder Include="public\directives\client\miscInfo\" />
+    <Folder Include="public\directives\client\courtInfo\" />
+    <Folder Include="public\directives\client\statuteInfo\" />
     <Folder Include="public\directives\client\defendantInsurance\" />
     <Folder Include="public\directives\client\defendantInfo\" />
     <Folder Include="public\directives\client\medicalInsuranceInfo\" />
