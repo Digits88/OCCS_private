@@ -1,0 +1,64 @@
+<div>
+    <table class="table table-bordered table-hover table-condensed">
+        <tr style="font-weight: bold">
+            <td style="width:35%">Note</td>
+            <td style="width:20%">Created Date</td>
+            <td style="width:20%">Modified Date</td>
+            <td style="width:25%">Description</td>
+        </tr>
+        <tr ng-repeat="miscItem in miscData">
+            <td>
+                <span editable-text="miscItem.note"
+                      e-name="note"
+                      e-form="rowform"
+                      e-required>
+                    {{ miscItem.note || 'empty' }}
+                </span>
+            </td>
+            <td>
+                <span editable-text="miscItem.createdDate"
+                      e-name="createdDate"
+                      e-form="rowform"
+                      e-required>
+                    {{ miscItem.createdDate || 'empty' }}
+                </span>
+            </td>
+            <td>
+                <span editable-text="miscItem.modifiedDate"
+                      e-name="modifiedDate"
+                      e-form="rowform"
+                      e-required>
+                    {{ miscItem.modifiedDate || 'empty' }}
+                </span>
+            </td>
+            <td>
+                <span editable-text="miscItem.description"
+                      e-name="description"
+                      e-form="rowform"
+                      e-required>
+                    {{ miscItem.description || 'empty' }}
+                </span>
+            </td>
+            <td style="white-space: nowrap">
+                <!-- form -->
+                <form editable-form name="rowform"
+                      onbeforesave="saveMiscInfo($data, miscItem.noteId, miscItem.fileNo)"
+                      ng-show="rowform.$visible"
+                      class="form-buttons form-inline"
+                      shown="inserted == miscItem">
+                    <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                        save
+                    </button>
+                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+                        cancel
+                    </button>
+                </form>
+                <div class="buttons" ng-show="!rowform.$visible">
+                    <button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+                    <button class="btn btn-danger" ng-click="deleteMiscNote($index)">del</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <button class="btn btn-default" ng-click="addMiscNote()">Add Misc Note</button>
+</div>

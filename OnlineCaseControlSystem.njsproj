@@ -25,6 +25,7 @@
     <Compile Include="public\directives\client\additionalClientInfo\AdditionalClientInfoCtrl.js" />
     <Compile Include="public\directives\client\medicalInsuranceInfo\MedicalInsuranceInfoCtrl.js" />
     <Compile Include="public\directives\client\generalSection\GeneralCtrl.js" />
+    <Compile Include="public\directives\client\miscInfo\miscGridCtrl.js" />
     <Compile Include="public\javascripts\angular-animate.js" />
     <Compile Include="public\javascripts\angular-busy.js" />
     <Compile Include="public\javascripts\angular-busy.min.js" />
@@ -60,6 +61,7 @@
     <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="public\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="public\directives\client\miscInfo\miscGrid.html" />
     <Content Include="public\directives\client\miscInfo\miscInfo.html" />
     <Content Include="public\directives\client\courtInfo\courtInfo.html" />
     <Content Include="public\directives\client\statuteInfo\statuteInfo.html" />

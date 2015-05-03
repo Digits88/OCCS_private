@@ -182,4 +182,11 @@ var app = angular.module('app', [   'ngGrid',
         restrict: 'E',
         templateUrl: 'directives/client/miscInfo/miscInfo.html'
     };
+})
+.directive('miscGrid', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/client/miscInfo/miscGrid.html',
+        controller: 'miscGridCtrl'
+    };
 });

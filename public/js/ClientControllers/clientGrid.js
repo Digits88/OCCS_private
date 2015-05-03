@@ -177,6 +177,7 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
         multiSelect: false
     };
     
+    
     $scope.miscGridOptions = {
         data: 'miscData',
         columnDefs: [{ field: 'note', displayName: 'Note', width: 50, },
@@ -195,4 +196,11 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
             $scope.filterOptions.filterText = '';
         }
     };
+
+    $scope.refreshMiscData = function(fileNo) {
+        $http.get('/clients/miscInfo/' + fileNo).success(function (miscInfo) {
+            $scope.miscData = miscInfo[0];
+        });
+    };
+
 }

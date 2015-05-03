@@ -878,6 +878,44 @@ function saveCourtInfo(courtInfo) {
     writeNewClientSectionInDB(courtInfo, "courtinformation", "<courtInfo>");
 }
 
+// ************************************************
+//      Update Misc Information Section
+// ************************************************
+app.post('/clients/miscInfo', auth, function (req, res) {
+    var query = "call deleteMiscInfo(" + req.body.miscInfo.fileNo + "," + req.body.miscInfo.noteId+ ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+        saveMiscInfo(req.body.miscInfo);
+    });
+    res.send(200);
+});
+
+function saveMiscInfo(miscInfo) {
+    var miscInfo = js2xmlparser("miscInfo", miscInfo);
+    writeNewClientSectionInDB(miscInfo, "miscinfo", "<miscInfo>");
+}
+
+// ************************************************
+//      Delete Misc Information Section
+// ************************************************
+app.delete('/clients/miscInfo/:fileNo/:noteId', auth, function (req, res) {
+    var query = "call deleteMiscInfo(" + req.params.fileNo + "," + req.params.noteId + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+    });
+    res.send(200);
+});
+
 function writeNewClientSectionInDB(sectionData, sectionName, rowName) {
     
     var xmlFilePathName = __dirname + "\\XmlData\\" + sectionName + ".xml";
