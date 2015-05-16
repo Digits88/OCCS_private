@@ -49,7 +49,7 @@ CREATE TABLE `additionalclientinfo` (
 
 LOCK TABLES `additionalclientinfo` WRITE;
 /*!40000 ALTER TABLE `additionalclientinfo` DISABLE KEYS */;
-INSERT INTO `additionalclientinfo` VALUES (1,'client occupation','client employer','client address','client city','client state','spouse last name','spouse first name','spouse occupation','spouse address','spouse employer','spouse city','spouse state');
+INSERT INTO `additionalclientinfo` VALUES (1,'client occupation1','client employer1','client address1','client city1','client state1','spouse last name1','spouse first name1','spouse occupation1','spouse address1','spouse employer1','spouse city1','spouse state1'),(2,NULL,NULL,NULL,'city','state','spouse',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `additionalclientinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `clientautoinfo` (
 
 LOCK TABLES `clientautoinfo` WRITE;
 /*!40000 ALTER TABLE `clientautoinfo` DISABLE KEYS */;
-INSERT INTO `clientautoinfo` VALUES (1,'insurance company','address','city','state','22','22-333-4444','adjuster','23','2011-02-03','2012-02-04','100',200,300,400,500,600,700,'custom notes');
+INSERT INTO `clientautoinfo` VALUES (1,'insurance company','address','city','state','22','22-333-4444','adjuster','23','2011-02-03','2012-02-04','100',200,300,400,500,600,700,'custom notes'),(2,'insurance','auto',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,0,0,NULL);
 /*!40000 ALTER TABLE `clientautoinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +144,7 @@ CREATE TABLE `clients` (
 
 LOCK TABLES `clients` WRITE;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
-INSERT INTO `clients` VALUES (1,'balram 1','chavan 1','Active'),(2,'jay','dude','Inactive');
+INSERT INTO `clients` VALUES (1,'balram','chavan','Active'),(2,'Jay','dee','Active');
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +173,7 @@ CREATE TABLE `courtinformation` (
 
 LOCK TABLES `courtinformation` WRITE;
 /*!40000 ALTER TABLE `courtinformation` DISABLE KEYS */;
-INSERT INTO `courtinformation` VALUES (1,'case number 1','court 1','address','city','state','zip');
+INSERT INTO `courtinformation` VALUES (1,'case number 1','court 1','address','city','state','zip'),(2,NULL,'\n	',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `courtinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +203,7 @@ CREATE TABLE `defendantattorneyinfo` (
 
 LOCK TABLES `defendantattorneyinfo` WRITE;
 /*!40000 ALTER TABLE `defendantattorneyinfo` DISABLE KEYS */;
-INSERT INTO `defendantattorneyinfo` VALUES (1,'firm','attorney','address','city','state','zip','220');
+INSERT INTO `defendantattorneyinfo` VALUES (1,'firm','attorney','address','city','state','zip','220'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `defendantattorneyinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -236,7 +236,7 @@ CREATE TABLE `defendantinformation` (
 
 LOCK TABLES `defendantinformation` WRITE;
 /*!40000 ALTER TABLE `defendantinformation` DISABLE KEYS */;
-INSERT INTO `defendantinformation` VALUES (1,'LAST name','first name','address','city','state','zip','22','22','2010-10-02','2448');
+INSERT INTO `defendantinformation` VALUES (1,'LAST name','first name','address','city','state','zip','22','22','2010-10-02','2448'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `defendantinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,7 +269,7 @@ CREATE TABLE `defendantinsurance` (
 
 LOCK TABLES `defendantinsurance` WRITE;
 /*!40000 ALTER TABLE `defendantinsurance` DISABLE KEYS */;
-INSERT INTO `defendantinsurance` VALUES (1,'name of insured','insurance company','address','city','state','zip','phone','adjuster','233',488);
+INSERT INTO `defendantinsurance` VALUES (1,'name of insured1','insurance company','address2','city','state','zip','phone3','adjuster','233',488),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `defendantinsurance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -305,8 +305,7 @@ CREATE TABLE `generalinformation` (
   `email` varchar(100) DEFAULT NULL,
   `dateOfBirth` date DEFAULT NULL,
   `SSN` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`fileNo`),
-  CONSTRAINT `fileno` FOREIGN KEY (`fileNo`) REFERENCES `clients` (`fileno`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`fileNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -316,7 +315,7 @@ CREATE TABLE `generalinformation` (
 
 LOCK TABLES `generalinformation` WRITE;
 /*!40000 ALTER TABLE `generalinformation` DISABLE KEYS */;
-INSERT INTO `generalinformation` VALUES (1,'india','','additional info','mydefname','mycity ','e1','Injury','mystate','e2','myOtherType','222222','Open','333333','myoriginatingattorney','2014-04-05','44444','myassignedAttorney','2015-04-03','mylicense','myrefferal','balram@gmail.com','1984-03-03','myssn 1');
+INSERT INTO `generalinformation` VALUES (0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(1,'Pimple gurav','aprt no 3','additional info','mydefname','mycity ','dfdf','Injury','mystate','e2','myOtherType','222222','Open','333333','myoriginatingattorney',NULL,'44444','myassignedAttorney','2015-03-25','mylicense f','myrefferal','balram@gmail.com',NULL,'myssn 1'),(2,NULL,'apt',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'att1',NULL,NULL,'att2',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `generalinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -354,7 +353,7 @@ CREATE TABLE `govtclaimdetails` (
 
 LOCK TABLES `govtclaimdetails` WRITE;
 /*!40000 ALTER TABLE `govtclaimdetails` DISABLE KEYS */;
-INSERT INTO `govtclaimdetails` VALUES (1,'2006-06-06','2001-01-01','2002-02-02','2013/2/33','2010-01-01','2010-02-02','2011/3/5','2010-03-03','2010-04-04','2013/5/4','2010-05-05','2010-06-06','2010/5/3','2010-07-07','2010-08-08');
+INSERT INTO `govtclaimdetails` VALUES (2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `govtclaimdetails` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -388,7 +387,7 @@ CREATE TABLE `medicalinsurance` (
 
 LOCK TABLES `medicalinsurance` WRITE;
 /*!40000 ALTER TABLE `medicalinsurance` DISABLE KEYS */;
-INSERT INTO `medicalinsurance` VALUES (1,'named insured','insurance company','address','city','state','zip','222-333-4444','12','33','344','55');
+INSERT INTO `medicalinsurance` VALUES (1,'named insured1','insurance company2','address','city','state','zip','222-333-4444','12','3344','344','55'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `medicalinsurance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -401,13 +400,13 @@ DROP TABLE IF EXISTS `miscinfo`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `miscinfo` (
   `fileNo` int(11) NOT NULL,
-  `noteId` int(11) DEFAULT NULL,
+  `noteId` int(11) NOT NULL AUTO_INCREMENT,
   `note` varchar(300) DEFAULT NULL,
   `createdDate` date DEFAULT NULL,
   `modifiedDate` date DEFAULT NULL,
   `description` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`fileNo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`noteId`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -416,7 +415,7 @@ CREATE TABLE `miscinfo` (
 
 LOCK TABLES `miscinfo` WRITE;
 /*!40000 ALTER TABLE `miscinfo` DISABLE KEYS */;
-INSERT INTO `miscinfo` VALUES (1,1,'misc note','2010-01-01','2010-02-02','misc description');
+INSERT INTO `miscinfo` VALUES (1,16,'note1','0000-00-00','0000-00-00','note12'),(1,17,'note2','0000-00-00','0000-00-00','note4');
 /*!40000 ALTER TABLE `miscinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -447,7 +446,7 @@ CREATE TABLE `statuteinformation` (
 
 LOCK TABLES `statuteinformation` WRITE;
 /*!40000 ALTER TABLE `statuteinformation` DISABLE KEYS */;
-INSERT INTO `statuteinformation` VALUES (1,'2001-01-01','2002-02-02','2002-03-03','2060-01-01','2020-02-02','2030-03-03','2050-05-05','true');
+INSERT INTO `statuteinformation` VALUES (1,'2001-01-01','2002-02-02','2002-03-03','2060-01-01','2020-02-02','2030-03-03','2050-05-05','true'),(2,'2000-12-31',NULL,NULL,NULL,NULL,NULL,NULL,'false');
 /*!40000 ALTER TABLE `statuteinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -479,7 +478,7 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'casecontroldb'
 --
-/*!50003 DROP PROCEDURE IF EXISTS `addGeneralInformation` */;
+/*!50003 DROP PROCEDURE IF EXISTS `createEmptyGeneralSection` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -489,72 +488,253 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `addGeneralInformation`(generalInfo text)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createEmptyGeneralSection`()
 BEGIN
-	SET @fileNo = ExtractValue(generalInfo,'/generalInfo/fileNo');
-	SET @address = ExtractValue(generalInfo,'/generalInfo/address');
-	SET @aptNo = ExtractValue(generalInfo,'/generalInfo/aptNo');
-	SET @initialInfo = ExtractValue(generalInfo,'/generalInfo/initialInfo');
-	SET @defendantName = ExtractValue(generalInfo,'/generalInfo/defendantName');
-	SET @city = ExtractValue(generalInfo,'/generalInfo/city');
-	SET @evidence1 = ExtractValue(generalInfo,'/generalInfo/evidence1');
-	SET @caseType = ExtractValue(generalInfo,'/generalInfo/caseType');
-	SET @state = ExtractValue(generalInfo,'/generalInfo/state');
-	SET @evidence2 = ExtractValue(generalInfo,'/generalInfo/evidence2');
-	SET @otherType = ExtractValue(generalInfo,'/generalInfo/otherType');
-	SET @homePhone = ExtractValue(generalInfo,'/generalInfo/homePhone');
-	SET @caseStatus = ExtractValue(generalInfo,'/generalInfo/caseStatus');
-	SET @cellPhone = ExtractValue(generalInfo,'/generalInfo/cellPhone');
-	SET @originatingAttorney = ExtractValue(generalInfo,'/generalInfo/originatingAttorney');
-	SET @accidentDate = ExtractValue(generalInfo,'/generalInfo/accidentDate');
-	SET @workPhone = ExtractValue(generalInfo,'/generalInfo/workPhone');
-	SET @assignedAttorney = ExtractValue(generalInfo,'/generalInfo/assignedAttorney');
-	SET @clientCreated = ExtractValue(generalInfo,'/generalInfo/clientCreated');
-	SET @drivingLicense = ExtractValue(generalInfo,'/generalInfo/drivingLicense');
-	SET @refferal = ExtractValue(generalInfo,'/generalInfo/refferal');
-	SET @email = ExtractValue(generalInfo,'/generalInfo/email');
-	SET @dateOfBirth = ExtractValue(generalInfo,'/generalInfo/dateOfBirth');
-	SET @SSN = ExtractValue(generalInfo,'/generalInfo/SSN');
-	SET @firstName = ExtractValue(generalInfo,'/generalInfo/firstName');
-	SET @lastName = ExtractValue(generalInfo,'/generalInfo/lastName');
+	set @newFileNo = 0;
+	select  @newFileNo:=max(fileNo)  from clients;
+	SET @newFileNo = @newFileNo + 1;
 
-	SET @CheckExists = 0;
-	SELECT count(*) INTO @CheckExists FROM generalinformation  WHERE fileNo = @fileNo;
+	INSERT INTO `casecontroldb`.`clients`
+			(`fileNo`,
+			`firstName`,
+			`lastName`,
+			`status`)
+	VALUES
+	(@newFileNo, '','','Active');
 
-	IF (@CheckExists > 0) THEN 
-        Update generalinformation
-		SET address = @address,
-			aptNo = @aptNo,
-			initialInfo = @initialInfo,
-			defendantName = @defendantName,
-			city = @city,
-			evidence1 = @evidence1,
-			caseType = @caseType,
-			state = @state,
-			evidence2 = @evidence2,
-			otherType = @otherType,
-			homePhone = @homePhone,
-			caseStatus = @caseStatus,
-			cellPhone = @cellPhone,
-			originatingAttorney = @originatingAttorney,
-			accidentDate = substring(@accidentDate,1,locate('T', @accidentDate)-1),
-			workPhone = @workPhone,
-			assignedAttorney = @assignedAttorney,
-			clientCreated = substring(@clientCreated,1,locate('T', @clientCreated)-1),
-			drivingLicense = @drivingLicense,
-			refferal = @refferal,
-			email = @email,
-			dateOfBirth = substring(@dateOfBirth,1,locate('T', @dateOfBirth)-1),
-			SSN = @SSN			
-		WHERE fileNo = @fileNo;
+	INSERT INTO generalinformation(fileNo) values(@newFileNo);
 
-		UPDATE clients
-		SET firstName = @firstName,
-			lastName = @lastName
-		WHERE fileNo = @fileNo;
-    ELSE 
-        select 'insert command';
-    END IF; 
+	call  getClientGeneralInformation(@newFileNo);
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `createNewClient` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createNewClient`(fileNo int, firstName varchar(100),lastName varchar(100))
+BEGIN
+	INSERT INTO `casecontroldb`.`clients`
+			(`fileNo`,
+			`firstName`,
+			`lastName`,
+			`status`)
+			VALUES
+			(fileNo,
+			firstName,
+			lastName,
+			'Active');
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deleteAdditionalInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteAdditionalInfo`(_fileNo int)
+BEGIN
+	DELETE FROM additionalclientinfo
+	WHERE fileNo = _fileNo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deleteClientAutoInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteClientAutoInfo`(_fileNo int)
+BEGIN
+	DELETE FROM clientautoinfo
+	WHERE fileNo = _fileNo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deleteClientMedicalInsuranceInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteClientMedicalInsuranceInfo`(_fileNo int)
+BEGIN
+	DELETE FROM medicalinsurance
+	WHERE fileNo = _fileNo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deleteCourtInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteCourtInfo`(_fileNo int)
+BEGIN
+	DELETE FROM courtinformation
+	WHERE fileNo = _fileNo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deleteDefendantInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteDefendantInfo`(_fileNo int)
+BEGIN
+	DELETE FROM defendantinformation
+	WHERE fileNo = _fileNo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deleteDefendantInsuranceInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteDefendantInsuranceInfo`(_fileNo int)
+BEGIN
+	DELETE FROM defendantinsurance
+	WHERE fileNo = _fileNo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deleteGeneralInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteGeneralInfo`(_fileNo int)
+BEGIN
+	DELETE FROM generalinformation
+	WHERE fileNo = _fileNo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deleteGovtClaimInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteGovtClaimInfo`(_fileNo int)
+BEGIN
+	DELETE FROM govtclaimdetails
+	WHERE fileNo = _fileNo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deleteMiscInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteMiscInfo`(_fileNo int, _noteId int)
+BEGIN
+	DELETE FROM miscinfo
+	WHERE fileNo = _fileNo AND noteId  = _noteId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deleteStatuteInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteStatuteInfo`(_fileNo int)
+BEGIN
+	DELETE FROM statuteinformation
+	WHERE fileNo = _fileNo;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -824,6 +1004,26 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `getNewFileNo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getNewFileNo`()
+BEGIN
+	SELECT max(fileNo) + 1 as 'NewFileNo' FROM `casecontroldb`.`clients`;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `getStatuteInformation` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -854,4 +1054,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-17  9:40:02
+-- Dump completed on 2015-05-16  8:16:57
