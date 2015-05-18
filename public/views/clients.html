@@ -79,13 +79,17 @@
                         <accordion-heading>
                             Client Medical Insurance <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': clientMedicalInsurance.open, 'glyphicon-chevron-right': !clientMedicalInsurance.open}"></i>
                         </accordion-heading>
-                        <div class="row">
-                            <div class="col-md-2"><input type="button" value="Edit"></div>
-                            <div class="col-md-2"><input type="button" value="Cancel"></div>
-                        </div>
                         <medical-insurance></medical-insurance>
                     </accordion-group>
-
+                    <!--  ========================================================================= -->
+                    <!--  Client Injuries Section -->
+                    <!--  ========================================================================= -->
+                    <accordion-group is-open="true">
+                        <accordion-heading>
+                            Client Injuries<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': clientInjuries.open, 'glyphicon-chevron-right': !clientInjuries.open}"></i>
+                        </accordion-heading>
+                        <client-injuries></client-injuries>
+                    </accordion-group>
                     <!--  ========================================================================= -->
                     <!--  Defendant Information Section -->
                     <!--  ========================================================================= -->
@@ -133,7 +137,6 @@
                         <accordion-heading>
                             Misc Notes<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': misc.open, 'glyphicon-chevron-right': !misc.open}"></i>
                         </accordion-heading>
-                   
                         <misc-info></misc-info>
                     </accordion-group>
                 </accordion>
