@@ -916,6 +916,43 @@ app.delete('/clients/miscInfo/:fileNo/:noteId', auth, function (req, res) {
     res.send(200);
 });
 
+// ************************************************
+//      Update Client Injury Section
+// ************************************************
+app.post('/clients/clientInjury', auth, function (req, res) {
+    var query = "call deleteClientInjury(" + req.body.clientInjury.fileNo + "," + req.body.clientInjury.noteId + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+        saveClientInjury(req.body.clientInjury);
+    });
+    res.send(200);
+});
+
+function saveClientInjury(clientInjury) {
+    var clientInjury = js2xmlparser("clientInjury", clientInjury);
+    writeNewClientSectionInDB(clientInjury, "clientinjuries", "<clientInjury>");
+}
+
+// ************************************************
+//      Delete Client Injury Section
+// ************************************************
+app.delete('/clients/clientInjury/:fileNo/:noteId', auth, function (req, res) {
+    var query = "call deleteClientInjury(" + req.params.fileNo + "," + req.params.noteId + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+    });
+    res.send(200);
+});
 function writeNewClientSectionInDB(sectionData, sectionName, rowName) {
     
     var xmlFilePathName = __dirname + "\\XmlData\\" + sectionName + ".xml";

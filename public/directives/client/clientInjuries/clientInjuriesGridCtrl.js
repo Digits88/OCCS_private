@@ -4,12 +4,15 @@ angular.module('app').controller('clientInjuriesGridCtrl', function ($scope, $ro
     
     // add misc note
     $scope.addMiscNote = function () {
+
+        var newNoteId = $scope.clientInjuriesData[$scope.clientInjuriesData.length - 1].noteId + 1;
         $scope.inserted = {
             fileNo: $scope.generalInformation.fileNo,
             note: "",
             createdDate: Date(),
             modifiedDate: Date(),
-            description: ""
+            description: "",
+            noteId: newNoteId
         };
         $scope.clientInjuriesData.push($scope.inserted);
         $scope.rowform.$show();
@@ -18,7 +21,7 @@ angular.module('app').controller('clientInjuriesGridCtrl', function ($scope, $ro
     // Save Court Information
     $scope.saveMiscInfo = function (data, id, fileNo) {
         
-        var miscItem = {
+        var clientInjury = {
             fileNo : fileNo,
             noteId: id,
             note: data.note,
@@ -27,7 +30,7 @@ angular.module('app').controller('clientInjuriesGridCtrl', function ($scope, $ro
             description: data.description
         }
         
-        $http.post('/clients/miscInfo', { miscInfo: miscItem })
+        $http.post('/clients/clientInjury', { clientInjury: clientInjury })
             .success(function (user) {
             $scope.refreshclientInjuriesData(fileNo);
         })
@@ -40,7 +43,7 @@ angular.module('app').controller('clientInjuriesGridCtrl', function ($scope, $ro
         
         $scope.clientInjuriesData.splice(index, 1);
         
-        var url = "/clients/miscInfo/" + $scope.generalInformation.fileNo + "/" + noteId;
+        var url = "/clients/clientInjury/" + $scope.generalInformation.fileNo + "/" + noteId;
         $http.delete(url)
             .success(function (user) {
             $scope.refreshclientInjuriesData(fileNo);
