@@ -103,13 +103,13 @@ DROP TABLE IF EXISTS `clientinjuries`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `clientinjuries` (
   `fileNo` int(11) NOT NULL,
-  `noteId` int(11) DEFAULT NULL,
+  `noteId` int(11) NOT NULL AUTO_INCREMENT,
   `note` varchar(300) DEFAULT NULL,
   `createdDate` date DEFAULT NULL,
   `modifiedDate` date DEFAULT NULL,
   `description` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`fileNo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`noteId`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +118,7 @@ CREATE TABLE `clientinjuries` (
 
 LOCK TABLES `clientinjuries` WRITE;
 /*!40000 ALTER TABLE `clientinjuries` DISABLE KEYS */;
-INSERT INTO `clientinjuries` VALUES (1,1,'note 1','2012-01-02','2012-02-03','note description');
+INSERT INTO `clientinjuries` VALUES (1,1,'note 1','2012-01-01','2012-02-02','note description');
 /*!40000 ALTER TABLE `clientinjuries` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -387,7 +387,7 @@ CREATE TABLE `medicalinsurance` (
 
 LOCK TABLES `medicalinsurance` WRITE;
 /*!40000 ALTER TABLE `medicalinsurance` DISABLE KEYS */;
-INSERT INTO `medicalinsurance` VALUES (1,'named insured1','insurance company2','address','city','state','zip','222-333-4444','12','3344','344','55'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `medicalinsurance` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `medicalinsurance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -406,7 +406,7 @@ CREATE TABLE `miscinfo` (
   `modifiedDate` date DEFAULT NULL,
   `description` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`noteId`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -415,7 +415,7 @@ CREATE TABLE `miscinfo` (
 
 LOCK TABLES `miscinfo` WRITE;
 /*!40000 ALTER TABLE `miscinfo` DISABLE KEYS */;
-INSERT INTO `miscinfo` VALUES (1,16,'note1','0000-00-00','0000-00-00','note12'),(1,17,'note2','0000-00-00','0000-00-00','note4');
+INSERT INTO `miscinfo` VALUES (1,1,'note 11','2012-01-01','2012-02-02','note description11'),(1,3,'note 3',NULL,NULL,'desc 3 test'),(1,19,'note1','0000-00-00','0000-00-00','desc1'),(1,21,'note22','0000-00-00','0000-00-00','desc22'),(1,22,'injury2','0000-00-00','0000-00-00','inj 2');
 /*!40000 ALTER TABLE `miscinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -575,6 +575,26 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteClientAutoInfo`(_fileNo int)
 BEGIN
 	DELETE FROM clientautoinfo
 	WHERE fileNo = _fileNo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deleteClientInjury` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteClientInjury`(_fileNo int, _noteId int)
+BEGIN
+	DELETE FROM clientinjuries
+	WHERE fileNo = _fileNo AND noteId  = _noteId;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1054,4 +1074,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-16  8:16:57
+-- Dump completed on 2015-05-18 16:12:31
