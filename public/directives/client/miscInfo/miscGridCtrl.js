@@ -4,12 +4,15 @@ angular.module('app').controller('miscGridCtrl', function ($scope, $rootScope, $
     
     // add misc note
     $scope.addMiscNote = function () {
+        var newNoteId = $scope.miscData[$scope.miscData.length - 1].noteId + 1;
+
         $scope.inserted = {
             fileNo: $scope.generalInformation.fileNo,
             note: "",
             createdDate: Date(),
             modifiedDate: Date(),
-            description: ""
+            description: "",
+            noteId: newNoteId
         };
         $scope.miscData.push($scope.inserted);
         $scope.rowform.$show();
