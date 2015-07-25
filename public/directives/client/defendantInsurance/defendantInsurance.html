@@ -15,90 +15,96 @@
         </span>
     </div>
 
-    <div class="container-fluid">
-        <!--  row 1-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Name of Insured: </span>
+    <!-- First column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Name of Insured: </label>
+            <div class="col-sm-8">
                 <span editable-text="defendantInsuranceInfo.nameOfInsured"
                       e-name="nameOfInsured">
                     {{ defendantInsuranceInfo.nameOfInsured }}
                 </span>
             </div>
-            <div class="col-md-4">
-                <span class="title">Insurance Company: </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Address:</label>
+            <div class="col-sm-8">
+                <span editable-text="defendantInsuranceInfo.address"
+                      e-name="address">
+                    {{ defendantInsuranceInfo.address }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">State:</label>
+            <div class="col-sm-8">
+                <span editable-text="defendantInsuranceInfo.state"
+                      e-name="state">
+                    {{ defendantInsuranceInfo.state }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Phone:</label>
+            <div class="col-sm-8">
+                <span editable-text="defendantInsuranceInfo.phone"
+                      e-name="phone">
+                    {{ defendantInsuranceInfo.phone }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Claim Number:</label>
+            <div class="col-sm-8">
+                <span editable-text="defendantInsuranceInfo.claimNumber"
+                      e-name="claimNumber">
+                    {{ defendantInsuranceInfo.claimNumber }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Insurance Company:</label>
+            <div class="col-sm-8">
                 <span editable-text="defendantInsuranceInfo.insuranceCompany"
                       e-name="insuranceCompany">
                     {{ defendantInsuranceInfo.insuranceCompany }}
                 </span>
             </div>
         </div>
-        
-        <!--  row 2-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Address: </span>
-                <span editable-text="defendantInsuranceInfo.address"
-                      e-name="address">
-                    {{ defendantInsuranceInfo.address }}
-                </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">City: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">City:</label>
+            <div class="col-sm-8">
                 <span editable-text="defendantInsuranceInfo.city"
                       e-name="city">
                     {{ defendantInsuranceInfo.city }}
                 </span>
             </div>
         </div>
-        
-        <!-- row 3 -->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">State: </span>
-                <span editable-text="defendantInsuranceInfo.state"
-                      e-name="state">
-                    {{ defendantInsuranceInfo.state }}
-                </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Zip: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Zip:</label>
+            <div class="col-sm-8">
                 <span editable-text="defendantInsuranceInfo.zip"
                       e-name="zip">
                     {{ defendantInsuranceInfo.zip }}
                 </span>
             </div>
         </div>
-        
-        <!-- row 4 -->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Phone: </span>
-                <span editable-text="defendantInsuranceInfo.phone"
-                      e-name="phone">
-                    {{ defendantInsuranceInfo.phone }}
-                </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Adjuster: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Adjuster:</label>
+            <div class="col-sm-8">
                 <span editable-text="defendantInsuranceInfo.adjuster"
                       e-name="adjuster">
                     {{ defendantInsuranceInfo.adjuster }}
                 </span>
             </div>
         </div>
-        
-        <!-- row 5 -->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Claim Number: </span>
-                <span editable-text="defendantInsuranceInfo.claimNumber"
-                      e-name="claimNumber">
-                    {{ defendantInsuranceInfo.claimNumber }}
-                </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Policy Limits: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Policy Limits:</label>
+            <div class="col-sm-8">
                 <span editable-text="defendantInsuranceInfo.policyLimits"
                       e-name="policyLimits">
                     {{ defendantInsuranceInfo.policyLimits }}
