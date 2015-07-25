@@ -15,164 +15,166 @@
         </span>
     </div>
 
-    <div class="container-fluid">
-        <!-- row 1-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Insurance Company: </span>
+    <!-- First column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Insurance Company: </label>
+            <div class="col-sm-8">
                 <span editable-text="clientAutoInfo.insuranceCompany"
                       e-name="insuranceCompany">
                     {{ clientAutoInfo.insuranceCompany }}
                 </span>
             </div>
-            <div class="col-md-4">
-                <span class="title">Policy Number: </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Address:</label>
+            <div class="col-sm-8">
+                <span editable-text="clientAutoInfo.address"
+                      e-name="address">
+                    {{ clientAutoInfo.address }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">City:</label>
+            <div class="col-sm-8">
+                <span editable-text="clientAutoInfo.city"
+                      e-name="city">
+                    {{ clientAutoInfo.city }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">State:</label>
+            <div class="col-sm-8">
+                <span editable-text="clientAutoInfo.state"
+                      e-name="state">
+                    {{ clientAutoInfo.state }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Zip:</label>
+            <div class="col-sm-8">
+                <span editable-text="clientAutoInfo.zip"
+                      e-name="zip">
+                    {{ clientAutoInfo.zip }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Phone Number:</label>
+            <div class="col-sm-8">
+                <span editable-text="clientAutoInfo.phoneNumber"
+                      e-name="phoneNumber">
+                    {{ clientAutoInfo.phoneNumber }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Adjuster:</label>
+            <div class="col-sm-8">
+                <span editable-text="clientAutoInfo.adjuster"
+                      e-name="adjuster">
+                    {{ clientAutoInfo.adjuster }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Policy Number:</label>
+            <div class="col-sm-8">
                 <span editable-text="clientAutoInfo.policyNumber"
                       e-name="policyNumber">
                     {{ clientAutoInfo.policyNumber }}
                 </span>
             </div>
         </div>
-        
-        <!-- row 2-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Address: </span>
-                <span editable-text="clientAutoInfo.address"
-                      e-name="address">
-                    {{ clientAutoInfo.address }}
+        <div class="form-group">
+            <label class="control-label col-sm-4">Effective Start Date:</label>
+            <div class="col-sm-8">
+                <span editable-date="clientAutoInfo.effectiveStartDate">
+                    {{ clientAutoInfo.effectiveStartDate || '' }}
                 </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Effective Start Date: </span>
-                <span editable-date="clientAutoInfo.effectiveStartDate">{{ clientAutoInfo.effectiveStartDate || '' }}</span>
             </div>
         </div>
-        
-        <!-- row 3-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">City: </span>
-                <span editable-text="clientAutoInfo.city"
-                      e-name="city">
-                    {{ clientAutoInfo.city }}
+        <div class="form-group">
+            <label class="control-label col-sm-4">Effective End Date:</label>
+            <div class="col-sm-8">
+                <span editable-date="clientAutoInfo.effectiveEndDate">
+                    {{ clientAutoInfo.effectiveEndDate || '' }}
                 </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Effective End Date: </span>
-                <span editable-date="clientAutoInfo.effectiveEndDate">{{ clientAutoInfo.effectiveEndDate || '' }}</span>
             </div>
         </div>
-        
-        <!-- row 4-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">State: </span>
-                <span editable-text="clientAutoInfo.state"
-                      e-name="state">
-                    {{ clientAutoInfo.state }}
-                </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Med Pay Available: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Med Pay Available:</label>
+            <div class="col-sm-8">
                 <span editable-text="clientAutoInfo.medPayAvailable"
                       e-name="medPayAvailable">
                     {{ clientAutoInfo.medPayAvailable }}
                 </span>
             </div>
         </div>
-        
-        <!-- row 5-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Zip: </span>
-                <span editable-text="clientAutoInfo.zip"
-                      e-name="zip">
-                    {{ clientAutoInfo.zip }}
-                </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Amount: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Amount:</label>
+            <div class="col-sm-8">
                 <span editable-text="clientAutoInfo.amount"
                       e-name="amount">
                     {{ clientAutoInfo.amount }}
                 </span>
             </div>
         </div>
-
-        <!-- row 6-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Phone Number: </span>
-                <span editable-text="clientAutoInfo.phoneNumber"
-                      e-name="phoneNumber">
-                    {{ clientAutoInfo.phoneNumber }}
-                </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Liability Min Coverage: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Liability Min Coverage:</label>
+            <div class="col-sm-8">
                 <span editable-text="clientAutoInfo.liabilityMinCoverage"
                       e-name="liabilityMinCoverage">
                     {{ clientAutoInfo.liabilityMinCoverage }}
                 </span>
             </div>
         </div>
-        
-        <!-- row 7-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Ajudster: </span>
-                <span editable-text="clientAutoInfo.adjuster"
-                      e-name="adjuster">
-                    {{ clientAutoInfo.adjuster }}
-                </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Liability Max Coverage: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Liability Max Coverage:</label>
+            <div class="col-sm-8">
                 <span editable-text="clientAutoInfo.liabilityMaxCoverage"
                       e-name="liabilityMaxCoverage">
                     {{ clientAutoInfo.liabilityMaxCoverage }}
                 </span>
             </div>
         </div>
-        
-        <!-- row 8-->
-        <div class="row">
-            <div class="col-lg-offset-4 col-md-4">
-                <span class="title">UMI Min: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">UMI Min:</label>
+            <div class="col-sm-8">
                 <span editable-text="clientAutoInfo.UMIMin"
                       e-name="UMIMin">
                     {{ clientAutoInfo.UMIMin }}
                 </span>
             </div>
         </div>
-        
-        <!-- row 9-->
-        <div class="row">
-            <div class="col-lg-offset-4 col-md-4">
-                <span class="title">UMI Max: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">UMI Max:</label>
+            <div class="col-sm-8">
                 <span editable-text="clientAutoInfo.UMIMax"
                       e-name="UMIMax">
                     {{ clientAutoInfo.UMIMax }}
                 </span>
             </div>
         </div>
-        
-        <!-- row 10-->
-        <div class="row">
-            <div class="col-lg-offset-4 col-md-4">
-                <span class="title">Reimbursable: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Reimbursable:</label>
+            <div class="col-sm-8">
                 <span editable-text="clientAutoInfo.reimbursable"
                       e-name="reimbursable">
                     {{ clientAutoInfo.reimbursable }}
                 </span>
             </div>
         </div>
-        
-        <!-- row 11-->
-        <div class="row">
-            <div class="col-lg-offset-4 col-md-4">
-                <span class="title">Notes: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Notes:</label>
+            <div class="col-sm-8">
                 <span editable-text="clientAutoInfo.notes"
                       e-name="notes">
                     {{ clientAutoInfo.notes }}
