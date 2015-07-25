@@ -14,54 +14,61 @@
             </button>
         </span>
     </div>
-
-    <div class="container-fluid">
-        <!--  row 1-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Case Number: </span>
+    
+    <!-- First column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Case Number: </label>
+            <div class="col-sm-8">
                 <span editable-text="courtInfo.caseNumber"
                       e-name="caseNumber">
                     {{ courtInfo.caseNumber }}
                 </span>
             </div>
-            <div class="col-md-4">
-                <span class="title">Court: </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Address:</label>
+            <div class="col-sm-8">
+                <span editable-text="courtInfo.address"
+                      e-name="address">
+                    {{ courtInfo.address }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">State:</label>
+            <div class="col-sm-8">
+                <span editable-text="courtInfo.state"
+                      e-name="state">
+                    {{ courtInfo.state }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Court:</label>
+            <div class="col-sm-8">
                 <span editable-text="courtInfo.court"
                       e-name="court">
                     {{ courtInfo.court }}
                 </span>
             </div>
         </div>
-        <!-- row 2 -->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Address: </span>
-                <span editable-text="courtInfo.address"
-                      e-name="address">
-                    {{ courtInfo.address }}
-                </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">City: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">City:</label>
+            <div class="col-sm-8">
                 <span editable-text="courtInfo.city"
                       e-name="city">
                     {{ courtInfo.city }}
                 </span>
             </div>
         </div>
-        
-        <!-- row 3 -->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">State: </span>
-                <span editable-text="courtInfo.state"
-                      e-name="state">
-                    {{ courtInfo.state }}
-                </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Zip: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Zip:</label>
+            <div class="col-sm-8">
                 <span editable-text="courtInfo.zip"
                       e-name="zip">
                     {{ courtInfo.zip }}
