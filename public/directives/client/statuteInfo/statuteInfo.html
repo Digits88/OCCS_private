@@ -14,127 +14,190 @@
             </button>
         </span>
     </div>
-
-    <div class="container-fluid">
-        <!--  row 1-->
-        <div class="col-md-4">
-            <span class="title">1 yr from date of accident: </span>
-            <span class="title" ng-bind="statuteInfo._1yrFromAccident"></span>
+    <!-- First column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-6">1 yr from date of accident: </label>
+            <div class="col-sm-6">
+                <span class="title" 
+                      ng-bind="statuteInfo._1yrFromAccident"/>
+            </div>
         </div>
-        <div class="col-md-4">
-            <span class="title">2 yrs from date of accident: </span>
-            <span class="title" ng-bind="statuteInfo._2yrFromAccident"></span>
+        <div class="form-group">
+            <label class="control-label col-sm-6">60 days from filed date: </label>
+            <div class="col-sm-6">
+                <span class="title" ng-bind="statuteInfo._60daysFromFiledDate"></span>
+            </div>
         </div>
-
-        <!--  row 2-->
-        <div class="col-md-4">
-            <span class="title">Complaint Filed Date: </span>
-            <span editable-date="statuteInfo.complaintFiledDate">{{ statuteInfo.complaintFiledDate || '' }}</span>
-        </div>
-        <div class="col-md-4">
-            <span class="title">60 days from filed date: </span>
-            <span class="title" ng-bind="statuteInfo._60daysFromFiledDate"></span>
-        </div>
-
-        <!-- row 3 -->
-        <div class="col-md-4">
-            <span class="title">2 yrs date: </span>
-            <span class="title" ng-bind="statuteInfo._2yrsDate"></span>
-        </div>
-        <div class="col-md-4">
-            <span class="title">3 yrs date: </span>
-            <span class="title" ng-bind="statuteInfo._3yrsDate"></span>
-        </div>
-        <div class="col-md-4">
-            <span class="title">5 yrs date: </span>
-            <span class="title" ng-bind="statuteInfo._5yrsDate"></span>
+        <div class="form-group">
+            <label class="control-label col-sm-6">5 yrs date: </label>
+            <div class="col-sm-6">
+                <span class="title" ng-bind="statuteInfo._5yrsDate"></span>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <input class="col-md-2" type="checkbox" placeholder="Is it a government claim" ng-model="statuteInfo.isGovtClaim == 'true'" />
+    <!-- Second column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-6">2 yrs from date of accident: </label>
+            <div class="col-sm-6">
+                <span class="title" ng-bind="statuteInfo._2yrFromAccident"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-6">2 yrs date: </label>
+            <div class="col-sm-6">
+                <span class="title" ng-bind="statuteInfo._2yrsDate"></span>
+            </div>
+        </div>
     </div>
-    <div class="row panel panel-default">
+    <!-- Third Column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-6">Complaint Filed Date: </label>
+            <div class="col-sm-6">
+                <span editable-date="statuteInfo.complaintFiledDate">{{ statuteInfo.complaintFiledDate || '' }}</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-6">3 yrs date: </label>
+            <div class="col-sm-6">
+                <span class="title" ng-bind="statuteInfo._3yrsDate"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Government Claim Details -->
+    <div class="row panel panel-default col-md-12">
         <div class="panel-heading">
             <h3 class="panel-title">Government Claim Details</h3>
         </div>
         <div class="panel-body">
-            <!-- sub row 1 -->
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="title">6 Months Statute: </span>
-                    <span editable-date="govtClaimInfo._6monthsStatue">{{ govtClaimInfo._6monthsStatue || '' }}</span>
+            <!-- First column -->
+            <div class="form-horizontal col-md-4" role="form">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">6 Months Statute: </label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo._6monthsStatue">
+                            {{ govtClaimInfo._6monthsStatue || '' }}
+                        </span>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="title">S/L 1 yr: </span>
-                    <span editable-date="govtClaimInfo.sl1yr">{{ govtClaimInfo.sl1yr || '' }}</span>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">City:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.city">
+                            {{ govtClaimInfo.city || '' }}
+                        </span>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="title">2 yrs: </span>
-                    <span editable-date="govtClaimInfo._2yrs">{{ govtClaimInfo._2yrs || '' }}</span>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">County:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.county">
+                            {{ govtClaimInfo.county || '' }}
+                        </span>
+                    </div>
                 </div>
-            </div>
-
-            <!-- sub row 2 -->
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="title">City: </span>
-                    <span editable-date="govtClaimInfo.city">{{ govtClaimInfo.city || '' }}</span>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">State:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.state">
+                            {{ govtClaimInfo.state || '' }}
+                        </span>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="title">Rejected On: </span>
-                    <span editable-date="govtClaimInfo.cityRejectedDate">{{ govtClaimInfo.cityRejectedDate || '' }}</span>
-                </div>
-                <div class="col-md-4">
-                    <span class="title">6 Months: </span>
-                    <span editable-date="govtClaimInfo.cityRejectedAfter6Months">{{ govtClaimInfo.cityRejectedAfter6Months || '' }}</span>
-                </div>
-            </div>
-
-            <!-- row 3 -->
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="title">County: </span>
-                    <span editable-date="govtClaimInfo.county">{{ govtClaimInfo.county || '' }}</span>
-                </div>
-                <div class="col-md-4">
-                    <span class="title">Rejected On: </span>
-                    <span editable-date="govtClaimInfo.countyRejectedDate">{{ govtClaimInfo.countyRejectedDate || '' }}</span>
-                </div>
-                <div class="col-md-4">
-                    <span class="title">6 Months: </span>
-                    <span editable-date="govtClaimInfo.countyRejectedAfter6Months">{{ govtClaimInfo.countyRejectedAfter6Months || '' }}</span>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Other:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.other">{{ govtClaimInfo.other || '' }}</span>
+                    </div>
                 </div>
             </div>
-
-            <!-- row 4 -->
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="title">State: </span>
-                    <span editable-date="govtClaimInfo.state">{{ govtClaimInfo.state || '' }}</span>
+            <!-- Second column -->
+            <div class="form-horizontal col-md-4" role="form">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">S/L 1 yr:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.sl1yr">
+                            {{ govtClaimInfo.sl1yr || '' }}
+                        </span>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="title">Rejected On: </span>
-                    <span editable-date="govtClaimInfo.stateRejectedDate">{{ govtClaimInfo.stateRejectedDate || '' }}</span>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Rejected On:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.cityRejectedDate">
+                            {{ govtClaimInfo.cityRejectedDate || '' }}
+                        </span>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="title">6 Months: </span>
-                    <span editable-date="govtClaimInfo.stateRejectedAfter6Months">{{ govtClaimInfo.stateRejectedAfter6Months || '' }}</span>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Rejected On:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.countyRejectedDate">
+                            {{ govtClaimInfo.countyRejectedDate || '' }}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Rejected On:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.stateRejectedDate">
+                            {{ govtClaimInfo.stateRejectedDate || '' }}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Rejected On:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.otherRejectedDate">
+                            {{ govtClaimInfo.otherRejectedDate || '' }}
+                        </span>
+                    </div>
                 </div>
             </div>
-
-            <!-- row 5 -->
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="title">Other: </span>
-                    <span editable-date="govtClaimInfo.other">{{ govtClaimInfo.other || '' }}</span>
+            <!-- Third Column -->
+            <div class="form-horizontal col-md-4" role="form">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">2 yrs:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo._2yrs">
+                            {{ govtClaimInfo._2yrs || '' }}
+                        </span>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="title">Rejected On: </span>
-                    <span editable-date="govtClaimInfo.otherRejectedDate">{{ govtClaimInfo.otherRejectedDate || '' }}</span>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">6 Months:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.cityRejectedAfter6Months">
+                            {{ govtClaimInfo.cityRejectedAfter6Months || '' }}
+                        </span>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="title">6 Months: </span>
-                    <span editable-date="govtClaimInfo.otherRejectedAfter6Months">{{ govtClaimInfo.otherRejectedAfter6Months || '' }}</span>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">6 Months:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.countyRejectedAfter6Months">
+                            {{ govtClaimInfo.countyRejectedAfter6Months || '' }}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">6 Months:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.stateRejectedAfter6Months">
+                            {{ govtClaimInfo.stateRejectedAfter6Months || '' }}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">6 Months:</label>
+                    <div class="col-sm-8">
+                        <span editable-date="govtClaimInfo.otherRejectedAfter6Months">
+                            {{ govtClaimInfo.otherRejectedAfter6Months || '' }}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
