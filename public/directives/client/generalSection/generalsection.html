@@ -15,158 +15,238 @@
         </span>
     </div>
 
-    <div class="container-fluid">
-        <!--  first row -->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">File No.: </span>
+    <!-- First column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4">File No.: </label>
+            <div class="col-sm-8">
                 <span editable-text="generalInformation.fileNo"
                       e-name="fileNo"
                       e-required>
                     {{ generalInformation.fileNo }}
                 </span>
             </div>
-            <div class="col-md-4">
-                <span class="title">Address: </span>
-                <span editable-text="generalInformation.address" e-name="address" >{{ generalInformation.address }}</span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Initial Case Information: </span>
-                <span editable-text="generalInformation.initialInfo" e-name="initialInfo" >{{ generalInformation.initialInfo }}</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" >Last Name:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.lastName"
+                      e-name="lastName"
+                      e-required>
+                    {{ generalInformation.lastName }}
+                </span>
             </div>
         </div>
-
-        <!--  second row -->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Last Name: </span>
-                <span editable-text="generalInformation.lastName" e-name="lastName" e-required>{{ generalInformation.lastName }}</span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Suite/Apt No.: </span>
-                <span editable-text="generalInformation.aptNo" e-name="aptNo" >{{ generalInformation.aptNo }}</span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Defendant Name: </span>
-                <span editable-text="generalInformation.defendantName" e-name="defendantName" >{{ generalInformation.defendantName }}</span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">First Name:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.firstName"
+                      e-name="firstName"
+                      e-required>
+                    {{generalInformation.firstName }}
+                </span>
             </div>
         </div>
-
-        <!--  third row -->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">First Name: </span>
-                <span editable-text="generalInformation.firstName" e-name="firstName" e-required>{{ generalInformation.firstName }}</span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">City: </span>
-                <span editable-text="generalInformation.city" e-name="city" >{{ generalInformation.city }}</span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Evidence 1: </span>
-                <span editable-text="generalInformation.evidence1" e-name="evidence1" >{{ generalInformation.evidence1 }}</span>
-            </div>
-        </div>
-
-        <!--  Fourth row -->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Case Type: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4" >Case Type:</label>
+            <div class="col-sm-8">
                 <span editable-select="generalInformation.caseType"
                       e-name="caseType"
                       e-ng-options="c as c for c in caseTypes">
                     {{ generalInformation.caseType || 'Not set' }}
                 </span>
             </div>
-            <div class="col-md-4">
-                <span class="title">State: </span>
-                <span editable-text="generalInformation.state" e-name="state" >{{ generalInformation.state }}</span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Evidence 2: </span>
-                <span editable-text="generalInformation.evidence2" e-name="evidence2" >{{ generalInformation.evidence2 }}</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="email">Other Type:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.otherType"
+                      e-name="otherType">
+                    {{ generalInformation.otherType }}
+                </span>
             </div>
         </div>
-
-        <!--  Fifth row -->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Other Type: </span>
-                <span editable-text="generalInformation.otherType" e-name="otherType" >{{ generalInformation.otherType }}</span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Home Phone: </span>
-                <span editable-text="generalInformation.homePhone" e-name="homePhone" >{{ generalInformation.homePhone }}</span>
-            </div>
-        </div>
-
-        <!--  Sixth row -->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Case Status: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="email">Case Status:</label>
+            <div class="col-sm-8">
                 <span editable-select="generalInformation.caseStatus"
                       e-name="caseType"
                       e-ng-options="c as c for c in caseStatus">
                     {{ generalInformation.caseStatus || 'Not set' }}
                 </span>
             </div>
-            <div class="col-md-4">
-                <span class="title">Cell Phone: </span>
-                <span editable-text="generalInformation.cellPhone" e-name="cellPhone" >{{ generalInformation.cellPhone }}</span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Originating Attorney: </span>
-                <span editable-text="generalInformation.originatingAttorney" e-name="originatingAttorney" >{{ generalInformation.originatingAttorney }}</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="email">Accident Date:</label>
+            <div class="col-sm-8">
+                <span editable-date="generalInformation.accidentDate">
+                    {{ generalInformation.accidentDate || '' }}
+                </span>
             </div>
         </div>
-
-        <!--  row  7-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Accident Date: </span>
-                <span editable-date="generalInformation.accidentDate">{{ generalInformation.accidentDate || '' }}</span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Work Phone: </span>
-                <span editable-text="generalInformation.workPhone" e-name="workPhone" >{{ generalInformation.workPhone }}</span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Assigned Attorney: </span>
-                <span editable-text="generalInformation.assignedAttorney" e-name="assignedAttorney" e-required>{{ generalInformation.assignedAttorney }}</span>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="email">Client Created:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.clientCreated"
+                      e-name="clientCreated">
+                    {{ generalInformation.clientCreated }}
+                </span>
             </div>
         </div>
-        
-        <!--  row  8-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Client Created: </span>
-                <span editable-text="generalInformation.clientCreated" e-name="clientCreated" >{{ generalInformation.clientCreated }}</span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Driving License: </span>
-                <span editable-text="generalInformation.drivingLicense" e-name="drivingLicense" >{{ generalInformation.drivingLicense }}</span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Refferal: </span>
-                <span editable-text="generalInformation.refferal" e-name="refferal" >{{ generalInformation.refferal }}</span>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="email">Email:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.email"
+                      e-name="email">
+                    {{ generalInformation.email }}
+                </span>
             </div>
         </div>
-        
-        <!--  row  9-->
-        <div class="row">
-            <div class="col-md-4">
-
-                <span class="title">Email: </span>
-                <span editable-text="generalInformation.email" e-name="email" >{{ generalInformation.email }}</span>
+    </div>
+    <!-- Second column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Address:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.address"
+                      e-name="address">
+                    {{ generalInformation.address }}
+                </span>
             </div>
-            <div class="col-md-4">
-                <span class="title">Date Of Birth: </span>
-                <span href="#" editable-date="generalInformation.dateOfBirth">{{ generalInformation.dateOfBirth || '' }}</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" >Suite/Apt No.:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.aptNo" 
+                      e-name="aptNo">
+                    {{ generalInformation.aptNo }}
+                </span>
             </div>
-            <div class="col-md-4">
-                <span class="title">SSN: </span>
-                <span editable-text="generalInformation.SSN" e-name="SSN" >{{ generalInformation.SSN }}</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" >City:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.city" 
+                      e-name="city">
+                    {{ generalInformation.city }}
+                </span>
             </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" >State:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.state" 
+                      e-name="state">
+                    {{ generalInformation.state }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" >Home Phone:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.homePhone" 
+                      e-name="homePhone">
+                    {{ generalInformation.homePhone }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" >Cell Phone:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.cellPhone" 
+                      e-name="cellPhone">
+                    {{ generalInformation.cellPhone }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" >Work Phone:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.workPhone" 
+                      e-name="workPhone">
+                    {{ generalInformation.workPhone }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" >Driving License:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.drivingLicense" 
+                      e-name="drivingLicense">
+                    {{ generalInformation.drivingLicense }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" >Date Of Birth:</label>
+            <div class="col-sm-8">
+                <span href="#" 
+                      editable-date="generalInformation.dateOfBirth">
+                    {{ generalInformation.dateOfBirth || '' }}
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- Third Column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Initial Case Information:</label>
+            <div class="col-sm-8">
+                <span editable-text="generalInformation.initialInfo" 
+                      e-name="initialInfo">
+                    {{ generalInformation.initialInfo }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Defendant Name:</label>
+            <span editable-text="generalInformation.defendantName" 
+                  e-name="defendantName">
+                {{ generalInformation.defendantName }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Evidence 1:</label>
+            <span editable-text="generalInformation.evidence1" 
+                  e-name="evidence1">
+                {{ generalInformation.evidence1 }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Evidence 2:</label>
+            <span editable-text="generalInformation.evidence2" 
+                  e-name="evidence2">
+                {{ generalInformation.evidence2 }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Originating Attorney:</label>
+            <span editable-text="generalInformation.originatingAttorney" 
+                  e-name="originatingAttorney">
+                {{ generalInformation.originatingAttorney }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Assigned Attorney:</label>
+            <span editable-text="generalInformation.assignedAttorney" 
+                  e-name="assignedAttorney" 
+                  e-required>
+                {{ generalInformation.assignedAttorney }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Refferal:</label>
+            <span editable-text="generalInformation.refferal" 
+                  e-name="refferal">
+                {{ generalInformation.refferal }}
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">SSN:</label>
+            <span editable-text="generalInformation.SSN" 
+                  e-name="SSN">
+                {{ generalInformation.SSN }}
+            </span>
         </div>
     </div>
 </form>
