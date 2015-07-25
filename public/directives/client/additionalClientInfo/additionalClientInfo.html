@@ -15,107 +15,134 @@
         </span>
     </div>
 
-    <div class="container-fluid">
-        <!-- row 1-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">Client Occupration: </span>
+    <!-- First column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Client Occupation: </label>
+            <div class="col-sm-8">
                 <span editable-text="additionalInfo.clientOccupation"
                       e-name="clientOccupation">
                     {{ additionalInfo.clientOccupation }}
                 </span>
             </div>
-            <div class="col-md-4">
-                <span class="title">Employer: </span>
-                <span editable-text="additionalInfo.employer"
-                      e-name="employer">
-                    {{ additionalInfo.employer }}
-                </span>
-            </div>
-            <div class="col-md-4">
-                <span class="title">Address: </span>
-                <span editable-text="additionalInfo.address"
-                      e-name="address">
-                    {{ additionalInfo.address }}
-                </span>
-            </div>
         </div>
-
-        <!--  row 2-->
-        <div class="row">
-            <div class="col-md-4">
-                <span class="title">City: </span>
+        <div class="form-group">
+            <label class="control-label col-sm-4">City:</label>
+            <div class="col-sm-8">
                 <span editable-text="additionalInfo.city"
                       e-name="city">
                     {{ additionalInfo.city }}
                 </span>
             </div>
-            <div class="col-md-4">
-                <span class="title">State: </span>
+        </div>
+    </div>
+    <!-- Second column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Employer:</label>
+            <div class="col-sm-8">
+                <span editable-text="additionalInfo.employer"
+                      e-name="employer">
+                    {{ additionalInfo.employer }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">State:</label>
+            <div class="col-sm-8">
                 <span editable-text="additionalInfo.state"
                       e-name="state">
                     {{ additionalInfo.state }}
                 </span>
             </div>
         </div>
-
-        <!--  Spouse Section -->
-        <div class="row panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Spouse Information</h3>
+    </div>
+    <!-- Third Column -->
+    <div class="form-horizontal col-md-4" role="form">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Address:</label>
+            <div class="col-sm-8">
+                <span editable-text="additionalInfo.address"
+                      e-name="address">
+                    {{ additionalInfo.address }}
+                </span>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <span class="title">Last Name: </span>
+        </div>
+    </div>
+    <!-- SPOUSE INFORMATION -->
+    <div class="row panel panel-default col-md-12">
+        <div class="panel-heading">
+            <h3 class="panel-title">Spouse Information</h3>
+        </div>
+        <div class="panel-body">
+            <!-- First column -->
+            <div class="form-horizontal col-md-4" role="form">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Last Name: </label>
+                    <div class="col-sm-8">
                         <span editable-text="additionalInfo.spouseLastName"
                               e-name="spouseLastName">
                             {{ additionalInfo.spouseLastName }}
                         </span>
                     </div>
-                    <div class="col-md-3">
-                        <span class="title">First Name: </span>
-                        <span editable-text="additionalInfo.spouseFirstName"
-                              e-name="spouseFirstName">
-                            {{ additionalInfo.spouseFirstName }}
-                        </span>
-                    </div>
-                    <div class="col-md-3">
-                        <span class="title">Occupation: </span>
-                        <span editable-text="additionalInfo.spouseOccupation"
-                              e-name="spouseOccupation">
-                            {{ additionalInfo.spouseOccupation }}
-                        </span>
-                    </div>
-                    <div class="col-md-3">
-                        <span class="title">Employer: </span>
-                        <span editable-text="additionalInfo.spouseEmployer"
-                              e-name="spouseEmployer">
-                            {{ additionalInfo.spouseEmployer }}
-                        </span>
-                    </div>
                 </div>
-                <!-- Spouse row 2 -->
-                <div class="row">
-                    <div class="col-md-3">
-                        <span class="title">Address: </span>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Address:</label>
+                    <div class="col-sm-8">
                         <span editable-text="additionalInfo.spouseAddress"
                               e-name="spouseAddress">
                             {{ additionalInfo.spouseAddress }}
                         </span>
                     </div>
-                    <div class="col-md-3">
-                        <span class="title">City: </span>
+                </div>
+            </div>
+            <!-- Second column -->
+            <div class="form-horizontal col-md-4" role="form">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">First Name:</label>
+                    <div class="col-sm-8">
+                        <span editable-text="additionalInfo.spouseFirstName"
+                              e-name="spouseFirstName">
+                            {{ additionalInfo.spouseFirstName }}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">City:</label>
+                    <div class="col-sm-8">
                         <span editable-text="additionalInfo.spouseCity"
                               e-name="spouseCity">
                             {{ additionalInfo.spouseCity }}
                         </span>
                     </div>
-                    <div class="col-md-3">
-                        <span class="title">State: </span>
+                </div>
+            </div>
+            <!-- Third Column -->
+            <div class="form-horizontal col-md-4" role="form">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Occupation:</label>
+                    <div class="col-sm-8">
+                        <span editable-text="additionalInfo.spouseOccupation"
+                              e-name="spouseOccupation">
+                            {{ additionalInfo.spouseOccupation }}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">State:</label>
+                    <div class="col-sm-8">
                         <span editable-text="additionalInfo.spouseState"
                               e-name="spouseState">
                             {{ additionalInfo.spouseState }}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Employer:</label>
+                    <div class="col-sm-8">
+                        <span editable-text="additionalInfo.spouseEmployer"
+                              e-name="spouseEmployer">
+                            {{ additionalInfo.spouseEmployer }}
                         </span>
                     </div>
                 </div>
