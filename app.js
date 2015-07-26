@@ -977,6 +977,38 @@ function writeNewClientSectionInDB(sectionData, sectionName, rowName) {
         });
     });
 }
+
+// ************************************************
+//      Close Client
+// ************************************************
+app.post('/clients/closeClient/:fileNo', auth, function (req, res) {
+    var query = "call closeClient(" + req.params.fileNo + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+    });
+    res.send(200);
+});
+
+// ************************************************
+//      Reactivate Client
+// ************************************************
+app.post('/clients/reactivateClient/:fileNo', auth, function (req, res) {
+    var query = "call reactivateClient(" + req.params.fileNo + ")";
+    console.log(query);
+    connection.query(query, function (err, rows) {
+        if (err) // error connecting to database
+        {
+            console.log(err);
+            res.send(400);
+        }
+    });
+    res.send(200);
+});
 //==================================================================
 
 //==================================================================

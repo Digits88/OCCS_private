@@ -1,23 +1,25 @@
 <div ng-controller="ClientsCtrl">
     <br/>
-    <div class="btn-group btn-group-justified" role="group">
-        <div class="btn-group" role="group">
-            <input type="button" class="btn btn-primary" value="Add Client" ng-click="AddNewClient()" ng-disabled="isNewClientClicked" />
-        </div>
-        <div class="btn-group" role="group">
-            <input type="button" class="btn btn-primary" value="Cancel" ng-disabled="!isNewClientClicked" />
-        </div>
-        <div class="btn-group" role="group">
-            <input type="button" class="btn btn-primary" value="Save" ng-click="SaveNewClient()" ng-disabled="!isNewClientClicked" />
-        </div>
-        <div class="btn-group" role="group">
-            <input type="button" class="btn btn-primary" value="Close Client" />
-        </div>
-        <div class="btn-group" role="group">
-            <input type="button" class="btn btn-primary" value="Reactivate Closed Client" />
-        </div>
-        <div class="btn-group" role="group">
-            <input type="button" class="btn btn-primary" value="Expand All" />
+    <div class="navbar-fixed-top" style="margin-top: 50px">
+        <div class="btn-group btn-group-justified" role="group">
+            <div class="btn-group" role="group">
+                <input type="button" class="btn btn-primary" value="Add Client" ng-click="AddNewClient()" ng-disabled="isNewClientClicked" />
+            </div>
+            <div class="btn-group" role="group">
+                <input type="button" class="btn btn-primary" value="Cancel" ng-disabled="!isNewClientClicked" />
+            </div>
+            <div class="btn-group" role="group">
+                <input type="button" class="btn btn-primary" value="Save" ng-click="SaveNewClient()" ng-disabled="!isNewClientClicked" />
+            </div>
+            <div class="btn-group" role="group">
+                <input type="button" class="btn btn-primary" value="Close Client" ng-click="CloseClient()" />
+            </div>
+            <div class="btn-group" role="group">
+                <input type="button" class="btn btn-primary" value="Reactivate Closed Client" ng-click="ReactivateClient()" />
+            </div>
+            <div class="btn-group" role="group">
+                <input type="button" class="btn btn-primary" value="Expand All"/>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -38,7 +40,7 @@
                  ng-grid="gridOptions"></div>
             <!--<p class="selectedItems">{{mySelections}}</p>-->
         </div>
-
+        <br/>
     </div>
     <div class="row">
         <!--  ========================================================================= -->

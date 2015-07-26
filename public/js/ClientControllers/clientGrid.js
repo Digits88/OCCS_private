@@ -203,4 +203,7 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
         });
     };
 
+    $scope.refreshGridData = function() {
+        $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
+    }
 }

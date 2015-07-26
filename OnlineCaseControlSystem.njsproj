@@ -33,6 +33,8 @@
     <Compile Include="public\javascripts\jquery-1.11.2.min.js" />
     <Compile Include="public\javascripts\jquery-migrate-1.2.1.min.js" />
     <Compile Include="public\javascripts\ui-bootstrap-tpls-0.12.1.js" />
+    <Compile Include="public\js\ClientControllers\reactivateClient.js" />
+    <Compile Include="public\js\ClientControllers\closeClient.js" />
     <Compile Include="public\js\ClientControllers\updateClient.js" />
     <Compile Include="public\js\ClientControllers\clientGrid.js" />
     <Compile Include="public\js\ClientControllers\addNewClient.js" />

@@ -6,6 +6,9 @@ angular.module('app').controller('ClientsCtrl', function($scope, $http) {
     angular.module('app').ClientsGridCtrl($scope, $http);
     angular.module('app').BusyIconCtrl($scope, $http);
     angular.module('app').UpdateClientCtrl($scope, $http);
+    
+    angular.module('app').CloseClientCtrl($scope, $http);
+    angular.module('app').ReactivateClientCtrl($scope, $http);
 
 
     $scope.isNewClientClicked = false;
