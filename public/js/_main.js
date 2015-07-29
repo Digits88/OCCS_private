@@ -100,6 +100,10 @@ var app = angular.module('app', [   'ngGrid',
         templateUrl: 'views/generalsection.html',
         controller: 'GeneralSectionCtrl'
     })
+      .when('/deleteClients', {
+        templateUrl: 'views/deleteClients.html',
+        controller: 'DeleteClientsCtrl'
+    })
       .when('/logout', {
         templateUrl: '/',
         controller: 'LogoutCtrl'

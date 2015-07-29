@@ -33,6 +33,7 @@
     <Compile Include="public\javascripts\jquery-1.11.2.min.js" />
     <Compile Include="public\javascripts\jquery-migrate-1.2.1.min.js" />
     <Compile Include="public\javascripts\ui-bootstrap-tpls-0.12.1.js" />
+    <Compile Include="public\javascripts\ui-bootstrap-tpls.min.js" />
     <Compile Include="public\js\ClientControllers\reactivateClient.js" />
     <Compile Include="public\js\ClientControllers\closeClient.js" />
     <Compile Include="public\js\ClientControllers\updateClient.js" />
@@ -44,6 +45,7 @@
     <Compile Include="public\js\datetimecontroller.js" />
     <Compile Include="public\js\Filters\ISODateReviverFilter.js" />
     <Compile Include="public\js\generalsection.js" />
+    <Compile Include="public\js\deleteClientsCtrl.js" />
     <Compile Include="public\js\logout.js" />
     <Compile Include="public\js\nggridtest.js" />
     <Compile Include="public\js\users.js" />
@@ -82,6 +84,7 @@
     <Content Include="public\stylesheets\gh-fork-ribbon.css" />
     <Content Include="public\stylesheets\ng-grid.css" />
     <Content Include="public\stylesheets\login-page.css" />
+    <Content Include="public\views\deleteClients.html" />
     <Content Include="public\views\temp.html" />
     <Content Include="public\directives\client\generalSection\generalsection.html" />
     <Content Include="public\views\dashboard.html" />

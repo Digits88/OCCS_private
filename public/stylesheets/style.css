@@ -1,42 +1,53 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 .gridStyle {
     border: 1px solid rgb(212,212,212);
-    width: 100%; 
+    width: 100%;
     height: 300px;
 }
 
-.selectedItems{
-    float: left; 
+.selectedItems {
+    float: left;
 }
 
-div[ng-app] { margin: 10px; }
+div[ng-app] {
+    margin: 10px;
+}
+
 form[name="editableForm"] > div {
-  height: auto;
-  padding: 5px 0;
+    height: auto;
+    padding: 5px 0;
 }
 
 form[name="editableForm"] .title {
-  display: inline-block;
-  font-weight: bold;
-  padding-top: 5px;
-  vertical-align: top;
-  min-width: 90px;
+    display: inline-block;
+    font-weight: bold;
+    padding-top: 5px;
+    vertical-align: top;
+    min-width: 90px;
 }
 
 form[name="editableForm"] .editable {
-  display: inline-block;
-  padding-top: 5px;
-  vertical-align: top;
+    display: inline-block;
+    padding-top: 5px;
+    vertical-align: top;
 }
 
 form[name="editableForm"] select {
-  width: 120px;
+    width: 120px;
+}
+
+.required-field {
+    content: "*";
+    align-content: center;
+    vertical-align: central;
+    color: red;
+    font-weight: bold;
 }

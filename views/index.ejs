@@ -13,6 +13,7 @@
 	<script type="text/javascript" src="/javascripts/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="/javascripts/angular.min.js"></script>
+	<script type="text/javascript" src="/javascripts/ui-bootstrap-tpls.min.js"></script>
 	<script type="text/javascript" src="/javascripts/ui-bootstrap-tpls-0.12.1.js"></script>
    
     <script type="text/javascript" src="/javascripts/angular-resource.min.js"></script>
@@ -43,6 +44,7 @@
 
     <script type="text/javascript" src="/js/generalsection.js"></script>
     <script type="text/javascript" src="/js/datetimecontroller.js"></script>
+    <script type="text/javascript" src="/js/deleteClientsCtrl.js"></script>
 
     <script type="text/javascript" src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
 
@@ -50,7 +52,6 @@
     <link href="/stylesheets/gh-fork-ribbon.css" rel="stylesheet">
     <script type="text/javascript" src="/javascripts/angular-animate.js"></script>
     <script type="text/javascript" src="/javascripts/angular-busy.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>
 
 	<link href="/angular-xeditable-0.1.8/css/xeditable.css" rel="stylesheet">
 	<script src="/angular-xeditable-0.1.8/js/xeditable.js"></script>
@@ -73,7 +74,7 @@
 					<li ng-class="{ active: isActive('/clients')}"><a href="#/clients">Client Dashboard</a></li>
 					<li ng-class="{ active: isActive('/reports')}"><a href="#/menu/reports">Reports</a></li>
 					<li ng-class="{ active: isActive('/Billings')}"><a href="#/menu/Billings">Billings</a></li>
-					<li ng-class="{ active: isActive('/Delete Clients')}"><a href="#/menu/deleteclients">Delete Clients</a></li>
+					<li ng-class="{ active: isActive('/deleteClients')}"><a href="#/deleteClients">Delete Clients</a></li>
 					<li ng-class="{ active: isActive('/Users')}"><a href="#/users">Users</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">

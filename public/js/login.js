@@ -22,6 +22,7 @@ angular.module('app').controller('LoginCtrl', function ($scope, $rootScope, $htt
             $rootScope.isLoggingRequired = false;
             $rootScope.loggedInUserName = myService.get();
             $location.url('/clients');
+            //$location.url('/deleteClients');
         })
     .error(function () {
             // Error: authentication failed
