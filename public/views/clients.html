@@ -18,7 +18,7 @@
                 <input type="button" class="btn btn-primary" value="Reactivate Closed Client" ng-click="ReactivateClient()" />
             </div>
             <div class="btn-group" role="group">
-                <input type="button" class="btn btn-primary" value="Expand All"/>
+                <button class="btn btn-primary" ng-click="ExpandAllGroups()" >{{ExpandButtonCaption}}</button>
             </div>
         </div>
     </div>
@@ -52,52 +52,52 @@
                     <!--  ========================================================================= -->
                     <!--  General Information Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group heading="General Information" is-open="true">
+                    <accordion-group heading="General Information" is-open="isGeneralInfoOpen">
                         <general-section></general-section>
                     </accordion-group>
 
                     <!--  ========================================================================= -->
                     <!--  Additional Client Information Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group is-open="true">
+                    <accordion-group is-open="IsAdditionalInfoOpen">
                         <accordion-heading>
-                            Additional Client Information <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': additionalInfo.open, 'glyphicon-chevron-right': !additionalInfo.open}"></i>
+                            Additional Client Information <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': IsAdditionalInfoOpen, 'glyphicon-chevron-right': !IsAdditionalInfoOpen}"></i>
                         </accordion-heading>
                         <additional-client></additional-client>
                     </accordion-group>
                     <!--  ========================================================================= -->
                     <!--  Client Auto Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group is-open="true">
+                    <accordion-group is-open="IsClientAutoInfoOpen">
                         <accordion-heading>
-                            Client Auto Information <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': clientAutoInfo.open, 'glyphicon-chevron-right': !clientAutoInfo.open}"></i>
+                            Client Auto Information <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': IsClientAutoInfoOpen, 'glyphicon-chevron-right': !IsClientAutoInfoOpen}"></i>
                         </accordion-heading>
                         <client-auto></client-auto>
                     </accordion-group>
                     <!--  ========================================================================= -->
                     <!--  Client Medical Insurance Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group is-open="true">
+                    <accordion-group is-open="IsClientMedicalInsuranceOpen">
                         <accordion-heading>
-                            Client Medical Insurance <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': clientMedicalInsurance.open, 'glyphicon-chevron-right': !clientMedicalInsurance.open}"></i>
+                            Client Medical Insurance <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': IsClientMedicalInsuranceOpen, 'glyphicon-chevron-right': !IsClientMedicalInsuranceOpen}"></i>
                         </accordion-heading>
                         <medical-insurance></medical-insurance>
                     </accordion-group>
                     <!--  ========================================================================= -->
                     <!--  Client Injuries Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group is-open="true">
+                    <accordion-group is-open="IsClientInjuriesOpen">
                         <accordion-heading>
-                            Client Injuries<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': clientInjuries.open, 'glyphicon-chevron-right': !clientInjuries.open}"></i>
+                            Client Injuries<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': IsClientInjuriesOpen, 'glyphicon-chevron-right': !IsClientInjuriesOpen}"></i>
                         </accordion-heading>
                         <client-injuries></client-injuries>
                     </accordion-group>
                     <!--  ========================================================================= -->
                     <!--  Defendant Information Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group is-open="true">
+                    <accordion-group is-open="IsDefendantInfoOpen">
                         <accordion-heading>
-                            Defendant Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': defendantInfo.open, 'glyphicon-chevron-right': !defendantInfo.open}"></i>
+                            Defendant Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': IsDefendantInfoOpen, 'glyphicon-chevron-right': !IsDefendantInfoOpen}"></i>
                         </accordion-heading>
                         <defendant-info></defendant-info>
                     </accordion-group>
@@ -105,9 +105,9 @@
                     <!--  ========================================================================= -->
                     <!--  Defendant Insurance Information Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group is-open="true">
+                    <accordion-group is-open="IsDefendantInsuranceInfoOpen">
                         <accordion-heading>
-                            Defendant Insurance Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': defendantInsuranceInfo.open, 'glyphicon-chevron-right': !defendantInsuranceInfo.open}"></i>
+                            Defendant Insurance Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': IsDefendantInsuranceInfoOpen, 'glyphicon-chevron-right': !IsDefendantInsuranceInfoOpen}"></i>
                         </accordion-heading>
                         <defendant-insurance></defendant-insurance>
                     </accordion-group>
@@ -115,9 +115,9 @@
                     <!--  ========================================================================= -->
                     <!--  Statute Information Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group is-open="true">
+                    <accordion-group is-open="IsStatuteOpen">
                         <accordion-heading>
-                            Statute Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': statute.open, 'glyphicon-chevron-right': !statute.open}"></i>
+                            Statute Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': IsStatuteOpen, 'glyphicon-chevron-right': !IsStatuteOpen}"></i>
                         </accordion-heading>
                         <statute-info></statute-info>
                     </accordion-group>
@@ -125,9 +125,9 @@
                     <!--  ========================================================================= -->
                     <!--  Court Information Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group is-open="true">
+                    <accordion-group is-open="IsCourtOpen">
                         <accordion-heading>
-                            Court Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': court.open, 'glyphicon-chevron-right': !court.open}"></i>
+                            Court Information<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': IsCourtOpen, 'glyphicon-chevron-right': !IsCourtOpen}"></i>
                         </accordion-heading>
                         <court-info></court-info>
                     </accordion-group>
@@ -135,9 +135,9 @@
                     <!--  ========================================================================= -->
                     <!--  Misc Information Section -->
                     <!--  ========================================================================= -->
-                    <accordion-group is-open="true">
+                    <accordion-group is-open="IsMiscOpen">
                         <accordion-heading>
-                            Misc Notes<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': misc.open, 'glyphicon-chevron-right': !misc.open}"></i>
+                            Misc Notes<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': IsMiscOpen, 'glyphicon-chevron-right': !IsMiscOpen}"></i>
                         </accordion-heading>
                         <misc-info></misc-info>
                     </accordion-group>

@@ -10,9 +10,26 @@ angular.module('app').controller('ClientsCtrl', function($scope, $http) {
     angular.module('app').CloseClientCtrl($scope, $http);
     angular.module('app').ReactivateClientCtrl($scope, $http);
 
-
+    $scope.ExpandButtonCaption = "Expand All";
     $scope.isNewClientClicked = false;
 
+    $scope.expandAll = false;
+    
+    $scope.ExpandAllGroups = function () {
+        $scope.expandAll = !$scope.expandAll;
+        $scope.ExpandButtonCaption = $scope.expandAll ? "Collapse All" : "Expand All";
+
+        $scope.isGeneralInfoOpen = !$scope.isGeneralInfoOpen;
+        $scope.IsAdditionalInfoOpen = !$scope.IsAdditionalInfoOpen;
+        $scope.IsClientAutoInfoOpen = !$scope.IsClientAutoInfoOpen;
+        $scope.IsClientMedicalInsuranceOpen = !$scope.IsClientMedicalInsuranceOpen;
+        $scope.IsClientInjuriesOpen = !$scope.IsClientInjuriesOpen;
+        $scope.IsDefendantInfoOpen= !$scope.IsDefendantInfoOpen;
+        $scope.IsDefendantInsuranceInfoOpen = !$scope.IsDefendantInsuranceInfoOpen;
+        $scope.IsStatuteOpen = !$scope.IsStatuteOpen;
+        $scope.IsCourtOpen= !$scope.IsCourtOpen;
+        $scope.IsMiscOpen = !$scope.IsMiscOpen;
+    }
     // Group options
     $scope.status = {
         isFirstOpen: true,
