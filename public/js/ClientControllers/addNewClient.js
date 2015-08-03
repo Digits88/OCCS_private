@@ -226,7 +226,8 @@ angular.module('app').AddNewClientCtrl = function ($scope, $http) {
         };
         $http.post('/clients/createNewClient', { newClient: newClient })
     .success(function (user) {
-        })
+                $scope.refreshGridData();
+            })
     .error(function () {
             alert("error");
         });
