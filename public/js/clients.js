@@ -11,7 +11,7 @@ angular.module('app').controller('ClientsCtrl', function($scope, $http) {
     angular.module('app').ReactivateClientCtrl($scope, $http);
 
     $scope.ExpandButtonCaption = "Expand All";
-    $scope.isNewClientClicked = false;
+    $scope.disableAddClient = false;
 
     $scope.expandAll = false;
     

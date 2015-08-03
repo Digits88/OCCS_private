@@ -5,7 +5,7 @@ angular.module('app').AddNewClientCtrl = function ($scope, $http) {
     $scope.AddNewClient = function () {
         //$scope.isGeneralInfoEdiatable = false;
         $scope.isGeneralInfoEdiatable = false;
-        $scope.isNewClientClicked = true;
+        $scope.disableAddClient = true;
         
         $http.get('/clients/newFileNo')
     .success(function (result) {
@@ -226,11 +226,16 @@ angular.module('app').AddNewClientCtrl = function ($scope, $http) {
         };
         $http.post('/clients/createNewClient', { newClient: newClient })
     .success(function (user) {
-                $scope.refreshGridData();
-            })
+            $scope.refreshGridData();
+            $scope.disableAddClient = false;
+        })
     .error(function () {
             alert("error");
         });
 
+    }
+    
+    $scope.CancelAddNewClient = function () {
+        $scope.disableAddClient = false;
     }
 }

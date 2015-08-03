@@ -3,13 +3,13 @@
     <div class="navbar-fixed-top" style="margin-top: 50px">
         <div class="btn-group btn-group-justified" role="group">
             <div class="btn-group" role="group">
-                <input type="button" class="btn btn-primary" value="Add Client" ng-click="AddNewClient()" ng-disabled="isNewClientClicked" />
+                <input type="button" class="btn btn-primary" value="Add Client" ng-click="AddNewClient()" ng-disabled="disableAddClient" />
             </div>
             <div class="btn-group" role="group">
-                <input type="button" class="btn btn-primary" value="Cancel" ng-disabled="!isNewClientClicked" />
+                <input type="button" class="btn btn-primary" value="Cancel" ng-click="CancelAddNewClient()" ng-disabled="!disableAddClient" />
             </div>
             <div class="btn-group" role="group">
-                <input type="button" class="btn btn-primary" value="Save" ng-click="SaveNewClient()" ng-disabled="!isNewClientClicked" />
+                <input type="button" class="btn btn-primary" value="Save" ng-click="SaveNewClient()" ng-disabled="!disableAddClient" />
             </div>
             <div class="btn-group" role="group">
                 <input type="button" class="btn btn-primary" value="Close Client" ng-click="CloseClient()" />

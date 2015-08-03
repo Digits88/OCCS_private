@@ -51,6 +51,11 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
     
     $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
     
+    $scope.$on('ngGridEventData', function (e, s) {
+        $scope.gridOptions.selectRow(0, true);
+        $(".ngViewport").focus();
+    });
+
     $scope.$watch('pagingOptions', function (newVal, oldVal) {
         if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
             $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage, $scope.filterOptions.filterText);
@@ -65,6 +70,7 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
     $scope.gridOptions = {
         data: 'myData',
         enablePaging: true,
+        enableRowSelection:true,
         showFooter: true,
         totalServerItems: 'totalServerItems',
         pagingOptions: $scope.pagingOptions,
@@ -161,7 +167,6 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
                     $scope.miscData = miscInfo[0];
                 });
                 $scope.waitForAll();
-
             }
         },
         multiSelect: false
