@@ -1,15 +1,21 @@
-<form editable-form name="editableForm" onaftersave="saveStatuteInfo()">
+<form editable-form name="editableForm" 
+      onaftersave="saveStatuteInfo()">
     <div>
         <!-- button to show form -->
-        <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+        <button type="button" class="btn btn-default"
+                ng-click="toggleEnableStatuteEditing(true)"
+                ng-show="!isStatuteInformationEditable">
             Edit
         </button>
         <!-- buttons to submit / cancel form -->
-        <span ng-show="editableForm.$visible">
-            <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+        <span ng-show="isStatuteInformationEditable">
+            <button type="submit"
+                    class="btn btn-primary">
                 Save
             </button>
-            <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+            <button type="button"
+                    class="btn btn-default"
+                    ng-click="toggleEnableStatuteEditing(false)">
                 Cancel
             </button>
         </span>
@@ -19,20 +25,20 @@
         <div class="form-group">
             <label class="control-label col-sm-6">1 yr from date of accident: </label>
             <div class="col-sm-6">
-                <span class="title" 
-                      ng-bind="statuteInfo._1yrFromAccident"/>
+                <span class="title"
+                      ng-bind="statuteInfo._1yrFromAccident | date:'yyyy-MM-dd'" />
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-6">60 days from filed date: </label>
             <div class="col-sm-6">
-                <span class="title" ng-bind="statuteInfo._60daysFromFiledDate"></span>
+                <span class="title" ng-bind="statuteInfo._60daysFromFiledDate| date:'yyyy-MM-dd'"></span>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-6">5 yrs date: </label>
             <div class="col-sm-6">
-                <span class="title" ng-bind="statuteInfo._5yrsDate"></span>
+                <span class="title" ng-bind="statuteInfo._5yrsDate | date:'yyyy-MM-dd'"></span>
             </div>
         </div>
     </div>
@@ -41,13 +47,13 @@
         <div class="form-group">
             <label class="control-label col-sm-6">2 yrs from date of accident: </label>
             <div class="col-sm-6">
-                <span class="title" ng-bind="statuteInfo._2yrFromAccident"></span>
+                <span class="title" ng-bind="statuteInfo._2yrFromAccident | date:'yyyy-MM-dd'"></span>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-6">2 yrs date: </label>
             <div class="col-sm-6">
-                <span class="title" ng-bind="statuteInfo._2yrsDate"></span>
+                <span class="title" ng-bind="statuteInfo._2yrsDate | date:'yyyy-MM-dd'"></span>
             </div>
         </div>
     </div>
@@ -56,14 +62,16 @@
         <div class="form-group">
             <label class="control-label col-sm-6">Complaint Filed Date: </label>
             <div class="col-sm-6">
-                <span editable-date="statuteInfo.complaintFiledDate">{{ (statuteInfo.complaintFiledDate | date:"dd/MM/yyyy") || '' }}</span>
-                <!--<span editable-date="statuteInfo.complaintFiledDate">{{ statuteInfo.complaintFiledDate || '' }}</span>-->
+                <input type="date"
+                       ng-model="statuteInfo.complaintFiledDate"
+                       ng-disabled="!isStatuteInformationEditable"
+                       placeholder="yyyy-MM-dd" />
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-6">3 yrs date: </label>
             <div class="col-sm-6">
-                <span class="title" ng-bind="statuteInfo._3yrsDate"></span>
+                <span class="title" ng-bind="statuteInfo._3yrsDate | date:'yyyy-MM-dd' "></span>
             </div>
         </div>
     </div>
@@ -79,39 +87,46 @@
                 <div class="form-group">
                     <label class="control-label col-sm-4">6 Months Statute: </label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo._6monthsStatue">
-                            {{ (govtClaimInfo._6monthsStatue | date:"dd/MM/yyyy") || ''}}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo._6monthsStatue"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">City:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.city">
-                            {{ (govtClaimInfo.city | date:"dd/MM/yyyy") || '' }}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.city"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">County:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.county">
-                            {{(govtClaimInfo.county | date:"dd/MM/yyyy") || ''}}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.county"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">State:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.state">
-                            {{(govtClaimInfo.state | date:"dd/MM/yyyy") || '' }}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.state"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">Other:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.other">{{ (govtClaimInfo.other | date:"dd/MM/yyyy") || '' }}</span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.other"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
             </div>
@@ -120,41 +135,46 @@
                 <div class="form-group">
                     <label class="control-label col-sm-4">S/L 1 yr:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.sl1yr">
-                            {{ (govtClaimInfo.sl1yr | date:"dd/MM/yyyy") || '' }}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.sl1yr"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">Rejected On:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.cityRejectedDate">
-                            {{ (govtClaimInfo.cityRejectedDate | date:"dd/MM/yyyy") || '' }}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.cityRejectedDate"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">Rejected On:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.countyRejectedDate">
-                            {{ (govtClaimInfo.countyRejectedDate | date:"dd/MM/yyyy") || '' }}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.countyRejectedDate"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">Rejected On:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.stateRejectedDate">
-                            {{ (govtClaimInfo.stateRejectedDate | date:"dd/MM/yyyy") || '' }}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.stateRejectedDate"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">Rejected On:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.otherRejectedDate">
-                            {{ (govtClaimInfo.otherRejectedDate | date:"dd/MM/yyyy") || '' }}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.otherRejectedDate"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
             </div>
@@ -163,41 +183,47 @@
                 <div class="form-group">
                     <label class="control-label col-sm-4">2 yrs:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo._2yrs">
-                            {{ (govtClaimInfo._2yrs | date:"dd/MM/yyyy") || '' }}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo._2yrs"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">6 Months:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.cityRejectedAfter6Months">
-                            {{ (govtClaimInfo.cityRejectedAfter6Months | date:"dd/MM/yyyy") || '' }}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.cityRejectedAfter6Months"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">6 Months:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.countyRejectedAfter6Months">
-                            {{ (govtClaimInfo.countyRejectedAfter6Months | date:"dd/MM/yyyy") || ''}}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.countyRejectedAfter6Months"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">6 Months:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.stateRejectedAfter6Months">
-                            {{ (govtClaimInfo.stateRejectedAfter6Months | date:"dd/MM/yyyy") || '' }}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.stateRejectedAfter6Months"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
+                      
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">6 Months:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.otherRejectedAfter6Months">
-                            {{ (govtClaimInfo.otherRejectedAfter6Months | date:"dd/MM/yyyy") || '' }}
-                        </span>
+                        <input type="date"
+                               ng-model="govtClaimInfo.otherRejectedAfter6Months"
+                               ng-disabled="!isStatuteInformationEditable"
+                               placeholder="yyyy-MM-dd" />
                     </div>
                 </div>
             </div>

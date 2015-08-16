@@ -1,6 +1,8 @@
 ﻿'use strict';
 angular.module('app').UpdateClientCtrl = function ($scope, $http) {
-    
+
+    $scope.isStatuteInformationEditable = false;
+
     // Save General Information
     $scope.saveGeneralInfo = function () {
         $http.post('/clients/generalInfo', { generalInformation: $scope.generalInformation })
@@ -49,6 +51,7 @@ angular.module('app').UpdateClientCtrl = function ($scope, $http) {
 
     // Save Statute Information
     $scope.saveStatuteInfo = function () {
+        $scope.toggleEnableStatuteEditing(false);
         $http.post('/clients/statuteInfo', { statuteInfo: $scope.statuteInfo })
             .success(function(user) {
             })
@@ -64,6 +67,12 @@ angular.module('app').UpdateClientCtrl = function ($scope, $http) {
         $http.post('/clients/courtInfo', { courtInfo: $scope.courtInfo })
             .success(function (user) { })
             .error(function () { alert("error"); });
+    };
+
+    //Statue information edit logic
+    // Save Court Information
+    $scope.toggleEnableStatuteEditing = function (isEditing) {
+        $scope.isStatuteInformationEditable = isEditing;
     };
 
 }

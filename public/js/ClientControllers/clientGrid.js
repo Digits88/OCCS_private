@@ -8,8 +8,8 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
     $scope.caseTypes = ["Injury", "Illness", "Death"];
     $scope.caseStatus = ["Open", "Closed"];
 
-    $scope.user = {
-        dob: new Date(1984, 4, 15)
+    $scope.example = {
+        value: new Date(2010, 11, 28, 14, 57)
     };
 
     $scope.filterOptions = {
@@ -150,13 +150,44 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
                 //$scope.wait();
                 // Get Statute information
                 $http.get('/clients/statuteInfo/' + $scope.mySelections[0].fileNo).success(function (statuteInfo) {
-                    $scope.statuteInfo = statuteInfo[0][0];
+                    var formattedStatuteInfo = {
+                        fileNo: statuteInfo[0][0].fileNo,
+                        yrFromAccident: new Date(statuteInfo[0][0].yrFromAccident),
+                        _2yrFromAccident: new Date(statuteInfo[0][0]._2yrFromAccident),
+                        complaintFiledDate: new Date(statuteInfo[0][0].complaintFiledDate),
+                        _60daysFromFiledDate: new Date(statuteInfo[0][0]._60daysFromFiledDate),
+                        _2yrsDate: new Date(statuteInfo[0][0]._2yrsDate),
+                        _3yrsDate: new Date(statuteInfo[0][0]._3yrsDate),
+                        _5yrsDate: new Date(statuteInfo[0][0]._5yrsDate),
+                        isGovtClaim: new Date(statuteInfo[0][0].isGovtClaim)
+                    };
+
+                    $scope.statuteInfo = formattedStatuteInfo;
                 });
                 //$scope.currentUrl = '/clients/govtClaimInfo/' + $scope.mySelections[0].fileNo.toString();
                 //$scope.wait();
                 // Get Govt Claim information
                 $http.get('/clients/govtClaimInfo/' + $scope.mySelections[0].fileNo).success(function (govtClaimInfo) {
-                    $scope.govtClaimInfo = govtClaimInfo[0][0];
+                    var formattedGovtClaimInfo =
+                    {
+                        fileNo: govtClaimInfo[0][0].fileNo,
+                        _6monthsStatue: new Date(govtClaimInfo[0][0]._6monthsStatue),
+                        sl1yr: new Date(govtClaimInfo[0][0].sl1yr),
+                        _2yrs: new Date(govtClaimInfo[0][0]._2yrs),
+                        city: new Date(govtClaimInfo[0][0].city),
+                        cityRejectedDate: new Date(govtClaimInfo[0][0].cityRejectedDate),
+                        cityRejectedAfter6Months: new Date(govtClaimInfo[0][0].cityRejectedAfter6Months),
+                        county: new Date(govtClaimInfo[0][0].county),
+                        countyRejectedDate: new Date(govtClaimInfo[0][0].countyRejectedDate),
+                        countyRejectedAfter6Months: new Date(govtClaimInfo[0][0].countyRejectedAfter6Months),
+                        state: new Date(govtClaimInfo[0][0].state),
+                        stateRejectedDate: new Date(govtClaimInfo[0][0].stateRejectedDate),
+                        stateRejectedAfter6Months: new Date(govtClaimInfo[0][0].stateRejectedAfter6Months),
+                        other: new Date(govtClaimInfo[0][0].other),
+                        otherRejectedDate: new Date(govtClaimInfo[0][0].otherRejectedDate),
+                        otherRejectedAfter6Months: new Date(govtClaimInfo[0][0].otherRejectedAfter6Months)
+                    };
+                    $scope.govtClaimInfo = formattedGovtClaimInfo;
                 });
                 //$scope.currentUrl = '/clients/courtInfo/' + $scope.mySelections[0].fileNo.toString();
                 //$scope.wait();
