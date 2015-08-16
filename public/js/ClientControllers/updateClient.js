@@ -48,9 +48,10 @@ angular.module('app').UpdateClientCtrl = function ($scope, $http) {
     };
 
     // Save Statute Information
-    $scope.saveStatuteInfo= function () {
+    $scope.saveStatuteInfo = function () {
         $http.post('/clients/statuteInfo', { statuteInfo: $scope.statuteInfo })
-            .success(function (user) { })
+            .success(function(user) {
+            })
             .error(function () { alert("error"); });
 
         $http.post('/clients/govtClaimInfo', { govtClaimInfo: $scope.govtClaimInfo })

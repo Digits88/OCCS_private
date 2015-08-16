@@ -56,7 +56,8 @@
         <div class="form-group">
             <label class="control-label col-sm-6">Complaint Filed Date: </label>
             <div class="col-sm-6">
-                <span editable-date="statuteInfo.complaintFiledDate">{{ statuteInfo.complaintFiledDate || '' }}</span>
+                <span editable-date="statuteInfo.complaintFiledDate">{{ (statuteInfo.complaintFiledDate | date:"dd/MM/yyyy") || '' }}</span>
+                <!--<span editable-date="statuteInfo.complaintFiledDate">{{ statuteInfo.complaintFiledDate || '' }}</span>-->
             </div>
         </div>
         <div class="form-group">
@@ -79,7 +80,7 @@
                     <label class="control-label col-sm-4">6 Months Statute: </label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo._6monthsStatue">
-                            {{ govtClaimInfo._6monthsStatue || '' }}
+                            {{ (govtClaimInfo._6monthsStatue | date:"dd/MM/yyyy") || ''}}
                         </span>
                     </div>
                 </div>
@@ -87,7 +88,7 @@
                     <label class="control-label col-sm-4">City:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo.city">
-                            {{ govtClaimInfo.city || '' }}
+                            {{ (govtClaimInfo.city | date:"dd/MM/yyyy") || '' }}
                         </span>
                     </div>
                 </div>
@@ -95,7 +96,7 @@
                     <label class="control-label col-sm-4">County:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo.county">
-                            {{ govtClaimInfo.county || '' }}
+                            {{(govtClaimInfo.county | date:"dd/MM/yyyy") || ''}}
                         </span>
                     </div>
                 </div>
@@ -103,14 +104,14 @@
                     <label class="control-label col-sm-4">State:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo.state">
-                            {{ govtClaimInfo.state || '' }}
+                            {{(govtClaimInfo.state | date:"dd/MM/yyyy") || '' }}
                         </span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">Other:</label>
                     <div class="col-sm-8">
-                        <span editable-date="govtClaimInfo.other">{{ govtClaimInfo.other || '' }}</span>
+                        <span editable-date="govtClaimInfo.other">{{ (govtClaimInfo.other | date:"dd/MM/yyyy") || '' }}</span>
                     </div>
                 </div>
             </div>
@@ -120,7 +121,7 @@
                     <label class="control-label col-sm-4">S/L 1 yr:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo.sl1yr">
-                            {{ govtClaimInfo.sl1yr || '' }}
+                            {{ (govtClaimInfo.sl1yr | date:"dd/MM/yyyy") || '' }}
                         </span>
                     </div>
                 </div>
@@ -128,7 +129,7 @@
                     <label class="control-label col-sm-4">Rejected On:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo.cityRejectedDate">
-                            {{ govtClaimInfo.cityRejectedDate || '' }}
+                            {{ (govtClaimInfo.cityRejectedDate | date:"dd/MM/yyyy") || '' }}
                         </span>
                     </div>
                 </div>
@@ -136,7 +137,7 @@
                     <label class="control-label col-sm-4">Rejected On:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo.countyRejectedDate">
-                            {{ govtClaimInfo.countyRejectedDate || '' }}
+                            {{ (govtClaimInfo.countyRejectedDate | date:"dd/MM/yyyy") || '' }}
                         </span>
                     </div>
                 </div>
@@ -144,7 +145,7 @@
                     <label class="control-label col-sm-4">Rejected On:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo.stateRejectedDate">
-                            {{ govtClaimInfo.stateRejectedDate || '' }}
+                            {{ (govtClaimInfo.stateRejectedDate | date:"dd/MM/yyyy") || '' }}
                         </span>
                     </div>
                 </div>
@@ -152,7 +153,7 @@
                     <label class="control-label col-sm-4">Rejected On:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo.otherRejectedDate">
-                            {{ govtClaimInfo.otherRejectedDate || '' }}
+                            {{ (govtClaimInfo.otherRejectedDate | date:"dd/MM/yyyy") || '' }}
                         </span>
                     </div>
                 </div>
@@ -163,7 +164,7 @@
                     <label class="control-label col-sm-4">2 yrs:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo._2yrs">
-                            {{ govtClaimInfo._2yrs || '' }}
+                            {{ (govtClaimInfo._2yrs | date:"dd/MM/yyyy") || '' }}
                         </span>
                     </div>
                 </div>
@@ -171,7 +172,7 @@
                     <label class="control-label col-sm-4">6 Months:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo.cityRejectedAfter6Months">
-                            {{ govtClaimInfo.cityRejectedAfter6Months || '' }}
+                            {{ (govtClaimInfo.cityRejectedAfter6Months | date:"dd/MM/yyyy") || '' }}
                         </span>
                     </div>
                 </div>
@@ -179,7 +180,7 @@
                     <label class="control-label col-sm-4">6 Months:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo.countyRejectedAfter6Months">
-                            {{ govtClaimInfo.countyRejectedAfter6Months || '' }}
+                            {{ (govtClaimInfo.countyRejectedAfter6Months | date:"dd/MM/yyyy") || ''}}
                         </span>
                     </div>
                 </div>
@@ -187,7 +188,7 @@
                     <label class="control-label col-sm-4">6 Months:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo.stateRejectedAfter6Months">
-                            {{ govtClaimInfo.stateRejectedAfter6Months || '' }}
+                            {{ (govtClaimInfo.stateRejectedAfter6Months | date:"dd/MM/yyyy") || '' }}
                         </span>
                     </div>
                 </div>
@@ -195,7 +196,7 @@
                     <label class="control-label col-sm-4">6 Months:</label>
                     <div class="col-sm-8">
                         <span editable-date="govtClaimInfo.otherRejectedAfter6Months">
-                            {{ govtClaimInfo.otherRejectedAfter6Months || '' }}
+                            {{ (govtClaimInfo.otherRejectedAfter6Months | date:"dd/MM/yyyy") || '' }}
                         </span>
                     </div>
                 </div>

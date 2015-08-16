@@ -4,6 +4,7 @@ var path = require('path');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var js2xmlparser = require("js2xmlparser");
+var dateFormat = require('dateformat');
 var fs = require('fs');
 // Start express application
 var app = express();
@@ -829,6 +830,7 @@ app.post('/clients/statuteInfo', auth, function (req, res) {
 });
 
 function saveStatuteInfo(statuteInfo) {
+    statuteInfo.complaintFiledDate = dateFormat(statuteInfo.complaintFiledDate, "yyyy-mm-dd HH:MM:ss");
     var statuteInfo = js2xmlparser("statuteInfo", statuteInfo);
     writeNewClientSectionInDB(statuteInfo, "statuteinformation", "<statuteInfo>");
 }
@@ -837,6 +839,23 @@ function saveStatuteInfo(statuteInfo) {
 //      Update Govt Claim Section
 // ************************************************
 app.post('/clients/govtClaimInfo', auth, function (req, res) {
+    
+    req.body.govtClaimInfo._6monthsStatue = dateFormat(req.body.govtClaimInfo._6monthsStatue, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.city = dateFormat(req.body.govtClaimInfo.city, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.county = dateFormat(req.body.govtClaimInfo.county, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.state = dateFormat(req.body.govtClaimInfo.state, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.other = dateFormat(req.body.govtClaimInfo.other, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.sl1yr = dateFormat(req.body.govtClaimInfo.sl1yr, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.cityRejectedDate = dateFormat(req.body.govtClaimInfo.cityRejectedDate, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.countyRejectedDate = dateFormat(req.body.govtClaimInfo.countyRejectedDate, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.stateRejectedDate = dateFormat(req.body.govtClaimInfo.stateRejectedDate, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.otherRejectedDate = dateFormat(req.body.govtClaimInfo.otherRejectedDate, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo._2yrs = dateFormat(req.body.govtClaimInfo._2yrs, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.cityRejectedAfter6Months = dateFormat(req.body.govtClaimInfo.cityRejectedAfter6Months, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.countyRejectedAfter6Months = dateFormat(req.body.govtClaimInfo.countyRejectedAfter6Months, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.stateRejectedAfter6Months = dateFormat(req.body.govtClaimInfo.stateRejectedAfter6Months, "yyyy-mm-dd HH:MM:ss");
+    req.body.govtClaimInfo.otherRejectedAfter6Months = dateFormat(req.body.govtClaimInfo.otherRejectedAfter6MonthsotherRejectedAfter6Months, "yyyy-mm-dd HH:MM:ss");
+
     var query = "call deleteGovtClaimInfo('" + req.body.govtClaimInfo.fileNo + "')";
     console.log(query);
     connection.query(query, function (err, rows) {
@@ -852,7 +871,7 @@ app.post('/clients/govtClaimInfo', auth, function (req, res) {
 
 function saveGovtClaimInfo(govtClaimInfo) {
     var govtClaimInfo = js2xmlparser("govtClaimInfo", govtClaimInfo);
-    writeNewClientSectionInDB(govtClaimInfo, "statuteinformation", "<govtClaimInfo>");
+    writeNewClientSectionInDB(govtClaimInfo, "govtclaimdetails", "<govtClaimInfo>");
 }
 
 

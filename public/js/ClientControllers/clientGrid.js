@@ -8,6 +8,10 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
     $scope.caseTypes = ["Injury", "Illness", "Death"];
     $scope.caseStatus = ["Open", "Closed"];
 
+    $scope.user = {
+        dob: new Date(1984, 4, 15)
+    };
+
     $scope.filterOptions = {
         filterText: "",
         useExternalFilter: true
