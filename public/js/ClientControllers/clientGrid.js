@@ -117,6 +117,8 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
                 //$scope.wait();
                 // Get additional information
                 $http.get('/clients/clientAutoInfo/' + $scope.mySelections[0].fileNo).success(function (clientAutoInfo) {
+                    clientAutoInfo[0][0].effectiveStartDate = new Date(clientAutoInfo[0][0].effectiveStartDate);
+                    clientAutoInfo[0][0].effectiveEndDate = new Date(clientAutoInfo[0][0].effectiveEndDate);
                     $scope.clientAutoInfo = clientAutoInfo[0][0];
                 });
                 //$scope.currentUrl = '/clients/medicalInsuranceInfo/' + $scope.mySelections[0].fileNo.toString();

@@ -2,6 +2,7 @@
 angular.module('app').UpdateClientCtrl = function ($scope, $http) {
 
     $scope.isGeneralInformationEditable = false;
+    $scope.isClientAutoInformationEditable = false;
     $scope.isStatuteInformationEditable = false;
     
     // Save General Information
@@ -75,18 +76,16 @@ angular.module('app').UpdateClientCtrl = function ($scope, $http) {
     $scope.toggleEnableStatuteEditing = function (isEditing) {
         $scope.isStatuteInformationEditable = isEditing;
     };
-
+    
+    // general info edit logic
     $scope.toggleEnableGeneralEditing = function (isEditing) {
         $scope.isGeneralInformationEditable = isEditing;
     };
 
-    $scope.editGeneralInformationSection = function() {
-        //$scope.editableGeneralInfoForm.$show();
-        $scope.toggleEnableGeneralEditing(true);
-    }
-    
-    $scope.cancelEditingGeneralInformationSection = function () {
-        $scope.toggleEnableGeneralEditing(false);
-        editableForm.$cancel();
-    }
+   
+   //client auto info edit logic
+    $scope.toggleEnableClientAutoEditing = function (isEditing) {
+        $scope.isClientAutoInformationEditable = isEditing;
+    };
+   
 }

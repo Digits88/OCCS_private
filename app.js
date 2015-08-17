@@ -478,7 +478,7 @@ app.get('/clients/statuteInfo/:fileno', auth, function (req, res) {
                         }
                     ]
                 ];
-
+                
                 res.send(statuteInfo);
             } else {
                 res.send(rows);
@@ -681,7 +681,7 @@ function saveGeneralInformation(generalInformation) {
     generalInformation.accidentDate = dateFormat(generalInformation.accidentDate, "yyyy-mm-dd HH:MM:ss");
     generalInformation.clientCreated = dateFormat(generalInformation.clientCreated, "yyyy-mm-dd HH:MM:ss");
     generalInformation.dateOfBirth = dateFormat(generalInformation.dateOfBirth, "yyyy-mm-dd HH:MM:ss");
-
+    
     var generalInformation = js2xmlparser("generalInformation", generalInformation);
     writeNewClientSectionInDB(generalInformation, "generalInformation", "<generalInformation>");
 }
@@ -694,7 +694,10 @@ app.post('/clients/additionalInfo', auth, function (req, res) {
     console.log(query);
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database
+        {
+            console.log(err);
             return done(err);
+        }
         
         saveAdditionalInfo(req.body.additionalInfo);
     });
@@ -722,6 +725,8 @@ app.post('/clients/clientAutoInfo', auth, function (req, res) {
 });
 
 function saveClientAutoInfo(clientAutoInfo) {
+    clientAutoInfo.effectiveStartDate = dateFormat(clientAutoInfo.effectiveStartDate, "yyyy-mm-dd HH:MM:ss");
+    clientAutoInfo.effectiveEndDate = dateFormat(clientAutoInfo.effectiveEndDate, "yyyy-mm-dd HH:MM:ss");
     var clientAutoInfo = js2xmlparser("clientAutoInfo", clientAutoInfo);
     writeNewClientSectionInDB(clientAutoInfo, "clientAutoInfo", "<clientAutoInfo>");
 }
@@ -859,7 +864,7 @@ app.post('/clients/govtClaimInfo', auth, function (req, res) {
     req.body.govtClaimInfo.countyRejectedAfter6Months = dateFormat(req.body.govtClaimInfo.countyRejectedAfter6Months, "yyyy-mm-dd HH:MM:ss");
     req.body.govtClaimInfo.stateRejectedAfter6Months = dateFormat(req.body.govtClaimInfo.stateRejectedAfter6Months, "yyyy-mm-dd HH:MM:ss");
     req.body.govtClaimInfo.otherRejectedAfter6Months = dateFormat(req.body.govtClaimInfo.otherRejectedAfter6MonthsotherRejectedAfter6Months, "yyyy-mm-dd HH:MM:ss");
-
+    
     var query = "call deleteGovtClaimInfo('" + req.body.govtClaimInfo.fileNo + "')";
     console.log(query);
     connection.query(query, function (err, rows) {
@@ -905,7 +910,7 @@ function saveCourtInfo(courtInfo) {
 //      Update Misc Information Section
 // ************************************************
 app.post('/clients/miscInfo', auth, function (req, res) {
-    var query = "call deleteMiscInfo(" + req.body.miscInfo.fileNo + "," + req.body.miscInfo.noteId+ ")";
+    var query = "call deleteMiscInfo(" + req.body.miscInfo.fileNo + "," + req.body.miscInfo.noteId + ")";
     console.log(query);
     connection.query(query, function (err, rows) {
         if (err) // error connecting to database

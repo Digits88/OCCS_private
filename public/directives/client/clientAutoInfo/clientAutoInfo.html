@@ -1,7 +1,7 @@
-<form editable-form name="editableForm" onaftersave="saveAdditionalInfo()">
+<form editable-form name="editableForm" onaftersave="saveClientAutoInfo(); toggleEnableClientAutoEditing(false);">
     <div>
         <!-- button to show form -->
-        <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+        <button type="button" class="btn btn-default" ng-click="editableForm.$show(); toggleEnableClientAutoEditing(true);" ng-show="!editableForm.$visible">
             Edit
         </button>
         <!-- buttons to submit / cancel form -->
@@ -9,7 +9,7 @@
             <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
                 Save
             </button>
-            <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+            <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel(); toggleEnableClientAutoEditing(false);">
                 Cancel
             </button>
         </span>
@@ -96,17 +96,19 @@
         <div class="form-group">
             <label class="control-label col-sm-4">Effective Start Date:</label>
             <div class="col-sm-8">
-                <span editable-date="clientAutoInfo.effectiveStartDate">
-                    {{ clientAutoInfo.effectiveStartDate || '' }}
-                </span>
+                <input type="date"
+                       ng-model="clientAutoInfo.effectiveStartDate"
+                       ng-disabled="!isClientAutoInformationEditable"
+                       placeholder="yyyy-MM-dd" />
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-4">Effective End Date:</label>
             <div class="col-sm-8">
-                <span editable-date="clientAutoInfo.effectiveEndDate">
-                    {{ clientAutoInfo.effectiveEndDate || '' }}
-                </span>
+                <input type="date"
+                       ng-model="clientAutoInfo.effectiveEndDate"
+                       ng-disabled="!isClientAutoInformationEditable"
+                       placeholder="yyyy-MM-dd" />
             </div>
         </div>
         <div class="form-group">
