@@ -1,7 +1,7 @@
-<form editable-form name="editableForm" onaftersave="saveGeneralInfo()">
+<form editable-form name="editableForm" onaftersave="saveGeneralInfo(); toggleEnableGeneralEditing(false);">
     <div>
         <!-- button to show form -->
-        <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+        <button type="button" class="btn btn-default" ng-click="editableForm.$show(); toggleEnableGeneralEditing(true);" ng-show="!editableForm.$visible">
             Edit
         </button>
         <!-- buttons to submit / cancel form -->
@@ -9,7 +9,7 @@
             <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
                 Save
             </button>
-            <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+            <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel(); toggleEnableGeneralEditing(false);">
                 Cancel
             </button>
         </span>
@@ -79,18 +79,17 @@
         <div class="form-group">
             <label class="control-label col-sm-4" >Accident Date:</label>
             <div class="col-sm-8">
-                <span editable-date="generalInformation.accidentDate">
-                    {{ generalInformation.accidentDate || '' }}
-                </span>
+                <input type="date"
+                       ng-model="generalInformation.accidentDate"
+                       ng-disabled="!isGeneralInformationEditable"
+                       placeholder="yyyy-MM-dd" />
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-4" >Client Created:</label>
             <div class="col-sm-8">
-                <span editable-text="generalInformation.clientCreated"
-                      e-name="clientCreated">
-                    {{ generalInformation.clientCreated }}
-                </span>
+                <span class="title"
+                      ng-bind="generalInformation.clientCreated | date:'yyyy-MM-dd'" />
             </div>
         </div>
         <div class="form-group">
