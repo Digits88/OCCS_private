@@ -49,7 +49,7 @@ CREATE TABLE `additionalclientinfo` (
 
 LOCK TABLES `additionalclientinfo` WRITE;
 /*!40000 ALTER TABLE `additionalclientinfo` DISABLE KEYS */;
-INSERT INTO `additionalclientinfo` VALUES (1,'client occupation1','client employer1','client address1','client city1','client state1','spouse last name1','spouse first name1','spouse occupation1','spouse address1','spouse employer1','spouse city1','spouse state1'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `additionalclientinfo` VALUES (1,'client occupation11','client employer1','client address1','client city1','client state1','spouse last name1','spouse first name1','spouse occupation1','spouse address1','spouse employer1','spouse city1','spouse state1'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `additionalclientinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `clientautoinfo` (
 
 LOCK TABLES `clientautoinfo` WRITE;
 /*!40000 ALTER TABLE `clientautoinfo` DISABLE KEYS */;
-INSERT INTO `clientautoinfo` VALUES (1,'insurance company','address','city','state','22','22-333-4444','adjuster','23','2011-02-03','2012-02-04','100',200,300,400,500,600,700,'custom notes'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,0,0,NULL);
+INSERT INTO `clientautoinfo` VALUES (1,'insurance company','address','city','state','22','22-333-4444','adjuster','23','2015-08-17','2012-02-21','100',200,300,400,500,600,700,'custom notes'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,0,0,NULL),(3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0,0,0,0,NULL);
 /*!40000 ALTER TABLE `clientautoinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +144,7 @@ CREATE TABLE `clients` (
 
 LOCK TABLES `clients` WRITE;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
-INSERT INTO `clients` VALUES (1,'balram','chavan','Active'),(2,'balram2','chavan2','Active');
+INSERT INTO `clients` VALUES (1,'balram','chavan','Active'),(2,'balram2','chavan2','Active'),(3,'balram3','chavan3','Active');
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +173,7 @@ CREATE TABLE `courtinformation` (
 
 LOCK TABLES `courtinformation` WRITE;
 /*!40000 ALTER TABLE `courtinformation` DISABLE KEYS */;
-INSERT INTO `courtinformation` VALUES (1,'case number 1','court 1','address','city','state','zip'),(2,NULL,'\n	',NULL,NULL,NULL,NULL);
+INSERT INTO `courtinformation` VALUES (1,'case number 1','court 1','address','city','state','zip'),(2,NULL,'\n	',NULL,NULL,NULL,NULL),(3,NULL,'\n	',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `courtinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +203,7 @@ CREATE TABLE `defendantattorneyinfo` (
 
 LOCK TABLES `defendantattorneyinfo` WRITE;
 /*!40000 ALTER TABLE `defendantattorneyinfo` DISABLE KEYS */;
-INSERT INTO `defendantattorneyinfo` VALUES (1,'firm','attorney','address','city','state','zip','220'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `defendantattorneyinfo` VALUES (1,'firm','attorney','address','city','state','zip','220'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `defendantattorneyinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -236,7 +236,7 @@ CREATE TABLE `defendantinformation` (
 
 LOCK TABLES `defendantinformation` WRITE;
 /*!40000 ALTER TABLE `defendantinformation` DISABLE KEYS */;
-INSERT INTO `defendantinformation` VALUES (1,'LAST name','first name','address','city','state','zip','22','22','2010-10-02','2448'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `defendantinformation` VALUES (1,'LAST name','first name','address','city','state','zip','22','22','2010-10-02','2448'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `defendantinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,7 +269,7 @@ CREATE TABLE `defendantinsurance` (
 
 LOCK TABLES `defendantinsurance` WRITE;
 /*!40000 ALTER TABLE `defendantinsurance` DISABLE KEYS */;
-INSERT INTO `defendantinsurance` VALUES (1,'name of insured1','insurance company','address2','city','state','zip','phone3','adjuster','233',488),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `defendantinsurance` VALUES (1,'name of insured1','insurance company','address2','city','state','zip','phone3','adjuster','233',488),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `defendantinsurance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,7 +296,7 @@ CREATE TABLE `generalinformation` (
   `caseStatus` varchar(100) DEFAULT NULL,
   `cellPhone` varchar(100) DEFAULT NULL,
   `originatingAttorney` varchar(100) DEFAULT NULL,
-  `accidentDate` varchar(100) DEFAULT NULL,
+  `accidentDate` date DEFAULT NULL,
   `workPhone` varchar(100) DEFAULT NULL,
   `assignedAttorney` varchar(100) DEFAULT NULL,
   `clientCreated` date DEFAULT NULL,
@@ -315,7 +315,7 @@ CREATE TABLE `generalinformation` (
 
 LOCK TABLES `generalinformation` WRITE;
 /*!40000 ALTER TABLE `generalinformation` DISABLE KEYS */;
-INSERT INTO `generalinformation` VALUES (1,'Pimple gurav','aprt no 3','additional info','mydefname','mycity ','dfdf','Injury','mystate','e2','myOtherType','222222','Open','333333','myoriginatingattorney',NULL,'44444','myassignedAttorney','2015-03-24','mylicense f','myrefferal','balram@gmail.com',NULL,'myssn 1'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a2',NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `generalinformation` VALUES (1,'Pimple gurav','aprt no 3','additional info','mydefname','mycity ','dfdf','Injury','mystate','e2','myOtherType','222222','Open','333333','myoriginatingattorney','2015-08-25','44444','myassignedAttorney','2015-03-22','mylicense f','myrefferal','balram@gmail.com','2015-08-17','myssn 1'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'a2',NULL,NULL,NULL,NULL,NULL,NULL),(3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'attorney3',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `generalinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -331,16 +331,16 @@ CREATE TABLE `govtclaimdetails` (
   `_6monthsStatue` date DEFAULT NULL,
   `sl1yr` date DEFAULT NULL,
   `_2yrs` date DEFAULT NULL,
-  `city` varchar(100) DEFAULT NULL,
+  `city` date DEFAULT NULL,
   `cityRejectedDate` date DEFAULT NULL,
   `cityRejectedAfter6Months` date DEFAULT NULL,
-  `county` varchar(100) DEFAULT NULL,
+  `county` date DEFAULT NULL,
   `countyRejectedDate` date DEFAULT NULL,
   `countyRejectedAfter6Months` date DEFAULT NULL,
-  `state` varchar(100) DEFAULT NULL,
+  `state` date DEFAULT NULL,
   `stateRejectedDate` date DEFAULT NULL,
   `stateRejectedAfter6Months` date DEFAULT NULL,
-  `other` varchar(100) DEFAULT NULL,
+  `other` date DEFAULT NULL,
   `otherRejectedDate` date DEFAULT NULL,
   `otherRejectedAfter6Months` date DEFAULT NULL,
   PRIMARY KEY (`fileNo`)
@@ -353,7 +353,7 @@ CREATE TABLE `govtclaimdetails` (
 
 LOCK TABLES `govtclaimdetails` WRITE;
 /*!40000 ALTER TABLE `govtclaimdetails` DISABLE KEYS */;
-INSERT INTO `govtclaimdetails` VALUES (2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `govtclaimdetails` VALUES (1,'2015-08-13','2015-08-18','2015-08-23','2015-08-14','2015-08-19','2015-08-24','2015-08-15','2015-08-20','2015-08-25','2015-08-16','2015-08-21','2015-08-26','2015-08-01','2015-08-02','2015-08-17'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `govtclaimdetails` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -387,7 +387,7 @@ CREATE TABLE `medicalinsurance` (
 
 LOCK TABLES `medicalinsurance` WRITE;
 /*!40000 ALTER TABLE `medicalinsurance` DISABLE KEYS */;
-INSERT INTO `medicalinsurance` VALUES (1,'1','2','3','4','5','6','7','8','9','10','11'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `medicalinsurance` VALUES (1,'1','2','3','4','5','6','7','8','9','10','11'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `medicalinsurance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -446,7 +446,7 @@ CREATE TABLE `statuteinformation` (
 
 LOCK TABLES `statuteinformation` WRITE;
 /*!40000 ALTER TABLE `statuteinformation` DISABLE KEYS */;
-INSERT INTO `statuteinformation` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'false');
+INSERT INTO `statuteinformation` VALUES (1,NULL,'1969-12-29','2015-08-14','1969-12-29','1969-12-29','1969-12-29','1969-12-29','1970-01-01'),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'false'),(3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `statuteinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -556,6 +556,26 @@ BEGIN
 			lastName,
 			'Active');
 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deleteAdditionalInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteAdditionalInfo`(_fileNo int)
+BEGIN
+	DELETE FROM additionalclientinfo
+	WHERE fileNo = _fileNo;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1208,4 +1228,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-08-04  9:22:21
+-- Dump completed on 2015-08-17 11:05:40
