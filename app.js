@@ -680,6 +680,7 @@ function saveGeneralInformation(generalInformation) {
     // ********************* Save General Information **********************
     generalInformation.accidentDate = dateFormat(generalInformation.accidentDate, "yyyy-mm-dd HH:MM:ss");
     generalInformation.clientCreated = dateFormat(generalInformation.clientCreated, "yyyy-mm-dd HH:MM:ss");
+    generalInformation.dateOfBirth = dateFormat(generalInformation.dateOfBirth, "yyyy-mm-dd HH:MM:ss");
 
     var generalInformation = js2xmlparser("generalInformation", generalInformation);
     writeNewClientSectionInDB(generalInformation, "generalInformation", "<generalInformation>");

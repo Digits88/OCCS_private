@@ -179,10 +179,10 @@
         <div class="form-group">
             <label class="control-label col-sm-4" >Date Of Birth:</label>
             <div class="col-sm-8">
-                <span href="#" 
-                      editable-date="generalInformation.dateOfBirth">
-                    {{ generalInformation.dateOfBirth || '' }}
-                </span>
+                <input type="date"
+                       ng-model="generalInformation.dateOfBirth"
+                       ng-disabled="!isGeneralInformationEditable"
+                       placeholder="yyyy-MM-dd" />
             </div>
         </div>
     </div>
