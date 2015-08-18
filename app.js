@@ -949,6 +949,9 @@ app.delete('/clients/miscInfo/:fileNo/:noteId', auth, function (req, res) {
 //      Update Client Injury Section
 // ************************************************
 app.post('/clients/clientInjury', auth, function (req, res) {
+    
+    req.body.clientInjury.createdDate = dateFormat(req.body.clientInjury.createdDate, "yyyy-mm-dd HH:MM:ss");
+    req.body.clientInjury.modifiedDate  = dateFormat(req.body.clientInjury.modifiedDate, "yyyy-mm-dd HH:MM:ss");
     var query = "call deleteClientInjury(" + req.body.clientInjury.fileNo + "," + req.body.clientInjury.noteId + ")";
     console.log(query);
     connection.query(query, function (err, rows) {

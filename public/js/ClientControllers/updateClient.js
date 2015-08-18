@@ -4,6 +4,7 @@ angular.module('app').UpdateClientCtrl = function ($scope, $http) {
     $scope.isGeneralInformationEditable = false;
     $scope.isClientAutoInformationEditable = false;
     $scope.isDefendantInformationEditable = false;
+    $scope.isClientInjuriesEditable = false;
     $scope.isStatuteInformationEditable = false;
     
     // Save General Information
@@ -91,6 +92,11 @@ angular.module('app').UpdateClientCtrl = function ($scope, $http) {
     //defendant info edit logic
     $scope.toggleEnableDefendantInformationEditing = function (isEditing) {
         $scope.isDefendantInformationEditable = isEditing;
+    };
+
+    //client injuries edit logic
+    $scope.toggleEnableClientInjuriesEditing = function (isEditing) {
+        $scope.isClientInjuriesEditable = isEditing;
     };
    
 }

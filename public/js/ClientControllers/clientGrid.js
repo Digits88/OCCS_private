@@ -131,6 +131,12 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
                 //$scope.wait();
                 // Get client injuries information
                 $http.get('/clients/clientInjuries/' + $scope.mySelections[0].fileNo).success(function (clientInjuries) {
+                    var index;
+                    for (index = 0; index < clientInjuries[0].length; index++) {
+                        clientInjuries[0][index].createdDate = new Date(clientInjuries[0][index].createdDate);
+                        clientInjuries[0][index].modifiedDate = new Date(clientInjuries[0][index].modifiedDate);
+                    }
+
                     $scope.clientInjuriesData = clientInjuries[0];
                 });
                 //$scope.currentUrl = '/clients/defendantInfo/' + $scope.mySelections[0].fileNo.toString();
@@ -246,6 +252,17 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
     $scope.refreshMiscData = function(fileNo) {
         $http.get('/clients/miscInfo/' + fileNo).success(function (miscInfo) {
             $scope.miscData = miscInfo[0];
+        });
+    };
+    
+    $scope.refreshclientInjuriesData = function (fileNo) {
+        $http.get('/clients/clientInjuries/' + fileNo).success(function (clientInjuries) {
+            var index;
+            for (index = 0; index < clientInjuries[0].length; index++) {
+                clientInjuries[0][index].createdDate = new Date(clientInjuries[0][index].createdDate);
+                clientInjuries[0][index].modifiedDate = new Date(clientInjuries[0][index].modifiedDate);
+            }
+            $scope.clientInjuriesData = clientInjuries[0];
         });
     };
 

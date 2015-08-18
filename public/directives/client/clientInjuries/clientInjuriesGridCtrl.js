@@ -14,19 +14,20 @@ angular.module('app').controller('clientInjuriesGridCtrl', function ($scope, $ro
             description: "",
             noteId: newNoteId
         };
+        $scope.toggleEnableClientInjuriesEditing(true);
         $scope.clientInjuriesData.push($scope.inserted);
         $scope.rowform.$show();
     };
     
     // Save Court Information
-    $scope.saveMiscInfo = function (data, id, fileNo) {
+    $scope.saveMiscInfo = function (data, id, fileNo, createdDate, modifiedDate) {
         
         var clientInjury = {
             fileNo : fileNo,
             noteId: id,
             note: data.note,
-            createdDate: data.createdDate,
-            modifiedDate: data.modifiedDate,
+            createdDate: createdDate,
+            modifiedDate: modifiedDate,
             description: data.description
         }
         
