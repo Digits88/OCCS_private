@@ -137,6 +137,7 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
                 //$scope.wait();
                 // Get Defendant information
                 $http.get('/clients/defendantInfo/' + $scope.mySelections[0].fileNo).success(function (defendantInfo) {
+                    defendantInfo[0][0].dateOfBirth = new Date(defendantInfo[0][0].dateOfBirth);
                     $scope.defendantInfo = defendantInfo[0][0];
                 });
                 //$scope.currentUrl = '/clients/defendantAttorneyInfo/' + $scope.mySelections[0].fileNo.toString();

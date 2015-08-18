@@ -756,6 +756,7 @@ function saveClientMedicalInsuranceInfo(medicalInsuranceInfo) {
 //      Update Defendant Information Section
 // ************************************************
 app.post('/clients/defendantInfo', auth, function (req, res) {
+    req.body.defendantInfo.dateOfBirth = dateFormat(req.body.defendantInfo.dateOfBirth, "yyyy-mm-dd HH:MM:ss");
     var query = "call deleteDefendantInfo('" + req.body.defendantInfo.fileNo + "')";
     console.log(query);
     connection.query(query, function (err, rows) {
