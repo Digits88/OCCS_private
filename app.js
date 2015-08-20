@@ -911,6 +911,9 @@ function saveCourtInfo(courtInfo) {
 //      Update Misc Information Section
 // ************************************************
 app.post('/clients/miscInfo', auth, function (req, res) {
+    req.body.miscInfo.createdDate = dateFormat(req.body.miscInfo.createdDate, "yyyy-mm-dd HH:MM:ss");
+    req.body.miscInfo.modifiedDate = dateFormat(req.body.miscInfo.modifiedDate, "yyyy-mm-dd HH:MM:ss");
+
     var query = "call deleteMiscInfo(" + req.body.miscInfo.fileNo + "," + req.body.miscInfo.noteId + ")";
     console.log(query);
     connection.query(query, function (err, rows) {

@@ -16,20 +16,16 @@
                 </span>
             </td>
             <td>
-                <span editable-text="miscItem.createdDate"
-                      e-name="createdDate"
-                      e-form="rowform"
-                      e-required>
-                    {{ miscItem.createdDate || 'empty' }}
-                </span>
+                <input type="date"
+                       ng-model="miscItem.createdDate"
+                       ng-disabled="!isMiscInfoEditable"
+                       placeholder="yyyy-MM-dd" />
             </td>
             <td>
-                <span editable-text="miscItem.modifiedDate"
-                      e-name="modifiedDate"
-                      e-form="rowform"
-                      e-required>
-                    {{ miscItem.modifiedDate || 'empty' }}
-                </span>
+                <input type="date"
+                       ng-model="miscItem.modifiedDate"
+                       ng-disabled="!isMiscInfoEditable"
+                       placeholder="yyyy-MM-dd" />
             </td>
             <td>
                 <span editable-text="miscItem.description"
@@ -42,20 +38,29 @@
             <td style="white-space: nowrap">
                 <!-- form -->
                 <form editable-form name="rowform"
-                      onbeforesave="saveMiscInfo($data, miscItem.noteId, miscItem.fileNo)"
+                      onbeforesave="saveMiscInfo($data, miscItem.noteId, miscItem.fileNo, miscItem.createdDate, miscItem.modifiedDate); toggleMiscInfoEditing(false);"
                       ng-show="rowform.$visible"
                       class="form-buttons form-inline"
                       shown="inserted == miscItem">
-                    <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                    <button type="submit" 
+                            ng-disabled="rowform.$waiting" 
+                            class="btn btn-primary">
                         save
                     </button>
-                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+                    <button type="button" 
+                            ng-disabled="rowform.$waiting" 
+                            ng-click="rowform.$cancel(); toggleMiscInfoEditing(false);" 
+                            class="btn btn-default">
                         cancel
                     </button>
                 </form>
                 <div class="buttons" ng-show="!rowform.$visible">
-                    <button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
-                    <button class="btn btn-danger" ng-click="deleteMiscNote($index)">del</button>
+                    <button class="btn btn-primary" ng-click="rowform.$show(); toggleMiscInfoEditing(true);">
+                        edit
+                    </button>
+                    <button class="btn btn-danger" ng-click="deleteMiscNote($index)">
+                        del
+                    </button>
                 </div>
             </td>
         </tr>

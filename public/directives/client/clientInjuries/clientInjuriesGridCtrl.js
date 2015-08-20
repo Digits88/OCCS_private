@@ -9,8 +9,8 @@ angular.module('app').controller('clientInjuriesGridCtrl', function ($scope, $ro
         $scope.inserted = {
             fileNo: $scope.generalInformation.fileNo,
             note: "",
-            createdDate: Date(),
-            modifiedDate: Date(),
+            createdDate: new Date(),
+            modifiedDate: new Date(),
             description: "",
             noteId: newNoteId
         };

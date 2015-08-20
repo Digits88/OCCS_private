@@ -211,6 +211,12 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
                 //$scope.wait();
                 // Get Misc information
                 $http.get('/clients/miscInfo/' + $scope.mySelections[0].fileNo).success(function (miscInfo) {
+                    var index;
+                    for (index = 0; index < miscInfo[0].length; index++) {
+                        miscInfo[0][index].createdDate = new Date(miscInfo[0][index].createdDate);
+                        miscInfo[0][index].modifiedDate = new Date(miscInfo[0][index].modifiedDate);
+                    }
+
                     $scope.miscData = miscInfo[0];
                 });
                 $scope.waitForAll();
@@ -251,6 +257,11 @@ angular.module('app').ClientsGridCtrl = function ( $scope, $http) {
 
     $scope.refreshMiscData = function(fileNo) {
         $http.get('/clients/miscInfo/' + fileNo).success(function (miscInfo) {
+            var index;
+            for (index = 0; index < miscInfo[0].length; index++) {
+                miscInfo[0][index].createdDate = new Date(miscInfo[0][index].createdDate);
+                miscInfo[0][index].modifiedDate = new Date(miscInfo[0][index].modifiedDate);
+            }
             $scope.miscData = miscInfo[0];
         });
     };

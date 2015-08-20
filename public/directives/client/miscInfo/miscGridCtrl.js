@@ -9,24 +9,25 @@ angular.module('app').controller('miscGridCtrl', function ($scope, $rootScope, $
         $scope.inserted = {
             fileNo: $scope.generalInformation.fileNo,
             note: "",
-            createdDate: Date(),
-            modifiedDate: Date(),
+            createdDate: new Date(),
+            modifiedDate: new Date(),
             description: "",
             noteId: newNoteId
         };
         $scope.miscData.push($scope.inserted);
+        $scope.toggleMiscInfoEditing(true);
         $scope.rowform.$show();
     };
     
     // Save Court Information
-    $scope.saveMiscInfo = function (data, id, fileNo) {
+    $scope.saveMiscInfo = function (data, id, fileNo, createdDate, modifiedDate) {
         
         var miscItem = {
             fileNo : fileNo,
             noteId: id,
             note: data.note,
-            createdDate: data.createdDate,
-            modifiedDate: data.modifiedDate,
+            createdDate: createdDate,
+            modifiedDate: modifiedDate,
             description: data.description
         }
         

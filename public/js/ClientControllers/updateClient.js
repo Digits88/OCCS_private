@@ -6,6 +6,7 @@ angular.module('app').UpdateClientCtrl = function ($scope, $http) {
     $scope.isDefendantInformationEditable = false;
     $scope.isClientInjuriesEditable = false;
     $scope.isStatuteInformationEditable = false;
+    $scope.isMiscInfoEditable = false;
     
     // Save General Information
     $scope.saveGeneralInfo = function () {
@@ -98,5 +99,9 @@ angular.module('app').UpdateClientCtrl = function ($scope, $http) {
     $scope.toggleEnableClientInjuriesEditing = function (isEditing) {
         $scope.isClientInjuriesEditable = isEditing;
     };
-   
+
+    //Misc Info edit logic
+    $scope.toggleMiscInfoEditing = function (isEditing) {
+        $scope.isMiscInfoEditable = isEditing;
+    };
 }
